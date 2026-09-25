@@ -1,0 +1,12 @@
+# Secrets — created by hand on the server, never committed
+app/config.php
+
+# Student database and sessions (personal data: never on GitHub)
+data/*
+!data/.htaccess
+
+# macOS / Dropbox
+.DS_Store
+._*
+*conflicted copy*
+*Copia in conflitto*

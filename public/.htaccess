@@ -1,0 +1,13 @@
+# Document root of pel.carusomatteo.it
+Options -Indexes
+DirectoryIndex index.php
+
+# Force HTTPS (the login form must never travel in clear text)
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# No dotfiles
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>

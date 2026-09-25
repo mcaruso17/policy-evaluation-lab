@@ -1,0 +1,170 @@
+{
+  "course": {
+    "title": "Policy Evaluation Lab",
+    "university": "Roma Tre University",
+    "department": "Department of Business Economics",
+    "year": "a.y. 2026/27",
+    "details": "Master's degree (LM) · ECON-02/A · 60 hours · 9 CFU · first semester · taught in English",
+    "lecturer": "Dr. Matteo Caruso",
+    "email": "carusomatteo17@gmail.com",
+    "office_hours": "By appointment via e-mail (day and time to be confirmed)",
+    "timetable": "To be confirmed — lectures expected from the second week of October 2026",
+    "moodle_url": ""
+  },
+
+  "announcements": [
+    {
+      "date": "2026-10-12",
+      "title": "Welcome to the Policy Evaluation Lab",
+      "body": "Slides, datasets, exercises and exam information are posted here. Slides go up before each lecture; datasets and exercises after it. Bring a laptop to the lab sessions."
+    }
+  ],
+
+  "weeks": [
+    {
+      "week": 1,
+      "dates": "12–16 Oct",
+      "topic": "Causality and potential outcomes",
+      "summary": "Descriptive analysis versus causal inference; potential outcomes, the counterfactual and selection bias. Software set-up.",
+      "items": [
+        { "type": "slides", "label": "Lecture 0 — Course presentation", "file": "slides/pel-00-syllabus.pdf" },
+        { "type": "reading", "label": "Mixtape, ch. 4 — Potential outcomes", "url": "https://mixtape.scunning.com/04-potential_outcomes" }
+      ]
+    },
+    {
+      "week": 2,
+      "dates": "19–23 Oct",
+      "topic": "Regression for policy evaluation",
+      "summary": "OLS as a comparison of means, control variables, omitted-variable bias; robust and clustered standard errors.",
+      "items": []
+    },
+    {
+      "week": 3,
+      "dates": "26–30 Oct",
+      "topic": "Randomised experiments",
+      "summary": "Why randomisation solves selection bias; balance checks, compliance, intention-to-treat. Case study: Tennessee STAR.",
+      "items": []
+    },
+    {
+      "week": 4,
+      "dates": "2–6 Nov",
+      "topic": "Selection on observables",
+      "summary": "Conditional independence, matching, the propensity score and inverse probability weighting.",
+      "items": [
+        { "type": "link", "label": "EconVis — Propensity score matching", "url": "https://carusomatteo.it/models/psm.html" }
+      ]
+    },
+    {
+      "week": 5,
+      "dates": "9–13 Nov",
+      "topic": "Difference-in-differences I",
+      "summary": "The 2×2 design, parallel trends, regression formulation. Lab: Card and Krueger (1994) on the New Jersey minimum wage.",
+      "items": [
+        { "type": "link", "label": "EconVis — Difference-in-differences", "url": "https://carusomatteo.it/models/did.html" }
+      ]
+    },
+    {
+      "week": 6,
+      "dates": "16–20 Nov",
+      "topic": "Difference-in-differences II",
+      "summary": "Event studies and pre-trends; staggered adoption and the problems of two-way fixed effects.",
+      "items": [
+        { "type": "link", "label": "EconVis — Event study", "url": "https://carusomatteo.it/models/event_study.html" }
+      ]
+    },
+    {
+      "week": 7,
+      "dates": "23–27 Nov",
+      "topic": "Instrumental variables",
+      "summary": "Relevance and exclusion, 2SLS, weak instruments, LATE. Lab: Angrist and Krueger (1991) on compulsory schooling.",
+      "items": [
+        { "type": "link", "label": "EconVis — Instrumental variables", "url": "https://carusomatteo.it/models/iv.html" }
+      ]
+    },
+    {
+      "week": 8,
+      "dates": "30 Nov–4 Dec",
+      "topic": "Regression discontinuity",
+      "summary": "Sharp and fuzzy designs, bandwidth choice, manipulation tests.",
+      "items": [
+        { "type": "link", "label": "EconVis — Regression discontinuity", "url": "https://carusomatteo.it/models/rdd.html" }
+      ]
+    },
+    {
+      "week": 9,
+      "dates": "7–11 Dec",
+      "topic": "Synthetic control",
+      "summary": "Building a counterfactual from a donor pool; inference by placebo. Case study: California Proposition 99.",
+      "items": [
+        { "type": "link", "label": "EconVis — Synthetic control", "url": "https://carusomatteo.it/models/synth.html" }
+      ]
+    },
+    {
+      "week": 10,
+      "dates": "14–18 Dec",
+      "topic": "Wrap-up",
+      "summary": "Project presentations and exam review.",
+      "items": []
+    }
+  ],
+
+  "exercises": [
+    {
+      "title": "Interactive practice on EconVis",
+      "description": "Guided challenges, detective mode and interpretation quizzes, with the simulated data downloadable as CSV to rerun in Stata or R.",
+      "items": [
+        { "type": "link", "label": "Difference-in-differences", "url": "https://carusomatteo.it/models/did.html" },
+        { "type": "link", "label": "Instrumental variables", "url": "https://carusomatteo.it/models/iv.html" }
+      ]
+    },
+    {
+      "title": "Problem sets",
+      "description": "One problem set per method, posted after the corresponding lab. Solutions are released one week later.",
+      "items": []
+    }
+  ],
+
+  "exam": {
+    "intro": "The exam format will be confirmed at the start of the course.",
+    "parts": [
+      { "title": "Empirical project", "description": "In small groups: replicate and extend a published policy evaluation. Short written report, do-file or R script, and a 10-minute presentation." },
+      { "title": "Written exam", "description": "Open questions on the methods and their assumptions, and interpretation of regression output from Stata or R." }
+    ],
+    "sessions": [],
+    "items": []
+  },
+
+  "resources": [
+    {
+      "group": "Textbooks (free online)",
+      "items": [
+        { "type": "reading", "label": "Cunningham — Causal Inference: The Mixtape", "url": "https://mixtape.scunning.com" },
+        { "type": "reading", "label": "Huntington-Klein — The Effect", "url": "https://theeffectbook.net" },
+        { "type": "reading", "label": "Gertler et al. — Impact Evaluation in Practice (World Bank)", "url": "https://openknowledge.worldbank.org/handle/10986/25030" }
+      ]
+    },
+    {
+      "group": "Software",
+      "items": [
+        { "type": "link", "label": "RStudio Desktop", "url": "https://posit.co/download/rstudio-desktop/" },
+        { "type": "link", "label": "UCLA OARC — Stata guides", "url": "https://stats.oarc.ucla.edu/stata/" },
+        { "type": "link", "label": "R for Data Science", "url": "https://r4ds.hadley.nz" },
+        { "type": "link", "label": "fixest (R) — fixed effects and DiD", "url": "https://lrberge.github.io/fixest/" },
+        { "type": "link", "label": "rdrobust — RDD packages (Stata, R)", "url": "https://rdpackages.github.io" }
+      ]
+    },
+    {
+      "group": "Data",
+      "items": [
+        { "type": "dataset", "label": "David Card — replication data sets", "url": "https://davidcard.berkeley.edu/data_sets.html" },
+        { "type": "dataset", "label": "Mixtape data sets (GitHub)", "url": "https://github.com/scunning1975/mixtape" }
+      ]
+    },
+    {
+      "group": "Interactive",
+      "items": [
+        { "type": "link", "label": "EconVis — all models", "url": "https://carusomatteo.it/econvis.html" }
+      ]
+    }
+  ]
+}

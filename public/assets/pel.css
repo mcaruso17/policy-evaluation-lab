@@ -1,0 +1,236 @@
+/* ─── Policy Evaluation Lab — additions to the shared style.css ───────────────
+   style.css is a verbatim copy of carusomatteo.it's design system; everything
+   here only adds what the personal site never needed: forms, the admin table,
+   stat tiles. Colours come from the same tokens, so dark mode just works. */
+
+/* -- Forms ------------------------------------------------------------------- */
+
+.pel-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  max-width: 34rem;
+}
+
+.pel-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-align: left;
+}
+
+.pel-form input[type="text"],
+.pel-form input[type="email"],
+.pel-form input[type="password"] {
+  font: inherit;
+  font-size: 0.95rem;
+  padding: 0.55rem 0.8rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-alt);
+  color: var(--text);
+  width: 100%;
+}
+
+.pel-form input:focus {
+  outline: 2px solid var(--accent-light);
+  border-color: var(--accent);
+}
+
+.pel-form .btn {
+  align-self: flex-start;
+}
+
+.pel-form .btn-primary {
+  border: none;
+}
+
+.pel-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.pel-form label.pel-check {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text);
+}
+
+.pel-radio {
+  border: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+  font-size: 0.875rem;
+}
+
+.pel-radio legend {
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+  width: 100%;
+}
+
+.pel-form .pel-radio label {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text);
+}
+
+.pel-form-inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  max-width: none;
+}
+
+.pel-form-inline label:not(.pel-check) {
+  min-width: 14rem;
+}
+
+.pel-form-compact {
+  margin-top: 1rem;
+  max-width: none;
+}
+
+.pel-form-compact .btn {
+  align-self: stretch;
+}
+
+@media (max-width: 560px) {
+  .pel-row { grid-template-columns: 1fr; }
+}
+
+/* -- Small bits ---------------------------------------------------------------- */
+
+.pel-muted {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  text-align: left;
+}
+
+.gate-card .pel-muted {
+  text-align: center;
+  margin-top: 1.25rem;
+  margin-bottom: 0;
+}
+
+.gate-card .page-mascot {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.pel-pad {
+  padding: 1.25rem 0;
+}
+
+.pel-flash {
+  margin-top: 0;
+}
+
+.pel-sched {
+  font-size: 0.7rem;
+  color: var(--warn);
+  border: 1px dashed var(--warn);
+  border-radius: 99px;
+  padding: 0 8px;
+  white-space: nowrap;
+}
+
+.pel-right {
+  float: right;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.pel-danger {
+  color: var(--danger) !important;
+}
+
+/* -- Admin: stat tiles and student table --------------------------------------- */
+
+.pel-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 0.75rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.pel-stats > div {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.9rem 1rem;
+  background: var(--bg-alt);
+}
+
+.pel-stat-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  line-height: 1.1;
+  color: var(--accent);
+}
+
+.pel-stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.pel-table-wrap {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.pel-table {
+  width: 100%;
+  font-size: 0.8125rem;
+}
+
+.pel-table td,
+.pel-table th {
+  white-space: nowrap;
+  text-align: left;
+}
+
+.pel-disabled td {
+  opacity: 0.5;
+}
+
+.pel-actions form {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.pel-actions button {
+  font: inherit;
+  font-size: 0.72rem;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 1px 9px;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.pel-actions button:hover {
+  color: var(--text);
+  border-color: var(--text-muted);
+}
+
+.gate-card p,
+.pel-muted {
+  hyphens: none;
+  overflow-wrap: anywhere;
+}
+
+/* the admin page needs the wide layout for the student table */
+.page-wrap:has(.pel-table) {
+  max-width: var(--max-w-wide);
+}

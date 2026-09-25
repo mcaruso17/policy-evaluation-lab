@@ -1,0 +1,2177 @@
+/* --- Design System — warm editorial (light-first) ---------------------------- */
+/* Serif display headings, ivory paper background, clay accent.                  */
+/* All class names from the previous stylesheet are preserved so every          */
+/* existing page (EconVis models, personal pages) keeps working.                */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+/* -- 1. Colour tokens -------------------------------------------------------- */
+
+:root {
+  --bg:          #F5F2EB;   /* warm ivory paper */
+  --bg-alt:      #ECE7DC;
+  --border:      #DED8C9;
+  --text:        #211F1B;   /* warm near-black ink */
+  --text-muted:  #6E6A5E;
+  --accent:      #C0552B;   /* warm terracotta */
+  --accent-light:#F5E4D7;
+  --danger:      #A93E2C;
+  --warn:        #B0761E;
+  --code-bg:     #EFEAE0;
+
+  --font-body:    "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono:    "SF Mono", "Fira Code", "Consolas", monospace;
+
+  --max-w:       780px;
+  --max-w-wide:  1080px;
+  --radius:      10px;
+  --radius-sm:   6px;
+  --shadow:      0 1px 3px rgba(33, 31, 27, 0.07);
+  --shadow-lift: 0 6px 20px -6px rgba(33, 31, 27, 0.14);
+
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="dark"] {
+  --bg:          #1C1A17;   /* warm charcoal, not blue */
+  --bg-alt:      #262420;
+  --border:      #3A372F;
+  --text:        #ECE9E1;
+  --text-muted:  #A5A093;
+  --accent:      #E4936B;
+  --accent-light:#3A2216;
+  --danger:      #E06651;
+  --warn:        #D99A3D;
+  --code-bg:     #23211D;
+
+  --shadow:      0 1px 3px rgba(0, 0, 0, 0.35);
+  --shadow-lift: 0 6px 20px -6px rgba(0, 0, 0, 0.5);
+}
+
+/* -- 2. Reset & base --------------------------------------------------------- */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  transition: background 0.2s, color 0.2s;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent-light);
+  color: var(--text);
+}
+
+/* -- 3. Typography ----------------------------------------------------------- */
+
+h1, h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+h3, h4 {
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+h1 { font-size: 1.75rem; }
+h2 { font-size: 1.35rem; margin-top: 2.75rem; margin-bottom: 0.75rem; }
+h3 { font-size: 1.05rem; margin-top: 1.75rem; margin-bottom: 0.5rem; }
+
+p {
+  margin-bottom: 1rem;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+ul, ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-bottom: 0.35rem;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+dl {
+  margin-bottom: 1rem;
+}
+
+dt {
+  font-weight: 500;
+  margin-top: 1.25rem;
+  color: var(--text);
+}
+
+dd {
+  margin-left: 0;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+strong {
+  font-weight: 600;
+}
+
+blockquote {
+  font-family: var(--font-display);
+}
+
+/* -- 4. Layout --------------------------------------------------------------- */
+
+main {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+article {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+/* -- 5. Navigation ----------------------------------------------------------- */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 56px;
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: blur(12px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  gap: 1.5rem;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.05rem;
+  letter-spacing: -0.005em;
+  flex-shrink: 0;
+}
+
+.nav-logo:hover {
+  text-decoration: none;
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.nav-links li {
+  margin: 0;
+}
+
+.nav-links a {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-links a.active {
+  color: var(--accent);
+}
+
+.nav-spacer {
+  flex: 1;
+}
+
+/* Mobile hamburger toggle (hidden on desktop, shown under 640px) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 34px;
+  height: 30px;
+  padding: 0 7px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text-muted);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+nav.nav-open .nav-toggle span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+nav.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* Dark mode toggle */
+#dark-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 4px 14px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+
+#dark-toggle:hover {
+  color: var(--text);
+  border-color: var(--text-muted);
+  background: var(--bg-alt);
+}
+
+/* -- 5b. Buttons (pill CTAs) --------------------------------------------------- */
+
+.btn {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: var(--font-body);
+  padding: 0.55rem 1.4rem;
+  border-radius: 99px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out),
+              background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.btn:hover {
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lift);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.btn-primary:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-muted);
+  background: var(--bg-alt);
+}
+
+.btn-group {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* -- 5c. Scroll-reveal animation ----------------------------------------------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+  will-change: opacity, transform;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .footer-bear svg { animation: none; }
+}
+
+/* -- 6. Footer --------------------------------------------------------------- */
+
+footer {
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid var(--border);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+footer a {
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+footer a:hover {
+  color: var(--accent);
+}
+
+/* -- 7. Model header ----------------------------------------------------------- */
+
+.model-header {
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+
+.model-header h1 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.lead {
+  font-size: 1.0625rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 2px 10px;
+  color: var(--text-muted);
+}
+
+/* Field tags (research areas) — accent-tinted pills */
+.tag.field-tag {
+  background: var(--accent-light);
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  color: var(--accent);
+}
+
+/* -- 8. KaTeX equation blocks ------------------------------------------------ */
+
+.katex-display {
+  display: block;
+  text-align: center;
+  padding: 1.5rem 0;
+  overflow-x: auto;
+}
+
+/* -- 9. Callout / note boxes ------------------------------------------------- */
+
+.callout {
+  border-left: 3px solid var(--border);
+  background: var(--bg-alt);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 0.875rem 1.25rem;
+  margin: 1.5rem 0;
+  font-size: 0.9375rem;
+}
+
+.callout.callout-warn   { border-left-color: var(--warn); }
+.callout.callout-danger { border-left-color: var(--danger); }
+.callout.callout-info   { border-left-color: var(--accent); }
+
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+/* -- 9b. Plain-words gloss (the friendly translation of a formula) ------------ */
+
+.plain-words {
+  background: var(--accent-light);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  margin: -0.5rem 0 1.5rem;
+  font-size: 0.9375rem;
+}
+
+.plain-words::before {
+  content: "In plain words";
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+}
+
+.plain-words p:last-child {
+  margin-bottom: 0;
+}
+
+/* -- 10. Simulation ---------------------------------------------------------- */
+
+.sim-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.slider-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.875rem;
+  color: var(--text);
+}
+
+.slider-label span {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--accent);
+  min-width: 3ch;
+  text-align: right;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  transition: transform 0.15s var(--ease-out);
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: none;
+  cursor: pointer;
+}
+
+.sim-charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sim-chart-wrap {
+  min-width: 0;
+}
+
+.sim-chart-wrap h3 {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.sim-chart-wrap svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Simulation stats table */
+.sim-stats {
+  font-size: 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.sim-stats table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sim-stats td {
+  padding: 0.45rem 0.85rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sim-stats tr:last-child td {
+  border-bottom: none;
+}
+
+.sim-stats td:first-child {
+  color: var(--text-muted);
+  width: 55%;
+}
+
+.sim-stats td:last-child {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+.stat-yes { color: var(--accent); }
+.stat-no  { color: var(--danger); }
+
+/* Assumption violation banner */
+.violation-banner {
+  background: var(--danger);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+/* -- 11. Code blocks --------------------------------------------------------- */
+
+.code-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
+}
+
+.code-tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 6px 16px;
+  font-size: 0.8125rem;
+  font-family: var(--font-body);
+  color: var(--text-muted);
+  cursor: pointer;
+  margin-bottom: -1px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.code-tab:hover {
+  color: var(--text);
+}
+
+.code-tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.code-block {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  padding: 1.25rem;
+  overflow-x: auto;
+  font-size: 13.5px;
+  font-family: var(--font-mono);
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+}
+
+.code-block code {
+  font-family: inherit;
+  font-size: inherit;
+  background: none;
+  padding: 0;
+}
+
+/* -- 12. EconVis hub -- hero --------------------------------------------------- */
+
+.hero {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 4rem 1.5rem 2.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.hero p {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  margin-bottom: 0;
+  max-width: 34rem;
+}
+
+.hero p.hero-note {
+  font-size: 0.875rem;
+  margin-top: 1rem;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--warn);
+}
+
+/* -- 13. Model grid ------------------------------------------------------------ */
+
+.model-grid-wrap {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.model-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.model-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.3rem;
+  background: var(--bg);
+  transition: box-shadow 0.25s var(--ease-out), border-color 0.2s,
+              transform 0.25s var(--ease-out);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  /* whole tile is the click target when the card is an <a> */
+  color: inherit;
+  text-decoration: none;
+}
+
+.model-card:not(.coming-soon):not(.under-review):hover {
+  box-shadow: var(--shadow-lift);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  transform: translateY(-2px);
+}
+
+a.model-card:hover h3 {
+  color: var(--accent);
+}
+
+a.model-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.model-card.coming-soon,
+.model-card.under-review {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.model-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  margin: 0;
+  color: var(--text);
+  transition: color 0.2s;
+}
+
+.model-card h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.model-card h3 a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.model-card .card-desc {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.card-tags .tag {
+  font-size: 0.7rem;
+  padding: 1px 7px;
+}
+
+.strategy-badge {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.strategy-badge.design-based {
+  background: var(--accent-light);
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+.strategy-badge.selection-obs {
+  background: #F3E8D3;
+  color: #8A5A13;
+  border: 1px solid #C99B4A;
+}
+
+[data-theme="dark"] .strategy-badge.selection-obs {
+  background: #322817;
+  color: #D99A3D;
+  border-color: #7A5A22;
+}
+
+.strategy-badge.model-based {
+  background: var(--bg-alt);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.card-difficulty {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.1rem;
+}
+
+/* -- 14. Comparison table ---------------------------------------------------- */
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  margin: 1.5rem 0;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  vertical-align: top;
+  text-align: left;
+}
+
+.comparison-table th {
+  background: var(--bg-alt);
+  font-weight: 500;
+  color: var(--text);
+}
+
+.comparison-table td:first-child {
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+
+/* -- 15. Personal site -- home hero -------------------------------------------- */
+
+.home-hero {
+  max-width: var(--max-w-wide);
+  margin: 0 auto;
+  padding: 7.5rem 2rem 5rem;
+}
+
+.home-hero .eyebrow {
+  font-size: 0.8125rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+}
+
+.home-hero h1 {
+  font-size: clamp(2.4rem, 6vw, 3.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.75rem;
+  max-width: 18ch;
+}
+
+.home-hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.home-hero .hero-sub {
+  font-size: 1.1875rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 40rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+  margin-bottom: 0;
+}
+
+/* Full-width tinted band that wraps the intro block for section rhythm */
+.section-band {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Two-column intro: bio text + portrait */
+.home-intro {
+  max-width: var(--max-w-wide);
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 4rem;
+  align-items: start;
+}
+
+.home-intro .profile-bio {
+  margin-bottom: 0;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.profile-photo {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  aspect-ratio: 1;
+  border-radius: var(--radius);
+  object-fit: cover;
+  object-position: center 12%;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+/* Closing call-to-action row below the band */
+.home-closing {
+  max-width: var(--max-w-wide);
+  margin: 0 auto;
+  padding: 5rem 2rem 6rem;
+  text-align: center;
+}
+
+.home-closing h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  margin: 0 0 1.5rem;
+}
+
+.home-closing .btn-group {
+  justify-content: center;
+}
+
+/* -- 16. Personal site -- profile hero (legacy, kept for sub-pages) ------------ */
+
+.profile-hero {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 2.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.profile-hero h1 {
+  font-size: 1.9rem;
+  margin-bottom: 0.2rem;
+}
+
+.profile-role {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+}
+
+.profile-bio {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.position-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem;
+}
+
+.position-list li {
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9375rem;
+  text-align: left;
+}
+
+.position-list li:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.position-inst {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+.quote-block {
+  border-left: 3px solid var(--accent);
+  padding: 0.6rem 1.1rem;
+  margin: 0;
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 1rem;
+  font-family: var(--font-display);
+}
+
+.quote-block cite {
+  font-style: normal;
+  font-size: 0.8125rem;
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--font-body);
+}
+
+/* -- 17. Personal site -- page wrap ------------------------------------------- */
+
+.page-wrap {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+}
+
+.page-lead {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+/* -- 18. Personal site -- section label --------------------------------------- */
+
+.section-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  margin: 3rem 0 0;
+}
+
+/* -- 19. Research -- paper list ------------------------------------------------ */
+
+.paper-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.paper-item {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.paper-item:last-child {
+  border-bottom: none;
+}
+
+.paper-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.4;
+  margin-bottom: 0.25rem;
+  text-align: left;
+}
+
+.paper-title a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.paper-title a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.paper-authors {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+  text-align: left;
+}
+
+.paper-desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0 0 0.5rem;
+}
+
+.paper-links {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.paper-link {
+  font-size: 0.75rem;
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  padding: 1px 10px;
+  border-radius: 99px;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.paper-link:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  text-decoration: none;
+}
+
+/* -- 20. Teaching -- course list ----------------------------------------------- */
+
+.course-item {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.course-item:last-child {
+  border-bottom: none;
+}
+
+.course-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  text-align: left;
+}
+
+.course-title a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.course-title a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.course-meta {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+  text-align: left;
+}
+
+.course-desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0 0 0.6rem;
+}
+
+.course-desc:last-child {
+  margin-bottom: 0;
+}
+
+.course-slides-label {
+  font-size: 0.6875rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 1rem 0 0.5rem;
+  text-align: left;
+}
+
+/* -- 21. Events -- event list -------------------------------------------------- */
+
+.event-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.event-item {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+
+.event-item:last-child {
+  border-bottom: none;
+}
+
+.event-date {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  padding-top: 0.15rem;
+}
+
+.event-name {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.event-meta {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* -- 22. Contacts -------------------------------------------------------------- */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.25rem 0 2.5rem;
+}
+
+.contact-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.3rem;
+  background: var(--bg-alt);
+  transition: border-color 0.2s, box-shadow 0.25s var(--ease-out),
+              transform 0.25s var(--ease-out);
+}
+
+.contact-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  box-shadow: var(--shadow-lift);
+  transform: translateY(-2px);
+}
+
+.contact-card h3 {
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 0.65rem;
+}
+
+.contact-card p,
+.contact-card a {
+  font-size: 0.875rem;
+  text-align: left;
+  margin: 0.2rem 0;
+  display: block;
+}
+
+.social-links {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+.social-link {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 2px 12px;
+  border-radius: 99px;
+  text-decoration: none;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.social-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  text-decoration: none;
+}
+
+/* -- 23. Reference list -------------------------------------------------------- */
+
+.ref-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ref-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.ref-item:last-child {
+  border-bottom: none;
+}
+
+.ref-name {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  margin-bottom: 0.15rem;
+  text-align: left;
+}
+
+.ref-role {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* -- 24. Conversations sub-site ------------------------------------------------ */
+
+.article-header {
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+
+.article-header h1 {
+  margin-bottom: 0.25rem;
+}
+
+.article-date {
+  font-size: 0.8125rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.status-badge {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.status-badge.published {
+  background: var(--accent-light);
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+.status-badge.draft {
+  background: #F3E8D3;
+  color: #8A5A13;
+  border: 1px solid #C99B4A;
+}
+
+[data-theme="dark"] .status-badge.draft {
+  background: #322817;
+  color: #D99A3D;
+  border-color: #7A5A22;
+}
+
+.status-badge.coming-soon,
+.status-badge.under-review {
+  background: var(--bg-alt);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.card-status {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-weight: 500;
+  white-space: nowrap;
+  background: var(--bg-alt);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  align-self: flex-start;
+}
+
+.ref-list-inline {
+  padding-left: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.ref-list-inline li {
+  margin-bottom: 0.5rem;
+}
+
+.author-summary {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.author-summary h2 {
+  font-size: 0.75rem;
+  font-family: var(--font-body);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.author-summary p:last-child {
+  margin-bottom: 0;
+}
+
+/* -- 26. Responsive ------------------------------------------------------------ */
+
+@media (max-width: 900px) {
+  .model-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .sim-charts {
+    grid-template-columns: 1fr;
+  }
+
+  .model-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  /* Collapse the links into a dropdown panel below the bar */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    padding: 0.25rem 1rem 0.5rem;
+  }
+
+  nav.nav-open .nav-links {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 0.6rem 0;
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links li:last-child a {
+    border-bottom: none;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-item {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
+  .home-hero {
+    padding: 4.5rem 1.25rem 3rem;
+  }
+
+  .home-intro {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3rem 1.25rem;
+  }
+
+  .home-intro .profile-photo {
+    order: -1;
+    max-width: 160px;
+  }
+
+  .home-closing {
+    padding: 3.5rem 1.25rem 4rem;
+  }
+}
+
+/* -- 27. Practice layer ---------------------------------------------------------- */
+/* Guided challenges, detective mode, quizzes, CSV export (js/practice.js).        */
+
+/* Practice/export buttons reuse the pill .btn base from 5b with the secondary
+   (outlined) look and a slightly smaller footprint. */
+.practice-actions .btn,
+.sim-export .btn {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+  font-size: 0.875rem;
+  padding: 0.4rem 1.1rem;
+}
+
+.practice-actions .btn:hover:not(:disabled),
+.sim-export .btn:hover:not(:disabled) {
+  border-color: var(--text-muted);
+  background: var(--bg-alt);
+}
+
+.practice-actions .btn:disabled,
+.sim-export .btn:disabled {
+  color: var(--text-muted);
+  opacity: 0.55;
+  cursor: default;
+  transform: none;
+  box-shadow: none;
+}
+
+.sim-export {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.export-note {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.practice-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  background: var(--bg);
+}
+
+.practice-card.done {
+  border-left: 3px solid var(--accent);
+}
+
+.practice-card-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.practice-card-head strong {
+  font-weight: 500;
+}
+
+.practice-status {
+  font-size: 0.72rem;
+  background: var(--accent-light);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 1px 8px;
+  white-space: nowrap;
+}
+
+.practice-progress {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.practice-hint {
+  margin: 0.5rem 0;
+  font-size: 0.875rem;
+}
+
+.practice-hint summary {
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.practice-hint p {
+  margin: 0.4rem 0 0;
+}
+
+.practice-actions {
+  margin-top: 0.6rem;
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.practice-feedback {
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.9rem;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.practice-feedback.ok {
+  background: var(--accent-light);
+  border-left: 3px solid var(--accent);
+}
+
+.practice-feedback.miss {
+  background: var(--bg-alt);
+  border-left: 3px solid var(--danger);
+}
+
+.practice-feedback p {
+  margin-bottom: 0.4rem;
+}
+
+.practice-feedback p:last-child {
+  margin-bottom: 0;
+}
+
+.quiz-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.45rem 0.8rem;
+  margin: 0.35rem 0;
+  font-size: 0.875rem;
+  font-family: var(--font-body);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.1s, border-color 0.1s;
+}
+
+.quiz-option:hover:not(:disabled) {
+  background: var(--bg-alt);
+}
+
+.quiz-option.selected,
+.quiz-option.correct {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+
+.quiz-option.incorrect {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.quiz-option.revealed {
+  border-color: var(--accent);
+}
+
+.quiz-option:disabled {
+  cursor: default;
+}
+
+.detective-note {
+  border-left: 3px solid var(--warn);
+  background: var(--bg-alt);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 0.6rem 0.9rem;
+  margin: 0.75rem 0;
+  font-size: 0.875rem;
+}
+
+.detective-q {
+  margin-top: 0.9rem;
+}
+
+.detective-q p {
+  margin-bottom: 0.25rem;
+}
+
+.practice-reset {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-body);
+}
+
+/* Detective mode hides everything that leaks the hidden DGP: slider positions,
+   the violation banner, truth rows of the stats table, and true-value marks
+   inside the charts. !important is needed because the banner's display is
+   toggled inline by the simulation code, which keeps running during a case. */
+#simulation.detective-active .sim-controls,
+#simulation.detective-active .violation-banner,
+#simulation.detective-active tr[data-truth],
+#simulation.detective-active .truth-mark {
+  display: none !important;
+}
+
+.sim-chart-wrap.wide {
+  grid-column: 1 / -1;
+}
+
+.tag.tag-practice {
+  background: var(--accent-light);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Chart series that must contrast with the terracotta accent (e.g. OLS vs 2SLS)
+   use a slate blue; true-value marks use the ink color var(--text). */
+:root {
+  --chart-contrast: #3E6C8E;
+}
+
+[data-theme="dark"] {
+  --chart-contrast: #7FA6C6;
+}
+
+/* Mascot palette. These are the original hexes from the hand-drawn bear on the
+   homepage; js/bear.js reads them through var() so a theme swap retints every
+   bear on the page without redrawing anything. In dark mode the outline has to
+   lift, or a 12%-light silhouette disappears into the near-black background. */
+:root {
+  --bear-outline:   #2A1D14;
+  --bear-fur:       #8A5A38;
+  --bear-highlight: #C79A72;
+  --bear-muzzle:    #E3CBAE;
+
+  /* Section props — the magnifying glass, mortarboard, microphone, envelope
+     and book. Kept apart from the fur so a prop stays legible whatever hue
+     the bear itself is drawn in. */
+  --bear-prop:        #2A1D14;
+  --bear-prop-alt:    #EFE9DC;
+  --bear-prop-accent: #C2703D;
+}
+
+[data-theme="dark"] {
+  --bear-outline:   #4A362A;
+  --bear-fur:       #9C6A44;
+  --bear-highlight: #CFA47E;
+  --bear-muzzle:    #E7D3BA;
+
+  --bear-prop:        #4A362A;
+  --bear-prop-alt:    #D8CFBE;
+  --bear-prop-accent: #D98A55;
+}
+
+/* Section mascot. One bear per section, each holding that section's tool; it
+   sits on the heading baseline and is decoration only (aria-hidden in JS). */
+.page-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+.page-head .page-title,
+.page-head .page-lead { margin-right: 0; }
+
+.page-mascot {
+  display: block;
+  flex: 0 0 auto;
+  line-height: 0;
+  margin-bottom: 0.15rem;
+}
+.page-mascot svg {
+  display: block;
+  image-rendering: pixelated;
+  animation: bearStep 1.8s steps(1, end) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-mascot svg { animation: none; }
+}
+
+/* In a hero the mascot leads the block rather than sitting beside it. */
+.hero .page-mascot {
+  margin: 0 0 1rem;
+}
+
+@media (max-width: 560px) {
+  .page-mascot { display: none; }
+}
+
+/* -- 18. Comic strip (DGP storyboard) ---------------------------------------- */
+.sim-comic {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.85rem;
+  margin: 1.25rem 0 1.75rem;
+  counter-reset: comic-panel;
+}
+.comic-panel {
+  margin: 0;
+  position: relative;
+  background: var(--bg-alt);
+  border: 1.5px solid var(--text);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.5rem 0.6rem;
+}
+.comic-panel::before {
+  counter-increment: comic-panel;
+  content: counter(comic-panel);
+  position: absolute;
+  top: -9px;
+  left: -9px;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: var(--text);
+  color: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 19px;
+  text-align: center;
+}
+.comic-panel h4 {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin: 0 0 0.35rem;
+}
+.comic-panel svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.comic-caption {
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: var(--text);
+  margin-top: 0.4rem;
+  min-height: 5.1em;
+  transition: color 0.15s ease-out;
+}
+.comic-caption.warn {
+  color: var(--danger);
+}
+
+@media (max-width: 900px) {
+  .sim-comic { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px) {
+  .sim-comic { grid-template-columns: 1fr; }
+  .comic-caption { min-height: 0; }
+}
+
+/* -- 19. The bear (mascot + illustrated simulations) ------------------------- */
+
+/* Footer mascot, injected by js/bear.js on every EconVis page. The bob is the
+   same two-frame step used on the homepage: steps(1) rather than a smooth
+   ease, so the motion reads as pixel art rather than as a floating logo. */
+@keyframes bearStep {
+  0%, 49.9% { transform: translateY(0); }
+  50%, 100% { transform: translateY(-3px); }
+}
+
+.footer-bear {
+  display: inline-flex;
+  align-items: flex-end;
+  margin-right: 0.15rem;
+  line-height: 0;
+}
+.footer-bear svg {
+  display: block;
+  image-rendering: pixelated;
+  animation: bearStep 1.8s steps(1, end) infinite;
+}
+
+/* Illustrated panels. Both sit between the sliders and the charts and share the
+   comic strip's framing so a page does not acquire a third visual language. */
+.bear-walk,
+.bear-blend {
+  margin: 1.25rem 0 1.5rem;
+  padding: 0.6rem 0.75rem 0.7rem;
+  background: var(--bg-alt);
+  border: 1.5px solid var(--text);
+  border-radius: var(--radius-sm);
+}
+.bear-walk svg,
+.bear-blend svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.bear-caption {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--text);
+  margin-top: 0.45rem;
+  transition: color 0.15s ease-out;
+}
+.bear-caption.warn {
+  color: var(--danger);
+}
+
+@media (max-width: 520px) {
+  .bear-walk,
+  .bear-blend { padding: 0.5rem 0.4rem 0.6rem; }
+  .bear-caption { font-size: 0.72rem; }
+}
+
+/* -- 26. Password gate (private project previews) ------------------------------ */
+
+.gate-overlay {
+  max-width: 26rem;
+  margin: 4.5rem auto;
+  padding: 0 1.5rem;
+}
+
+.gate-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 1.75rem;
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.gate-card h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.gate-card p {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.gate-form {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+.gate-form input[type="password"] {
+  flex: 1;
+  font: inherit;
+  font-size: 0.95rem;
+  padding: 0.55rem 0.8rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-alt);
+  color: var(--text);
+}
+
+.gate-form input[type="password"]:focus {
+  outline: 2px solid var(--accent-light);
+  border-color: var(--accent);
+}
+
+.gate-error {
+  min-height: 1.2em;
+  margin-top: 0.6rem;
+  font-size: 0.8125rem;
+  color: var(--danger);
+}
+
+/* -- 28. Product-limit widget (survival models page) --------------------------- */
+/* Interactive Kaplan-Meier step function. Reuses .sim-controls / .slider-group   */
+/* for the global sliders, .btn inside .practice-actions for the buttons, and     */
+/* .comparison-table for the interval table.                                     */
+
+.pl-widget {
+  margin: 1.5rem 0 2rem;
+}
+
+.pl-widget svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Editable value readout in a slider label — replaces the plain <span> used by
+   the simulation sliders, so the number can be typed as well as dragged. */
+.slider-label input[type="number"] {
+  width: 5ch;
+  padding: 0;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--accent);
+  background: none;
+  border: none;
+  border-bottom: 1px dashed var(--border);
+  -moz-appearance: textfield;
+}
+
+.slider-label input[type="number"]::-webkit-outer-spin-button,
+.slider-label input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.slider-label input[type="number"]:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+}
+
+/* Interval table — .comparison-table supplies the borders and header fill */
+.pl-table {
+  table-layout: fixed;
+}
+
+.pl-table th,
+.pl-table td {
+  padding: 0.35rem 0.5rem;
+  vertical-align: middle;
+}
+
+.pl-th-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.1rem;
+}
+
+<th scope="col" style="width:12%">Endpoint $u_j$</th>
+<th scope="col" style="width:12%">Risk set $n_j$</th>
+<th scope="col" style="width:25%">Deaths $\delta_j$</th>
+<th scope="col" style="width:25%">Losses $\lambda_j$</th>
+<th scope="col" style="width:13%">Factor $\hat{p}_j$</th>
+<th scope="col" style="width:13%">Estimate $\hat{P}(u_j)$</th>
+
+.pl-table th {
+  text-align: center;
+  font-size: 0.8125rem;
+  white-space: normal;
+  line-height: 1.3;
+}
+
+.pl-table td {
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+
+.pl-table td:first-child {
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  text-align: left;
+}
+
+.pl-derived {
+  color: var(--text-muted);
+}
+
+/* A slider and its typed value, side by side inside a cell */
+.pl-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.pl-cell input[type="range"] {
+  flex: 1 1 auto;
+  min-width: 48px;
+}
+
+.pl-cell input[type="number"],
+.pl-num {
+  width: 5.5ch;
+  flex: 0 0 auto;
+  padding: 0.1rem 0.25rem;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  -moz-appearance: textfield;
+}
+
+.pl-cell input[type="number"]::-webkit-outer-spin-button,
+.pl-cell input[type="number"]::-webkit-inner-spin-button,
+.pl-num::-webkit-outer-spin-button,
+.pl-num::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.pl-cell input[type="number"]:focus,
+.pl-num:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.pl-num {
+  width: 6ch;
+}
+
+/* Legend — same grammar as the simulation charts */
+.pl-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.pl-key {
+  display: inline-block;
+  width: 16px;
+  height: 0;
+  border-top: 2px solid var(--accent);
+  vertical-align: middle;
+  margin-right: 0.4rem;
+}
+
+.pl-key.pinned {
+  border-top-color: var(--text-muted);
+  border-top-style: dashed;
+}
+
+.pl-key.censor {
+  width: 0;
+  height: 11px;
+  border-top: none;
+  border-left: 2px solid var(--warn);
+}
+
+.pl-message {
+  min-height: 1.4em;
+  font-size: 0.8125rem;
+  color: var(--danger);
+  margin: 0.6rem 0 0;
+  text-align: left;
+}
+
+.pl-widget .practice-actions {
+  margin-top: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .pl-table th,
+  .pl-table td {
+    padding: 0.3rem 0.3rem;
+  }
+
+  .pl-cell {
+    gap: 0.3rem;
+  }
+
+  .pl-cell input[type="range"] {
+    min-width: 34px;
+  }
+}
