@@ -28,6 +28,9 @@ page_head($c['title'], e($c['university']) . ' — ' . e($c['department']) . ' �
           <strong>Lecturer:</strong> <?= e($c['lecturer']) ?> ·
           <a href="mailto:<?= e($c['email']) ?>"><?= e($c['email']) ?></a><br>
           <strong>Timetable:</strong> <?= e($c['timetable']) ?><br>
+<?php if (!empty($c['location'])): ?>
+          <strong>Location:</strong> <?= e($c['location']) ?><?php if (!empty($c['maps_url'])): ?> · <a href="<?= e($c['maps_url']) ?>" target="_blank" rel="noopener">map ↗</a><?php endif; ?><br>
+<?php endif; ?>
           <strong>Office hours:</strong> <?= e($c['office_hours']) ?>
 <?php if (!empty($c['moodle_url'])): ?>
           <br><strong>Moodle:</strong> <a href="<?= e($c['moodle_url']) ?>" target="_blank" rel="noopener">official course page ↗</a>
