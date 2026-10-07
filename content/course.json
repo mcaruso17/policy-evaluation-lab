@@ -6,7 +6,7 @@
     "year": "a.y. 2026/27",
     "details": "Master's degree (LM) · ECON-02/A · 60 hours · 9 CFU · first semester · taught in English",
     "lecturer": "Dr. Matteo Caruso",
-    "email": "carusomatteo17@gmail.com",
+    "email": "mcaruso4@os.uniroma3.it",
     "location": "Via Silvio D'Amico 77, 00145 Rome",
     "maps_url": "https://www.google.com/maps/search/?api=1&query=Via+Silvio+D%27Amico+77+00145+Roma",
     "office_hours": "By appointment via e-mail (day and time to be confirmed)",
@@ -30,7 +30,8 @@
       "summary": "Descriptive analysis versus causal inference; potential outcomes, the counterfactual and selection bias. Software set-up.",
       "items": [
         { "type": "slides", "label": "Lecture 0 — Course presentation", "file": "slides/pel-00-syllabus.pdf" },
-        { "type": "reading", "label": "Mixtape, ch. 4 — Potential outcomes", "url": "https://mixtape.scunning.com/04-potential_outcomes" }
+        { "type": "reading", "label": "Mixtape, ch. 4 — Potential outcomes", "url": "https://mixtape.scunning.com/04-potential_outcomes" },
+        { "type": "link", "label": "Spurious correlations", "url": "https://www.tylervigen.com/spurious-correlations" }
       ]
     },
     {
@@ -105,7 +106,7 @@
       "week": 10,
       "dates": "14–18 Dec",
       "topic": "Wrap-up",
-      "summary": "Project presentations and exam review.",
+      "summary": "Report presentations and exam review.",
       "items": []
     }
   ],
@@ -113,7 +114,7 @@
   "exercises": [
     {
       "title": "Interactive practice on EconVis",
-      "description": "Guided challenges, detective mode and interpretation quizzes, with the simulated data downloadable as CSV to rerun in Stata or R.",
+      "description": "Guided challenges, detective mode and interpretation quizzes, with the simulated data downloadable as CSV to rerun in R or Excel.",
       "items": [
         { "type": "link", "label": "Difference-in-differences", "url": "https://carusomatteo.it/models/did.html" },
         { "type": "link", "label": "Instrumental variables", "url": "https://carusomatteo.it/models/iv.html" }
@@ -127,10 +128,11 @@
   ],
 
   "exam": {
-    "intro": "The exam format will be confirmed at the start of the course.",
+    "intro": "A report on a policy intervention of your choice, presented in the last week of the course, followed by an oral exam.",
     "parts": [
-      { "title": "Empirical project", "description": "In small groups: replicate and extend a published policy evaluation. Short written report, do-file or R script, and a 10-minute presentation." },
-      { "title": "Written exam", "description": "Open questions on the methods and their assumptions, and interpretation of regression output from Stata or R." }
+      { "title": "Report", "description": "On a policy intervention of your choice: either an empirical analysis in R with real-world data, or an argument based on explanation and evidence. The policy can be one you assess as successful or unsuccessful; either way, you have to argue your thesis properly, using solid evidence." },
+      { "title": "Presentation", "description": "You present your report in the last week of the course (week 10)." },
+      { "title": "Oral exam", "description": "Written instead, if the number of students does not allow us to complete the orals on time." }
     ],
     "sessions": [],
     "items": []
@@ -138,11 +140,17 @@
 
   "resources": [
     {
-      "group": "Textbooks (free online)",
+      "group": "Main textbooks",
       "items": [
-        { "type": "reading", "label": "Cunningham — Causal Inference: The Mixtape", "url": "https://mixtape.scunning.com" },
-        { "type": "reading", "label": "Huntington-Klein — The Effect", "url": "https://theeffectbook.net" },
-        { "type": "reading", "label": "Gertler et al. — Impact Evaluation in Practice (World Bank)", "url": "https://openknowledge.worldbank.org/handle/10986/25030" }
+        { "type": "reading", "label": "Angrist and Pischke (2009) — Mostly Harmless Econometrics: An Empiricist's Companion", "url": "https://press.princeton.edu/books/paperback/9780691120355/mostly-harmless-econometrics" },
+        { "type": "reading", "label": "Cunningham (2021) — Causal Inference: The Mixtape (free online)", "url": "https://mixtape.scunning.com" }
+      ]
+    },
+    {
+      "group": "Further reading",
+      "items": [
+        { "type": "reading", "label": "Angrist and Krueger (1999) — Empirical strategies in labor economics, Handbook of Labor Economics, Vol. 3A, ch. 23", "url": "https://doi.org/10.1016/S1573-4463(99)03004-7" },
+        { "type": "reading", "label": "OECD (2025) — Implementation Toolkit for the OECD Recommendation on Public Policy Evaluation (PDF)", "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2025/02/implementation-toolkit-for-the-oecd-recommendation-on-public-policy-evaluation_f24516be/77faa4fe-en.pdf" }
       ]
     },
     {
@@ -165,7 +173,8 @@
     {
       "group": "Interactive",
       "items": [
-        { "type": "link", "label": "EconVis — all models", "url": "https://carusomatteo.it/econvis.html" }
+        { "type": "link", "label": "EconVis — all models", "url": "https://carusomatteo.it/econvis.html" },
+        { "type": "link", "label": "Spurious correlations (Tyler Vigen)", "url": "https://www.tylervigen.com/spurious-correlations" }
       ]
     }
   ]
