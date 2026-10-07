@@ -34,6 +34,8 @@ page_head($c['title'], e($c['university']) . ' — ' . e($c['department']) . ' �
           <strong>Office hours:</strong> <?= e($c['office_hours']) ?>
 <?php if (!empty($c['moodle_url'])): ?>
           <br><strong>Moodle:</strong> <a href="<?= e($c['moodle_url']) ?>" target="_blank" rel="noopener">official course page ↗</a>
+<?php else: ?>
+          <br><strong>Moodle:</strong> available soon
 <?php endif; ?>
         </p>
         <div class="paper-links">
