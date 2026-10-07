@@ -16,7 +16,7 @@
 
   "announcements": [
     {
-      "date": "2026-10-12",
+      "date": "2026-10-08",
       "title": "Welcome to the Policy Evaluation Lab",
       "body": "Slides, datasets, exercises and exam information are posted here. Slides go up before each lecture; datasets and exercises after it. Bring a laptop to the lab sessions."
     }
@@ -25,7 +25,7 @@
   "weeks": [
     {
       "week": 1,
-      "dates": "12–16 Oct",
+      "dates": "9–15 Oct",
       "topic": "Causality and potential outcomes",
       "summary": "Descriptive analysis versus causal inference; potential outcomes, the counterfactual and selection bias. Software set-up.",
       "items": [
@@ -36,21 +36,21 @@
     },
     {
       "week": 2,
-      "dates": "19–23 Oct",
+      "dates": "16–22 Oct",
       "topic": "Regression for policy evaluation",
       "summary": "OLS as a comparison of means, control variables, omitted-variable bias; robust and clustered standard errors.",
       "items": []
     },
     {
       "week": 3,
-      "dates": "26–30 Oct",
+      "dates": "23–29 Oct",
       "topic": "Randomised experiments",
       "summary": "Why randomisation solves selection bias; balance checks, compliance, intention-to-treat. Case study: Tennessee STAR.",
       "items": []
     },
     {
       "week": 4,
-      "dates": "2–6 Nov",
+      "dates": "30 Oct–5 Nov",
       "topic": "Selection on observables",
       "summary": "Conditional independence, matching, the propensity score and inverse probability weighting.",
       "items": [
@@ -59,7 +59,7 @@
     },
     {
       "week": 5,
-      "dates": "9–13 Nov",
+      "dates": "6–12 Nov",
       "topic": "Difference-in-differences I",
       "summary": "The 2×2 design, parallel trends, regression formulation. Lab: Card and Krueger (1994) on the New Jersey minimum wage.",
       "items": [
@@ -68,7 +68,7 @@
     },
     {
       "week": 6,
-      "dates": "16–20 Nov",
+      "dates": "13–19 Nov",
       "topic": "Difference-in-differences II",
       "summary": "Event studies and pre-trends; staggered adoption and the problems of two-way fixed effects.",
       "items": [
@@ -77,7 +77,7 @@
     },
     {
       "week": 7,
-      "dates": "23–27 Nov",
+      "dates": "20–26 Nov",
       "topic": "Instrumental variables",
       "summary": "Relevance and exclusion, 2SLS, weak instruments, LATE. Lab: Angrist and Krueger (1991) on compulsory schooling.",
       "items": [
@@ -86,7 +86,7 @@
     },
     {
       "week": 8,
-      "dates": "30 Nov–4 Dec",
+      "dates": "27 Nov–3 Dec",
       "topic": "Regression discontinuity",
       "summary": "Sharp and fuzzy designs, bandwidth choice, manipulation tests.",
       "items": [
@@ -95,7 +95,7 @@
     },
     {
       "week": 9,
-      "dates": "7–11 Dec",
+      "dates": "4–10 Dec",
       "topic": "Synthetic control",
       "summary": "Building a counterfactual from a donor pool; inference by placebo. Case study: California Proposition 99.",
       "items": [
@@ -104,7 +104,7 @@
     },
     {
       "week": 10,
-      "dates": "14–18 Dec",
+      "dates": "11–17 Dec",
       "topic": "Wrap-up",
       "summary": "Report presentations and exam review.",
       "items": []
