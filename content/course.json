@@ -30,6 +30,8 @@
       "summary": "Descriptive analysis versus causal inference; potential outcomes, the counterfactual and selection bias. Software set-up.",
       "items": [
         { "type": "slides", "label": "Lecture 0 — Course presentation", "file": "slides/pel-00-syllabus.pdf" },
+        { "type": "slides", "label": "Lecture 1 — Causality (I)", "file": "slides/pel-01-causality-1.pdf" },
+        { "type": "slides", "label": "Lecture 2 — Causality (II)", "file": "slides/pel-02-causality-2.pdf" },
         { "type": "reading", "label": "Mixtape, ch. 4 — Potential outcomes", "url": "https://mixtape.scunning.com/04-potential_outcomes" },
         { "type": "link", "label": "Spurious correlations", "url": "https://www.tylervigen.com/spurious-correlations" }
       ]
