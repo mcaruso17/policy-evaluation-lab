@@ -46,7 +46,7 @@ page_header('Log in', 'login.php');
 ?>
       <div class="gate-overlay">
         <div class="gate-card">
-          <span class="page-mascot" data-bear="teaching"></span>
+          <span class="page-mascot" data-bear="plain"></span>
           <h2><?= e($c['title']) ?></h2>
           <p><?= e($c['university']) ?> · <?= e($c['year']) ?><br>Course materials for registered students.</p>
 <?php if ($error): ?>

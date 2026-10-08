@@ -10,8 +10,9 @@ page_head('Lectures', 'Week by week: slides go up before each lecture, datasets 
 ?>
 
       <p class="section-label">Programme</p>
+      <div class="pel-cards">
 <?php foreach ($weeks as $w): ?>
-      <div class="course-item" id="week-<?= (int) $w['week'] ?>">
+      <div class="course-item pel-card" id="week-<?= (int) $w['week'] ?>">
         <p class="course-meta">Week <?= (int) $w['week'] ?><?= !empty($w['dates']) ? ' · ' . e($w['dates']) : '' ?></p>
         <p class="course-title"><?= e($w['topic']) ?></p>
 <?php if (!empty($w['summary'])): ?>
@@ -20,5 +21,6 @@ page_head('Lectures', 'Week by week: slides go up before each lecture, datasets 
         <?= item_links($w['items'] ?? []) ?>
       </div>
 <?php endforeach; ?>
+      </div>
 
 <?php page_footer();

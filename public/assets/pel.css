@@ -141,6 +141,39 @@
   .pel-bar-track { grid-column: 1 / -1; grid-row: 2; }
 }
 
+/* -- Wider layout: use the side space on laptops and projectors ---------------- */
+.page-wrap { max-width: var(--max-w-wide); }
+/* forms and running text stay at a readable width */
+.pel-form, .pel-survey { max-width: 44rem; }
+.page-lead { max-width: 52rem; }
+
+/* Lectures: week cards in two columns */
+.pel-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.pel-cards .pel-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+  padding: 1rem 1.2rem;
+}
+.pel-cards .pel-card:last-child { border-bottom: 1px solid var(--border); }
+
+/* Home: announcements and course details side by side */
+.pel-home {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+@media (max-width: 860px) {
+  .pel-home { grid-template-columns: 1fr; gap: 0; }
+  .pel-cards { grid-template-columns: 1fr; }
+}
+
 /* -- Small bits ---------------------------------------------------------------- */
 
 .pel-muted {

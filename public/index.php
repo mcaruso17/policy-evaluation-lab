@@ -10,6 +10,8 @@ page_header('Home', 'index.php');
 page_head($c['title'], e($c['university']) . ' — ' . e($c['department']) . ' · ' . e($c['year']) . '<br>' . e($c['details']));
 ?>
 
+      <div class="pel-home">
+      <div>
       <p class="section-label">Announcements</p>
 <?php if (empty($data['announcements'])): ?>
       <p class="pel-muted pel-pad">No announcements yet.</p>
@@ -21,7 +23,9 @@ page_head($c['title'], e($c['university']) . ' — ' . e($c['department']) . ' �
         <p class="course-desc"><?= $a['body'] /* trusted HTML from course.json */ ?></p>
       </div>
 <?php endforeach; ?>
+      </div>
 
+      <div>
       <p class="section-label">The course</p>
       <div class="course-item">
         <p class="course-desc">
@@ -44,6 +48,8 @@ page_head($c['title'], e($c['university']) . ' — ' . e($c['department']) . ' �
           <a class="paper-link" href="exam.php">Exam</a>
           <a class="paper-link" href="resources.php">Resources</a>
         </div>
+      </div>
+      </div>
       </div>
 
 <?php page_footer();

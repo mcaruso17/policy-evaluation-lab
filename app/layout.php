@@ -81,7 +81,7 @@ function page_footer(): void
 }
 
 /* The page title block used on every page: serif title, muted lead, bear. */
-function page_head(string $title, string $lead = '', string $bear = 'teaching'): void
+function page_head(string $title, string $lead = '', string $bear = 'plain'): void
 {
     ?>
       <div class="page-head">
