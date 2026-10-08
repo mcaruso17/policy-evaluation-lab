@@ -76,6 +76,9 @@ page_head('Getting to know you',
 <?php if (!empty($_SESSION['survey_done'])): ?>
       <div class="callout callout-info"><p><strong>Thank you!</strong> Your answers have been recorded anonymously.
         We will look at the overall results together in class.</p></div>
+<?php if (setting('survey_results_public', '0') === '1'): ?>
+      <p><a class="paper-link" href="survey-results.php">See the results</a> <span class="pel-muted">(log in required)</span></p>
+<?php endif; ?>
 
 <?php elseif (!survey_open()): ?>
       <div class="callout callout-warn"><p>The questionnaire is closed. Thank you for your interest.</p></div>

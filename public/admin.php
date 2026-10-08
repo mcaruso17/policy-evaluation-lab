@@ -59,6 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         set_setting('registration_open', !empty($_POST['registration_open']) ? '1' : '0');
         set_setting('survey_open', !empty($_POST['survey_open']) ? '1' : '0');
+        set_setting('survey_results_public', !empty($_POST['survey_results_public']) ? '1' : '0');
         flash('Settings saved.');
     } elseif ($id && $id !== (int) $me['id']) {
         if ($action === 'toggle') {
@@ -153,11 +154,16 @@ page_head('Students', 'Registered students, access code and registration setting
           <input type="checkbox" name="survey_open" value="1" <?= survey_open() ? 'checked' : '' ?>>
           Questionnaire open
         </label>
+        <label class="pel-check">
+          <input type="checkbox" name="survey_results_public" value="1" <?= setting('survey_results_public', '0') === '1' ? 'checked' : '' ?>>
+          Results visible to students
+        </label>
         <button type="submit" class="btn btn-secondary">Save</button>
       </form>
 
       <p class="section-label">Questionnaire (anonymous)
         <a class="paper-link pel-right" href="admin.php?export=survey">Download answers (CSV)</a>
+        <a class="paper-link pel-right" href="survey-results.php">Show results</a>
       </p>
       <p class="pel-muted">Link for the QR code: <strong>https://pel.carusomatteo.it/survey.php</strong></p>
       <div class="pel-stats">
