@@ -9,29 +9,34 @@ page_header('Exam', 'exam.php');
 page_head('Exam', $exam['intro'] ?? '');
 ?>
 
-      <p class="section-label">Assessment</p>
-<?php foreach ($exam['parts'] ?? [] as $p): ?>
-      <div class="course-item">
-        <p class="course-title"><?= e($p['title']) ?></p>
-        <p class="course-desc"><?= $p['description'] ?></p>
-      </div>
+<?php section_title('Assessment'); ?>
+      <div class="pel-cards pel-cards-3">
+<?php foreach ($exam['parts'] ?? [] as $i => $p): ?>
+        <article class="pel-card">
+          <p class="pel-kicker">Part <?= $i + 1 ?></p>
+          <p class="pel-card-title"><?= e($p['title']) ?></p>
+          <p class="pel-card-text"><?= $p['description'] ?></p>
+        </article>
 <?php endforeach; ?>
+      </div>
 
-      <p class="section-label">Exam sessions</p>
+      <section class="pel-split pel-split-tight">
+        <h2 class="pel-split-title">Exam sessions</h2>
 <?php if (empty($exam['sessions'])): ?>
-      <p class="pel-muted pel-pad">Dates will be published here and on the university portal.</p>
-<?php endif; ?>
-<?php foreach ($exam['sessions'] ?? [] as $s): ?>
-      <div class="course-item">
-        <p class="course-title"><?= e($s['date']) ?></p>
-        <p class="course-meta"><?= e($s['details'] ?? '') ?></p>
-      </div>
+        <p class="pel-muted">Dates will be published here and on the university portal.</p>
+<?php else: ?>
+        <dl class="pel-list">
+<?php foreach ($exam['sessions'] as $s): ?>
+          <div><dt><?= e($s['date']) ?></dt><dd><?= e($s['details'] ?? '') ?></dd></div>
 <?php endforeach; ?>
+        </dl>
+<?php endif; ?>
+      </section>
 
-      <p class="section-label">Past exams and sample questions</p>
-      <div class="course-item">
-<?php $links = item_links($exam['items'] ?? []); ?>
-        <?= $links !== '' ? $links : '<p class="pel-muted">Coming soon.</p>' ?>
-      </div>
+      <section class="pel-split pel-split-tight">
+        <h2 class="pel-split-title">Past exams and sample questions</h2>
+<?php $rows = item_rows($exam['items'] ?? []); ?>
+        <?= $rows !== '' ? $rows : '<p class="pel-muted">Coming soon.</p>' ?>
+      </section>
 
 <?php page_footer();

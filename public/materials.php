@@ -9,17 +9,23 @@ page_header('Lectures', 'materials.php');
 page_head('Lectures', 'Week by week: slides go up before each lecture, datasets and code after the lab.');
 ?>
 
-      <p class="section-label">Programme</p>
+<?php $cw = current_week(); ?>
       <div class="pel-cards">
-<?php foreach ($weeks as $w): ?>
-      <div class="course-item pel-card" id="week-<?= (int) $w['week'] ?>">
-        <p class="course-meta">Week <?= (int) $w['week'] ?><?= !empty($w['dates']) ? ' · ' . e($w['dates']) : '' ?></p>
-        <p class="course-title"><?= e($w['topic']) ?></p>
+<?php foreach ($weeks as $w):
+    $now   = $cw === (int) $w['week'];
+    $items = item_rows($w['items'] ?? []); ?>
+        <article class="pel-card<?= $now ? ' pel-card-now' : '' ?>" id="week-<?= (int) $w['week'] ?>">
+          <p class="pel-kicker">Week <?= (int) $w['week'] ?><?= $now ? ' <span class="pel-now">this week</span>' : '' ?></p>
+          <p class="pel-card-title"><?= e($w['topic']) ?></p>
 <?php if (!empty($w['summary'])): ?>
-        <p class="course-desc"><?= $w['summary'] ?></p>
+          <p class="pel-card-text"><?= $w['summary'] ?></p>
 <?php endif; ?>
-        <?= item_links($w['items'] ?? []) ?>
-      </div>
+          <dl class="pel-meta">
+            <div><dt>Dates</dt><dd><?= e($w['dates'] ?? '') ?></dd></div>
+            <div><dt>Material</dt><dd><?= $items === '' ? 'coming soon' : ($k = substr_count($items, '<li>')) . ($k === 1 ? ' item' : ' items') ?></dd></div>
+          </dl>
+          <?= $items ?>
+        </article>
 <?php endforeach; ?>
       </div>
 

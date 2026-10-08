@@ -10,10 +10,10 @@ page_head('Resources', 'Textbooks, software, data and interactive tools used in 
 ?>
 
 <?php foreach ($groups as $g): ?>
-      <p class="section-label"><?= e($g['group']) ?></p>
-      <div class="course-item">
-        <?= item_links($g['items'] ?? []) ?>
-      </div>
+      <section class="pel-split pel-split-tight">
+        <h2 class="pel-split-title"><?= e($g['group']) ?></h2>
+        <?= item_rows($g['items'] ?? []) ?>
+      </section>
 <?php endforeach; ?>
 
 <?php page_footer();

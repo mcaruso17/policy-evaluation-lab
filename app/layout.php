@@ -80,18 +80,58 @@ function page_footer(): void
 <?php
 }
 
-/* The page title block used on every page: serif title, muted lead, bear. */
+/* The page title block used on every page: large serif title on the left,
+   the lead paragraph on the right, the bear at the end. */
 function page_head(string $title, string $lead = '', string $bear = 'plain'): void
 {
     ?>
-      <div class="page-head">
-        <div>
-          <h1 class="page-title"><?= e($title) ?></h1>
+      <div class="page-head pel-hero">
+        <h1 class="page-title"><?= e($title) ?></h1>
+        <div class="pel-hero-side">
 <?php if ($lead !== ''): ?>
           <p class="page-lead"><?= $lead ?></p>
 <?php endif; ?>
         </div>
-        <span class="page-mascot" data-bear="<?= e($bear) ?>"></span>
+        <span class="page-mascot" data-bear="<?= e($bear) ?>" data-bear-size="68"></span>
       </div>
 <?php
+}
+
+/* Section heading (replaces the small uppercase label on redesigned pages). */
+function section_title(string $title, string $extra = ''): void
+{
+    echo '      <h2 class="pel-section">' . e($title) . $extra . "</h2>\n";
+}
+
+/* Course items as a list of rows: label on the left, type on the right,
+   hairline between rows. Same visibility rules as item_link(). */
+function item_rows(array $items): string
+{
+    $admin = is_admin();
+    $out   = '';
+    foreach ($items as $item) {
+        if (!item_available($item) && !$admin) {
+            continue;
+        }
+        $href  = !empty($item['file']) ? 'file.php?f=' . rawurlencode($item['file']) : ($item['url'] ?? '#');
+        $type  = ITEM_LABELS[$item['type'] ?? ''] ?? '';
+        $sched = !item_available($item) ? ' <span class="pel-sched">from ' . e($item['available_from']) . '</span>' : '';
+        $out  .= '<li><a href="' . e($href) . '" target="_blank" rel="noopener">'
+               . '<span class="pel-row-label">' . e($item['label'] ?? '') . $sched . '</span>'
+               . '<span class="pel-row-type">' . e($type) . ' ↗</span></a></li>' . "\n";
+    }
+    return $out === '' ? '' : '<ul class="pel-rows">' . "\n" . $out . '</ul>';
+}
+
+/* The week of the course we are in (1 … number of weeks), from course.start_date;
+   null before the start or after the end. */
+function current_week(): ?int
+{
+    $start = course()['course']['start_date'] ?? null;
+    if (!$start) {
+        return null;
+    }
+    $days = (int) floor((strtotime(date('Y-m-d')) - strtotime($start)) / 86400);
+    $week = intdiv($days, 7) + 1;
+    return ($days >= 0 && $week <= count(course()['weeks'])) ? $week : null;
 }

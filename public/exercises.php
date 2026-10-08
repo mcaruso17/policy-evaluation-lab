@@ -9,15 +9,15 @@ page_header('Exercises', 'exercises.php');
 page_head('Exercises', 'Problem sets, lab exercises and interactive practice. Solutions are released after each set is discussed in class.');
 ?>
 
-<?php foreach ($sets as $s): ?>
-      <p class="section-label"><?= e($s['title']) ?></p>
-      <div class="course-item">
-<?php if (!empty($s['description'])): ?>
-        <p class="course-desc"><?= $s['description'] ?></p>
-<?php endif; ?>
-<?php $links = item_links($s['items'] ?? []); ?>
-        <?= $links !== '' ? $links : '<p class="pel-muted">Coming soon.</p>' ?>
-      </div>
+<?php foreach ($sets as $set):
+    $rows = item_rows($set['items'] ?? []); ?>
+      <section class="pel-split pel-split-tight">
+        <div>
+          <h2 class="pel-split-title"><?= e($set['title']) ?></h2>
+          <p class="pel-split-text"><?= $set['description'] ?></p>
+        </div>
+        <?= $rows !== '' ? $rows : '<p class="pel-muted">Coming soon.</p>' ?>
+      </section>
 <?php endforeach; ?>
 
 <?php page_footer();

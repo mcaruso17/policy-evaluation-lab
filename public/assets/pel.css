@@ -141,37 +141,174 @@
   .pel-bar-track { grid-column: 1 / -1; grid-row: 2; }
 }
 
-/* -- Wider layout: use the side space on laptops and projectors ---------------- */
-.page-wrap { max-width: var(--max-w-wide); }
-/* forms and running text stay at a readable width */
-.pel-form, .pel-survey { max-width: 44rem; }
-.page-lead { max-width: 52rem; }
+/* -- Editorial redesign: big headings, tinted cards, row lists, dark footer -------- */
+:root {
+  --oat:        #E9E1D3;   /* card tint */
+  --panel:      #FBF9F4;   /* feature panel, lighter than the page */
+  --ink:        #1F1D1A;   /* dark buttons and footer */
+  --ink-text:   #F5F2EB;
+}
+[data-theme="dark"] {
+  --oat:        #2B2823;
+  --panel:      #23211D;
+  --ink:        #ECE9E1;
+  --ink-text:   #1C1A17;
+}
 
-/* Lectures: week cards in two columns */
+.page-wrap { max-width: var(--max-w-wide); padding-top: 4rem; }
+.pel-form, .pel-survey { max-width: 44rem; }
+
+/* Page header: title left, lead right, bear at the end */
+.pel-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) auto;
+  gap: 2.5rem;
+  align-items: end;
+  margin-bottom: 3rem;
+}
+.pel-hero .page-title {
+  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.pel-hero .page-lead {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  line-height: 1.45;
+  color: var(--text);
+  text-align: left;
+}
+
+/* Section headings */
+.pel-section, .section-label {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text);
+  border: none;
+  padding: 0;
+  margin: 3.5rem 0 1.1rem;
+}
+
+/* Feature panel (home: this week) */
+.pel-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 2.5rem;
+}
+.pel-panel-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 0.4rem 0 0.8rem;
+}
+.pel-panel-lead { font-family: var(--font-display); font-size: 1.05rem; color: var(--text-muted); margin-bottom: 1.4rem; text-align: left; }
+.pel-kicker { font-size: 0.78rem; letter-spacing: 0.04em; color: var(--text-muted); margin: 0; }
+.pel-now {
+  background: var(--accent); color: #fff; border-radius: 99px;
+  padding: 1px 8px; margin-left: 0.4rem; font-size: 0.7rem; letter-spacing: 0;
+}
+
+/* Cards */
 .pel-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+  gap: 1.1rem;
 }
-.pel-cards .pel-card {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--bg-alt);
-  padding: 1rem 1.2rem;
+.pel-cards-3 { grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr)); }
+.pel-card {
+  background: var(--oat);
+  border-radius: 14px;
+  padding: 1.4rem 1.5rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  scroll-margin-top: 5rem;
 }
-.pel-cards .pel-card:last-child { border-bottom: 1px solid var(--border); }
+.pel-card-now { box-shadow: inset 0 0 0 2px var(--accent); }
+.pel-card-title { font-family: var(--font-body); font-size: 1.12rem; font-weight: 600; margin: 0; }
+.pel-card-text { font-family: var(--font-display); font-size: 1rem; line-height: 1.45; margin: 0; text-align: left; hyphens: none; }
 
-/* Home: announcements and course details side by side */
-.pel-home {
+/* Label/value rows (card metadata, course details) */
+.pel-meta, .pel-list { margin: 0.4rem 0 0; }
+.pel-meta > div, .pel-list > div {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+  border-top: 1px solid color-mix(in srgb, var(--text) 14%, transparent);
+  padding: 0.5rem 0;
+  font-size: 0.82rem;
+}
+.pel-meta dt, .pel-meta dd, .pel-list dt, .pel-list dd { margin: 0; float: none; width: auto; }
+.pel-meta dt, .pel-list dt { text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); font-size: 0.72rem; padding-top: 0.15rem; }
+.pel-meta dd, .pel-list dd { text-align: right; }
+.pel-list > div { font-size: 0.92rem; padding: 0.75rem 0; }
+.pel-list > div:last-child { border-bottom: 1px solid color-mix(in srgb, var(--text) 14%, transparent); }
+
+/* Row lists of course items */
+.pel-rows { list-style: none; margin: 0; padding: 0; }
+.pel-rows li { border-top: 1px solid color-mix(in srgb, var(--text) 14%, transparent); }
+.pel-rows li:last-child { border-bottom: 1px solid color-mix(in srgb, var(--text) 14%, transparent); }
+.pel-rows a {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+  padding: 0.6rem 0.1rem; color: var(--text); text-decoration: none; font-size: 0.95rem;
+}
+.pel-rows a:hover .pel-row-label { text-decoration: underline; text-underline-offset: 3px; }
+.pel-row-label { font-weight: 500; text-align: left; hyphens: none; }
+.pel-list dd, .pel-meta dd, .pel-split-title, .pel-card-title { hyphens: none; }
+.pel-row-type { color: var(--text-muted); font-size: 0.82rem; white-space: nowrap; }
+.pel-card .pel-rows { margin-top: 0.3rem; }
+
+/* Split section: statement left, list right */
+.pel-split {
   display: grid;
-  grid-template-columns: 3fr 2fr;
-  gap: 2.5rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 3rem;
+  margin-top: 4.5rem;
   align-items: start;
 }
+.pel-split-tight { margin-top: 3rem; }
+.pel-split-title { font-family: var(--font-body); font-size: 1.3rem; font-weight: 600; line-height: 1.3; margin: 0; }
+.pel-split-text { color: var(--text-muted); margin-top: 0.6rem; font-size: 0.92rem; text-align: left; }
+.pel-split-links { display: flex; gap: 0.6rem; margin-top: 1.4rem; flex-wrap: wrap; }
+
+/* Buttons and pill links: dark, softly rounded */
+.pel-button, .paper-link {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  background: var(--ink); color: var(--ink-text);
+  border: 1px solid var(--ink);
+  border-radius: 8px; padding: 0.42rem 0.9rem;
+  font-size: 0.85rem; font-weight: 500; text-decoration: none;
+  transition: opacity 0.15s;
+}
+.pel-button:hover, .paper-link:hover { opacity: 0.85; text-decoration: none; background: var(--ink); color: var(--ink-text); }
+.pel-button-ghost { background: transparent; color: var(--text); border-color: color-mix(in srgb, var(--text) 30%, transparent); }
+.pel-button-ghost:hover { background: transparent; color: var(--text); }
+.paper-link { font-size: 0.78rem; padding: 0.28rem 0.7rem; }
+
+/* Survey charts take the card tint */
+.pel-chart { background: var(--oat); border: none; border-radius: 14px; }
+
+/* Dark footer band */
+footer {
+  background: #1F1D1A; color: rgba(245, 242, 235, 0.72);
+  border-top: none; min-height: 0; padding: 2.2rem 1.5rem; margin-top: 5rem;
+}
+[data-theme="dark"] footer { background: #12110F; border-top: 1px solid var(--border); }
+footer a { color: #F5F2EB; }
+footer a:hover { color: var(--accent); }
+
 @media (max-width: 860px) {
-  .pel-home { grid-template-columns: 1fr; gap: 0; }
-  .pel-cards { grid-template-columns: 1fr; }
+  .pel-hero { grid-template-columns: 1fr auto; gap: 1rem 1.5rem; }
+  .pel-hero .pel-hero-side { grid-column: 1 / -1; grid-row: 2; }
+  .pel-panel, .pel-split { grid-template-columns: 1fr; gap: 1.5rem; }
+  .pel-panel { padding: 1.6rem; }
 }
 
 /* -- Small bits ---------------------------------------------------------------- */
