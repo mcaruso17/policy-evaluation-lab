@@ -1,8 +1,31 @@
 <?php
 require __DIR__ . '/../app/bootstrap.php';
 require __DIR__ . '/../app/layout.php';
+require __DIR__ . '/../app/survey.php';
 
 $me = require_admin();
+
+survey_init();
+
+/* ── Survey CSV export (anonymous answers, readable labels) ─────────────────── */
+if (($_GET['export'] ?? '') === 'survey') {
+    $rows = db()->query('SELECT * FROM survey_responses ORDER BY id')->fetchAll();
+    header('Content-Type: text/csv; charset=utf-8');
+    header('Content-Disposition: attachment; filename="pel-survey-' . date('Y-m-d') . '.csv"');
+    $out = fopen('php://output', 'w');
+    fwrite($out, "\xEF\xBB\xBF");
+    fputcsv($out, ['id', 'submitted_on', 'background', 'background_other', 'interests', 'interests_other',
+                   'conf_maths', 'conf_stats', 'courses', 'goals', 'goals_other', 'comments'], ';', '"', '');
+    foreach ($rows as $r) {
+        fputcsv($out, [
+            $r['id'], $r['submitted_on'], SURVEY_BACKGROUND[$r['background']] ?? $r['background'], $r['background_other'],
+            survey_labels($r['interests'], SURVEY_INTERESTS), $r['interests_other'],
+            $r['conf_maths'], $r['conf_stats'], survey_labels($r['courses'], SURVEY_COURSES),
+            survey_labels($r['goals'], SURVEY_GOALS), $r['goals_other'], $r['comments'],
+        ], ';', '"', '');
+    }
+    exit;
+}
 
 /* ── CSV export ────────────────────────────────────────────────────────────── */
 if (($_GET['export'] ?? '') === 'csv') {
@@ -35,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             set_setting('access_code', $code);
         }
         set_setting('registration_open', !empty($_POST['registration_open']) ? '1' : '0');
+        set_setting('survey_open', !empty($_POST['survey_open']) ? '1' : '0');
         flash('Settings saved.');
     } elseif ($id && $id !== (int) $me['id']) {
         if ($action === 'toggle') {
@@ -72,6 +96,29 @@ foreach ($students as $u) {
 }
 arsort($byProg);
 
+/* Survey summary: counts per option, average confidence. */
+$survey  = db()->query('SELECT * FROM survey_responses ORDER BY id')->fetchAll();
+$nSurvey = count($survey);
+$count   = function (string $field, array $options) use ($survey): array {
+    $c = array_fill_keys(array_keys($options), 0);
+    foreach ($survey as $r) {
+        foreach (array_filter(explode(',', $r[$field])) as $k) {
+            if (isset($c[$k])) {
+                $c[$k]++;
+            }
+        }
+    }
+    arsort($c);
+    return array_filter($c);
+};
+$avg = fn(string $f) => $nSurvey ? number_format(array_sum(array_column($survey, $f)) / $nSurvey, 1) : '—';
+$surveyBlocks = [
+    'What they studied before' => [$count('background', SURVEY_BACKGROUND), SURVEY_BACKGROUND],
+    'Interests'                => [$count('interests', SURVEY_INTERESTS), SURVEY_INTERESTS],
+    'Courses taken before'     => [$count('courses', SURVEY_COURSES), SURVEY_COURSES],
+    'Professional goals'       => [$count('goals', SURVEY_GOALS), SURVEY_GOALS],
+];
+
 page_header('Students', 'admin.php');
 page_head('Students', 'Registered students, access code and registration settings. Only visible to you.');
 ?>
@@ -102,8 +149,31 @@ page_head('Students', 'Registered students, access code and registration setting
           <input type="checkbox" name="registration_open" value="1" <?= registration_open() ? 'checked' : '' ?>>
           Registration open
         </label>
+        <label class="pel-check">
+          <input type="checkbox" name="survey_open" value="1" <?= survey_open() ? 'checked' : '' ?>>
+          Questionnaire open
+        </label>
         <button type="submit" class="btn btn-secondary">Save</button>
       </form>
+
+      <p class="section-label">Questionnaire (anonymous)
+        <a class="paper-link pel-right" href="admin.php?export=survey">Download answers (CSV)</a>
+      </p>
+      <p class="pel-muted">Link for the QR code: <strong>https://pel.carusomatteo.it/survey.php</strong></p>
+      <div class="pel-stats">
+        <div><span class="pel-stat-num"><?= $nSurvey ?></span><span class="pel-stat-label">answers</span></div>
+        <div><span class="pel-stat-num"><?= $avg('conf_maths') ?></span><span class="pel-stat-label">maths confidence (1–5)</span></div>
+        <div><span class="pel-stat-num"><?= $avg('conf_stats') ?></span><span class="pel-stat-label">statistics confidence (1–5)</span></div>
+      </div>
+<?php if ($nSurvey): ?>
+<?php foreach ($surveyBlocks as $title => [$counts, $options]): ?>
+      <p class="pel-muted"><strong><?= e($title) ?>:</strong>
+<?php foreach ($counts as $k => $n): ?>
+        <?= e($options[$k]) ?> <strong><?= $n ?></strong> &nbsp;
+<?php endforeach; ?>
+      </p>
+<?php endforeach; ?>
+<?php endif; ?>
 
       <p class="section-label">Registered students
         <a class="paper-link pel-right" href="admin.php?export=csv">Download CSV</a>

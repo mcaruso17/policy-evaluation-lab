@@ -35,6 +35,15 @@ page_head('Privacy notice', 'How this website uses your data (EU Regulation 2016
       </div>
 
       <div class="course-item">
+        <p class="course-title">Anonymous questionnaire</p>
+        <p class="course-desc">
+          The first-day questionnaire is anonymous: it does not require logging in and stores no name,
+          e-mail, student ID or IP address, only the answers and the day they were sent. The results
+          are used only to adapt the course and are discussed in class in aggregate form.
+        </p>
+      </div>
+
+      <div class="course-item">
         <p class="course-title">How long data are kept</p>
         <p class="course-desc">
           Until the end of the last exam session of the <?= e($c['year']) ?> academic year, after

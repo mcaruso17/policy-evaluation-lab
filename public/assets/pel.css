@@ -106,6 +106,12 @@
   .pel-row { grid-template-columns: 1fr; }
 }
 
+/* -- Questionnaire --------------------------------------------------------------- */
+.pel-survey { max-width: 44rem; }
+.pel-survey .pel-radio { flex-direction: column; gap: 0.35rem; }
+.pel-survey .pel-radio input[type="text"] { margin-top: 0.3rem; }
+.pel-survey .pel-scale { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 0.4rem 1rem; }
+
 /* -- Small bits ---------------------------------------------------------------- */
 
 .pel-muted {
