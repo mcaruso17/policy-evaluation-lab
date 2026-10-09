@@ -46,8 +46,12 @@
       "week": 2,
       "dates": "16–22 Oct",
       "topic": "Why governments intervene, and regression as a first tool",
-      "summary": "<strong>Lens 1, firms as targets of policy.</strong> Market failures that justify support to firms (externalities, R&amp;D spillovers, credit constraints); the instruments that reach firms in Italy and the EU (investment grants such as Law 488/1992, R&amp;D incentives, tax credits, public guarantees, PNRR). Then the first tool: OLS as a comparison of means, control variables, omitted-variable bias; robust and clustered standard errors.",
-      "items": []
+      "summary": "<strong>Lens 1, firms as targets of policy.</strong> Market failures that justify support to firms (externalities, R&amp;D spillovers, credit constraints); the instruments that reach firms in Italy and the EU (investment grants such as Law 488/1992, R&amp;D incentives, tax credits, public guarantees, PNRR). Then the first tool: OLS as a comparison of means, control variables, omitted-variable bias; robust and clustered standard errors. Lectures 4 and 5 open randomised experiments with two classic social experiments: the Oregon Health Plan lottery and the RAND Health Insurance Experiment.",
+      "items": [
+        { "type": "slides", "label": "Lecture 3 — Econometrics tutorial", "file": "slides/pel-03-econometrics.pdf" },
+        { "type": "slides", "label": "Lecture 4 — Social experiments (I): the Oregon Health Plan", "file": "slides/pel-04-experiments-1.pdf" },
+        { "type": "slides", "label": "Lecture 5 — Social experiments (II): the RAND HIE", "file": "slides/pel-05-experiments-2.pdf" }
+      ]
     },
     {
       "week": 3,
