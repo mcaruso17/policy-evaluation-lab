@@ -4,14 +4,14 @@
     "university": "Roma Tre University",
     "department": "Department of Business Economics",
     "year": "a.y. 2026/27",
-    "start_date": "2026-10-09",
+    "start_date": "2026-10-05",
     "details": "Master's degree (LM) · ECON-02/A · 60 hours · 9 CFU · first semester · taught in English",
     "lecturer": "Dr. Matteo Caruso",
     "email": "mcaruso4@os.uniroma3.it",
     "location": "Via Silvio D'Amico 77, 00145 Rome",
     "maps_url": "https://www.google.com/maps/search/?api=1&query=Via+Silvio+D%27Amico+77+00145+Roma",
     "office_hours": "By appointment via e-mail (day and time to be confirmed)",
-    "timetable": "Monday, Thursday and Friday, 5:00–7:00 pm · Room 20, Department of Business Economics (Economia Aziendale)",
+    "timetable": "Lectures on Monday and Thursday, lab and discussion (seminar) on Friday · 5:00–7:00 pm · Room 20, Department of Business Economics (Economia Aziendale)",
     "moodle_url": ""
   },
 
@@ -24,7 +24,7 @@
     {
       "date": "2026-10-09",
       "title": "How the course is organised",
-      "body": "We study policy evaluation through three lenses: <strong>firms as targets of public policy</strong> (why governments support or regulate firms, and with which instruments), <strong>counterfactual evaluation</strong> (the methods: experiments, matching, difference-in-differences, instrumental variables, regression discontinuity, synthetic control), and <strong>firms as evaluators of their own decisions</strong> (pilots, rollouts and A/B tests). Each method is paired with a reference paper, most of them on Italian incentives to firms: you find them in the week where they are discussed and under Resources."
+      "body": "We study policy evaluation through three lenses: <strong>firms as targets of public policy</strong> (why governments support or regulate firms, and with which instruments), <strong>counterfactual evaluation</strong> (the methods: experiments, matching, difference-in-differences, instrumental variables, regression discontinuity, synthetic control), and <strong>firms as evaluators of their own decisions</strong> (pilots, rollouts and A/B tests). Each method is paired with a reference paper, most of them on Italian incentives to firms: you find them in the week where they are discussed and under Resources. Every week has two lectures, on Monday and Thursday, and a lab and discussion session on Friday, run as a seminar: bring a laptop."
     },
     {
       "date": "2026-10-08",
@@ -36,28 +36,36 @@
   "weeks": [
     {
       "week": 1,
-      "dates": "9–15 Oct",
-      "topic": "Causality and potential outcomes",
-      "summary": "Descriptive analysis versus causal inference; potential outcomes, the counterfactual and selection bias. The three lenses of the course: <em>firms as targets of policy</em>, <em>counterfactual evaluation</em>, <em>firms as evaluators of their own decisions</em>. Selection bias in firm subsidies: subsidised versus non-subsidised firms, balance checks and t-tests. Software set-up: install R and RStudio.",
+      "dates": "5–9 Oct",
+      "topic": "Course presentation; causality and potential outcomes",
+      "summary": "Friday 9 October, first meeting: course presentation; descriptive analysis versus causal inference; potential outcomes, the counterfactual and average treatment effects. The three lenses of the course: <em>firms as targets of policy</em>, <em>counterfactual evaluation</em>, <em>firms as evaluators of their own decisions</em>. Software set-up: install R and RStudio.",
       "items": [
         { "type": "slides", "label": "Lecture 0 — Course presentation", "file": "slides/pel-00-syllabus.pdf" },
         { "type": "slides", "label": "Lecture 1 — Causality (I)", "file": "slides/pel-01-causality-1.pdf" },
-        { "type": "slides", "label": "Lecture 2 — Causality (II): selection bias, from people to firms", "file": "slides/pel-02-causality-2.pdf" },
         { "type": "reading", "label": "Mixtape, ch. 4 — Potential outcomes", "url": "https://mixtape.scunning.com/04-potential_outcomes" },
         { "type": "link", "label": "Spurious correlations", "url": "https://www.tylervigen.com/spurious-correlations" }
       ]
     },
     {
       "week": 2,
-      "dates": "16–22 Oct",
-      "topic": "Why governments intervene, and regression as a first tool",
-      "summary": "<strong>Lens 1, firms as targets of policy.</strong> Market failures that justify support to firms (externalities, R&amp;D spillovers, credit constraints); the instruments that reach firms in Italy and the EU (investment grants such as Law 488/1992, R&amp;D incentives, tax credits, public guarantees, PNRR). Then the first tool: OLS as a comparison of means, control variables, omitted-variable bias; robust and clustered standard errors. <strong>Lab 1</strong> (Friday): first steps in R, reproducing the tables of Lecture 2 on simulated firm data. Lecture 4 opens randomised experiments: the same grant assigned by lottery, and a management-consulting experiment in Indian textile plants (Bloom et al.). Lecture 5: what goes wrong in experiments (non-compliance, intention-to-treat, attrition, spillovers, power), A/B tests inside companies, and a randomised export experiment with Egyptian rug producers (Atkin, Khandelwal and Osman).",
+      "dates": "12–16 Oct",
+      "topic": "Selection bias and regression",
+      "summary": "<strong>Monday</strong>: selection bias, from Khuzdar and Maria to firms with and without an investment grant; balance checks and t-tests. <strong>Thursday</strong>: regression as a first tool: OLS as a comparison of means, control variables, omitted-variable bias, robust and clustered standard errors. <strong>Friday, Lab 1</strong>: first steps in R, reproducing the tables of Lecture 2 on simulated firm data.",
       "items": [
+        { "type": "slides", "label": "Lecture 2 — Causality (II): selection bias, from people to firms", "file": "slides/pel-02-causality-2.pdf" },
         { "type": "slides", "label": "Lecture 3 — Econometrics tutorial", "file": "slides/pel-03-econometrics.pdf" },
         { "type": "slides", "label": "Lab 1 — First steps in R", "file": "slides/pel-lab-01-r-basics.pdf" },
         { "type": "code", "label": "Lab 1 — R script", "file": "exercises/pel-lab-01.R" },
         { "type": "dataset", "label": "firms_grant.csv — 1,500 manufacturing SMEs and an investment grant (simulated; Lecture 2 and Lab 1)", "file": "datasets/firms_grant.csv" },
-        { "type": "solution", "label": "Lab 1 — Solutions to the exercises", "file": "solutions/pel-lab-01-solutions.R", "available_from": "2026-10-19" },
+        { "type": "solution", "label": "Lab 1 — Solutions to the exercises", "file": "solutions/pel-lab-01-solutions.R", "available_from": "2026-10-19" }
+      ]
+    },
+    {
+      "week": 3,
+      "dates": "19–23 Oct",
+      "topic": "Randomised experiments",
+      "summary": "<strong>Monday</strong>: why randomisation solves selection bias; the grant assigned by lottery; does management matter? A management-consulting experiment in Indian textile plants (Bloom et al.). <strong>Thursday</strong>: what goes wrong in experiments (non-compliance, intention-to-treat, attrition, spillovers, power); <strong>Lens 3, firms as evaluators</strong>: A/B tests inside companies; exporting and firm performance (Atkin, Khandelwal and Osman). <strong>Friday, Lab 2</strong>: regression in R and the grant lottery; discussion of the two experiments.",
+      "items": [
         { "type": "slides", "label": "Lecture 4 — Randomised experiments (I): a grant lottery, and does management matter?", "file": "slides/pel-04-experiments-1.pdf" },
         { "type": "reading", "label": "Bloom, Eifert, Mahajan, McKenzie and Roberts — Does management matter? Evidence from India (NBER WP 16658, 2011; QJE 2013)", "url": "https://www.nber.org/system/files/working_papers/w16658/w16658.pdf" },
         { "type": "slides", "label": "Lecture 5 — Randomised experiments (II): what goes wrong, and A/B tests in firms", "file": "slides/pel-05-experiments-2.pdf" },
@@ -65,26 +73,19 @@
       ]
     },
     {
-      "week": 3,
-      "dates": "23–29 Oct",
-      "topic": "Randomised experiments",
-      "summary": "Why randomisation solves selection bias; balance checks, compliance, intention-to-treat; power and sample size. <strong>Lens 3, firms as evaluators:</strong> pilots and A/B tests inside companies.",
-      "items": []
-    },
-    {
       "week": 4,
-      "dates": "30 Oct–5 Nov",
+      "dates": "26–30 Oct",
       "topic": "Selection on observables",
-      "summary": "Conditional independence, matching, the propensity score and inverse probability weighting. Application: why firms that apply for a subsidy differ from those that do not, and what matching can and cannot fix.",
+      "summary": "Conditional independence, matching, the propensity score and inverse probability weighting. Application: why firms that apply for a subsidy differ from those that do not, and what matching can and cannot fix. <strong>Friday</strong>: lab and discussion.",
       "items": [
         { "type": "link", "label": "EconVis — Propensity score matching", "url": "https://carusomatteo.it/models/psm.html" }
       ]
     },
     {
       "week": 5,
-      "dates": "6–12 Nov",
+      "dates": "2–6 Nov",
       "topic": "Difference-in-differences I",
-      "summary": "The 2×2 design, parallel trends, regression formulation. Lab: Card and Krueger on the New Jersey minimum wage. Firm subsidies: Law 488/1992, comparing subsidised firms with rejected applicants, and whether the subsidy created new investment or only moved it in time.",
+      "summary": "The 2×2 design, parallel trends, regression formulation. <strong>Friday, lab</strong>: Card and Krueger on the New Jersey minimum wage. Firm subsidies: Law 488/1992, comparing subsidised firms with rejected applicants, and whether the subsidy created new investment or only moved it in time.",
       "items": [
         { "type": "reading", "label": "Card and Krueger — Minimum wages and employment: fast food in New Jersey and Pennsylvania (NBER WP 4509, 1993; AER 1994)", "url": "https://www.nber.org/system/files/working_papers/w4509/w4509.pdf" },
         { "type": "reading", "label": "Bronzini and de Blasio — Evaluating the impact of investment incentives: the case of Italy's Law 488/1992 (2006, J. Urban Economics)", "url": "https://www.bancaditalia.it/pubblicazioni/altri-atti-convegni/2007-valutazione-aiuti-impr/1_Evaluating_the_impact.pdf?language_id=1" },
@@ -93,27 +94,27 @@
     },
     {
       "week": 6,
-      "dates": "13–19 Nov",
+      "dates": "9–13 Nov",
       "topic": "Difference-in-differences II",
-      "summary": "Event studies and pre-trends; staggered adoption and the problems of two-way fixed effects. <strong>Lens 3:</strong> staggered rollouts of a programme across branches, stores or regions, and how to read them correctly.",
+      "summary": "Event studies and pre-trends; staggered adoption and the problems of two-way fixed effects. <strong>Lens 3:</strong> staggered rollouts of a programme across branches, stores or regions, and how to read them correctly. <strong>Friday</strong>: lab and discussion.",
       "items": [
         { "type": "link", "label": "EconVis — Event study", "url": "https://carusomatteo.it/models/event_study.html" }
       ]
     },
     {
       "week": 7,
-      "dates": "20–26 Nov",
+      "dates": "16–20 Nov",
       "topic": "Instrumental variables",
-      "summary": "Relevance and exclusion, 2SLS, weak instruments, LATE. Lab: Angrist and Krueger (1991) on compulsory schooling. Business framing: encouragement designs, when a programme is offered to everyone but only some take it up.",
+      "summary": "Relevance and exclusion, 2SLS, weak instruments, LATE. <strong>Friday, lab</strong>: Angrist and Krueger (1991) on compulsory schooling. Business framing: encouragement designs, when a programme is offered to everyone but only some take it up.",
       "items": [
         { "type": "link", "label": "EconVis — Instrumental variables", "url": "https://carusomatteo.it/models/iv.html" }
       ]
     },
     {
       "week": 8,
-      "dates": "27 Nov–3 Dec",
+      "dates": "23–27 Nov",
       "topic": "Regression discontinuity",
-      "summary": "Sharp and fuzzy designs, bandwidth choice, manipulation tests. Firm incentives allocated by a score threshold (R&amp;D grants in Emilia-Romagna) and by an unexpected shortage of public funds (an Italian innovation programme).",
+      "summary": "Sharp and fuzzy designs, bandwidth choice, manipulation tests. Firm incentives allocated by a score threshold (R&amp;D grants in Emilia-Romagna) and by an unexpected shortage of public funds (an Italian innovation programme). <strong>Friday</strong>: lab and discussion.",
       "items": [
         { "type": "reading", "label": "Bronzini and Iachini — Are incentives for R&D effective? Evidence from a regression discontinuity approach (AEJ: Economic Policy, 2014)", "url": "https://www.bancaditalia.it/pubblicazioni/altri-atti-convegni/2010-workshop-val-aiuti/bronzini.pdf" },
         { "type": "reading", "label": "de Blasio, Fantino and Pellegrini — Evaluating the impact of innovation incentives: evidence from an unexpected shortage of funds (Banca d'Italia WP 792, 2011)", "url": "https://www.bancaditalia.it/pubblicazioni/temi-discussione/2011/2011-0792/en_tema_792.pdf" },
@@ -123,18 +124,18 @@
     },
     {
       "week": 9,
-      "dates": "4–10 Dec",
+      "dates": "30 Nov–4 Dec",
       "topic": "Synthetic control",
-      "summary": "Building a counterfactual from a donor pool; inference by placebo. Case study: California Proposition 99. Business framing: evaluating a single large decision, such as a market entry or a regional launch, when there is only one treated unit.",
+      "summary": "Building a counterfactual from a donor pool; inference by placebo. Case study: California Proposition 99. Business framing: evaluating a single large decision, such as a market entry or a regional launch, when there is only one treated unit. <strong>Friday</strong>: lab and discussion.",
       "items": [
         { "type": "link", "label": "EconVis — Synthetic control", "url": "https://carusomatteo.it/models/synth.html" }
       ]
     },
     {
       "week": 10,
-      "dates": "11–17 Dec",
+      "dates": "7–11 Dec",
       "topic": "Evidence for decisions, and report presentations",
-      "summary": "Reading an evaluation as a manager: what the evidence supports, what it does not, and how to communicate it. Report presentations and exam review.",
+      "summary": "Reading an evaluation as a manager: what the evidence supports, what it does not, and how to communicate it. Report presentations (Monday to Friday) and exam review.",
       "items": []
     }
   ],
@@ -186,8 +187,8 @@
     {
       "group": "Reference papers",
       "items": [
-        { "type": "reading", "label": "Bloom et al. (2013) — Does management matter? Evidence from India · RCT · week 2", "url": "https://www.nber.org/system/files/working_papers/w16658/w16658.pdf" },
-        { "type": "reading", "label": "Atkin, Khandelwal and Osman (2017) — Exporting and firm performance: evidence from a randomized experiment · RCT · week 2", "url": "https://www.nber.org/system/files/working_papers/w20690/w20690.pdf" },
+        { "type": "reading", "label": "Bloom et al. (2013) — Does management matter? Evidence from India · RCT · week 3", "url": "https://www.nber.org/system/files/working_papers/w16658/w16658.pdf" },
+        { "type": "reading", "label": "Atkin, Khandelwal and Osman (2017) — Exporting and firm performance: evidence from a randomized experiment · RCT · week 3", "url": "https://www.nber.org/system/files/working_papers/w20690/w20690.pdf" },
         { "type": "reading", "label": "Card and Krueger (1994) — Minimum wages and employment · DiD · week 5", "url": "https://www.nber.org/system/files/working_papers/w4509/w4509.pdf" },
         { "type": "reading", "label": "Bronzini and de Blasio (2006) — Investment incentives: Italy's Law 488/1992 · DiD · week 5", "url": "https://www.bancaditalia.it/pubblicazioni/altri-atti-convegni/2007-valutazione-aiuti-impr/1_Evaluating_the_impact.pdf?language_id=1" },
         { "type": "reading", "label": "Bronzini and Iachini (2014) — Are incentives for R&D effective? · RDD · week 8", "url": "https://www.bancaditalia.it/pubblicazioni/altri-atti-convegni/2010-workshop-val-aiuti/bronzini.pdf" },
