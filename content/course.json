@@ -17,6 +17,11 @@
 
   "announcements": [
     {
+      "date": "2026-10-11",
+      "title": "Friday 16 October: our first R lab",
+      "body": "Bring a laptop with <strong>R</strong> and <strong>RStudio</strong> installed (both free: <a href=\"https://posit.co/download/rstudio-desktop\">posit.co/download/rstudio-desktop</a>). Before class, download <code>firms_grant.csv</code> and the Lab 1 script from week 2 and put them in the same folder: we will reproduce the tables of Lecture 2 on subsidised and non-subsidised firms."
+    },
+    {
       "date": "2026-10-09",
       "title": "How the course is organised",
       "body": "We study policy evaluation through three lenses: <strong>firms as targets of public policy</strong> (why governments support or regulate firms, and with which instruments), <strong>counterfactual evaluation</strong> (the methods: experiments, matching, difference-in-differences, instrumental variables, regression discontinuity, synthetic control), and <strong>firms as evaluators of their own decisions</strong> (pilots, rollouts and A/B tests). Each method is paired with a reference paper, most of them on Italian incentives to firms: you find them in the week where they are discussed and under Resources."
@@ -33,11 +38,11 @@
       "week": 1,
       "dates": "9–15 Oct",
       "topic": "Causality and potential outcomes",
-      "summary": "Descriptive analysis versus causal inference; potential outcomes, the counterfactual and selection bias. The three lenses of the course: <em>firms as targets of policy</em>, <em>counterfactual evaluation</em>, <em>firms as evaluators of their own decisions</em>. Software set-up.",
+      "summary": "Descriptive analysis versus causal inference; potential outcomes, the counterfactual and selection bias. The three lenses of the course: <em>firms as targets of policy</em>, <em>counterfactual evaluation</em>, <em>firms as evaluators of their own decisions</em>. Selection bias in firm subsidies: subsidised versus non-subsidised firms, balance checks and t-tests. Software set-up: install R and RStudio.",
       "items": [
         { "type": "slides", "label": "Lecture 0 — Course presentation", "file": "slides/pel-00-syllabus.pdf" },
         { "type": "slides", "label": "Lecture 1 — Causality (I)", "file": "slides/pel-01-causality-1.pdf" },
-        { "type": "slides", "label": "Lecture 2 — Causality (II)", "file": "slides/pel-02-causality-2.pdf" },
+        { "type": "slides", "label": "Lecture 2 — Causality (II): selection bias, from people to firms", "file": "slides/pel-02-causality-2.pdf" },
         { "type": "reading", "label": "Mixtape, ch. 4 — Potential outcomes", "url": "https://mixtape.scunning.com/04-potential_outcomes" },
         { "type": "link", "label": "Spurious correlations", "url": "https://www.tylervigen.com/spurious-correlations" }
       ]
@@ -46,9 +51,13 @@
       "week": 2,
       "dates": "16–22 Oct",
       "topic": "Why governments intervene, and regression as a first tool",
-      "summary": "<strong>Lens 1, firms as targets of policy.</strong> Market failures that justify support to firms (externalities, R&amp;D spillovers, credit constraints); the instruments that reach firms in Italy and the EU (investment grants such as Law 488/1992, R&amp;D incentives, tax credits, public guarantees, PNRR). Then the first tool: OLS as a comparison of means, control variables, omitted-variable bias; robust and clustered standard errors. Lectures 4 and 5 open randomised experiments with two classic social experiments: the Oregon Health Plan lottery and the RAND Health Insurance Experiment.",
+      "summary": "<strong>Lens 1, firms as targets of policy.</strong> Market failures that justify support to firms (externalities, R&amp;D spillovers, credit constraints); the instruments that reach firms in Italy and the EU (investment grants such as Law 488/1992, R&amp;D incentives, tax credits, public guarantees, PNRR). Then the first tool: OLS as a comparison of means, control variables, omitted-variable bias; robust and clustered standard errors. <strong>Lab 1</strong> (Friday): first steps in R, reproducing the tables of Lecture 2 on simulated firm data. Lectures 4 and 5 open randomised experiments with two classic social experiments: the Oregon Health Plan lottery and the RAND Health Insurance Experiment.",
       "items": [
         { "type": "slides", "label": "Lecture 3 — Econometrics tutorial", "file": "slides/pel-03-econometrics.pdf" },
+        { "type": "slides", "label": "Lab 1 — First steps in R", "file": "slides/pel-lab-01-r-basics.pdf" },
+        { "type": "code", "label": "Lab 1 — R script", "file": "exercises/pel-lab-01.R" },
+        { "type": "dataset", "label": "firms_grant.csv — 1,500 manufacturing SMEs and an investment grant (simulated; Lecture 2 and Lab 1)", "file": "datasets/firms_grant.csv" },
+        { "type": "solution", "label": "Lab 1 — Solutions to the exercises", "file": "solutions/pel-lab-01-solutions.R", "available_from": "2026-10-19" },
         { "type": "slides", "label": "Lecture 4 — Social experiments (I): the Oregon Health Plan", "file": "slides/pel-04-experiments-1.pdf" },
         { "type": "slides", "label": "Lecture 5 — Social experiments (II): the RAND HIE", "file": "slides/pel-05-experiments-2.pdf" }
       ]
