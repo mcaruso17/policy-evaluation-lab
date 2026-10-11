@@ -51,7 +51,7 @@
       "week": 2,
       "dates": "16–22 Oct",
       "topic": "Why governments intervene, and regression as a first tool",
-      "summary": "<strong>Lens 1, firms as targets of policy.</strong> Market failures that justify support to firms (externalities, R&amp;D spillovers, credit constraints); the instruments that reach firms in Italy and the EU (investment grants such as Law 488/1992, R&amp;D incentives, tax credits, public guarantees, PNRR). Then the first tool: OLS as a comparison of means, control variables, omitted-variable bias; robust and clustered standard errors. <strong>Lab 1</strong> (Friday): first steps in R, reproducing the tables of Lecture 2 on simulated firm data. Lecture 4 opens randomised experiments: the same grant assigned by lottery, and a management-consulting experiment in Indian textile plants (Bloom et al.). Lecture 5: the RAND Health Insurance Experiment.",
+      "summary": "<strong>Lens 1, firms as targets of policy.</strong> Market failures that justify support to firms (externalities, R&amp;D spillovers, credit constraints); the instruments that reach firms in Italy and the EU (investment grants such as Law 488/1992, R&amp;D incentives, tax credits, public guarantees, PNRR). Then the first tool: OLS as a comparison of means, control variables, omitted-variable bias; robust and clustered standard errors. <strong>Lab 1</strong> (Friday): first steps in R, reproducing the tables of Lecture 2 on simulated firm data. Lecture 4 opens randomised experiments: the same grant assigned by lottery, and a management-consulting experiment in Indian textile plants (Bloom et al.). Lecture 5: what goes wrong in experiments (non-compliance, intention-to-treat, attrition, spillovers, power), A/B tests inside companies, and a randomised export experiment with Egyptian rug producers (Atkin, Khandelwal and Osman).",
       "items": [
         { "type": "slides", "label": "Lecture 3 — Econometrics tutorial", "file": "slides/pel-03-econometrics.pdf" },
         { "type": "slides", "label": "Lab 1 — First steps in R", "file": "slides/pel-lab-01-r-basics.pdf" },
@@ -60,7 +60,8 @@
         { "type": "solution", "label": "Lab 1 — Solutions to the exercises", "file": "solutions/pel-lab-01-solutions.R", "available_from": "2026-10-19" },
         { "type": "slides", "label": "Lecture 4 — Randomised experiments (I): a grant lottery, and does management matter?", "file": "slides/pel-04-experiments-1.pdf" },
         { "type": "reading", "label": "Bloom, Eifert, Mahajan, McKenzie and Roberts — Does management matter? Evidence from India (NBER WP 16658, 2011; QJE 2013)", "url": "https://www.nber.org/system/files/working_papers/w16658/w16658.pdf" },
-        { "type": "slides", "label": "Lecture 5 — Social experiments (II): the RAND HIE", "file": "slides/pel-05-experiments-2.pdf" }
+        { "type": "slides", "label": "Lecture 5 — Randomised experiments (II): what goes wrong, and A/B tests in firms", "file": "slides/pel-05-experiments-2.pdf" },
+        { "type": "reading", "label": "Atkin, Khandelwal and Osman — Exporting and firm performance: evidence from a randomized experiment (NBER WP 20690; QJE 2017)", "url": "https://www.nber.org/system/files/working_papers/w20690/w20690.pdf" }
       ]
     },
     {
@@ -186,6 +187,7 @@
       "group": "Reference papers",
       "items": [
         { "type": "reading", "label": "Bloom et al. (2013) — Does management matter? Evidence from India · RCT · week 2", "url": "https://www.nber.org/system/files/working_papers/w16658/w16658.pdf" },
+        { "type": "reading", "label": "Atkin, Khandelwal and Osman (2017) — Exporting and firm performance: evidence from a randomized experiment · RCT · week 2", "url": "https://www.nber.org/system/files/working_papers/w20690/w20690.pdf" },
         { "type": "reading", "label": "Card and Krueger (1994) — Minimum wages and employment · DiD · week 5", "url": "https://www.nber.org/system/files/working_papers/w4509/w4509.pdf" },
         { "type": "reading", "label": "Bronzini and de Blasio (2006) — Investment incentives: Italy's Law 488/1992 · DiD · week 5", "url": "https://www.bancaditalia.it/pubblicazioni/altri-atti-convegni/2007-valutazione-aiuti-impr/1_Evaluating_the_impact.pdf?language_id=1" },
         { "type": "reading", "label": "Bronzini and Iachini (2014) — Are incentives for R&D effective? · RDD · week 8", "url": "https://www.bancaditalia.it/pubblicazioni/altri-atti-convegni/2010-workshop-val-aiuti/bronzini.pdf" },
