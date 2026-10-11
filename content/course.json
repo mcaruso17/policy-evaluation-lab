@@ -18,6 +18,11 @@
   "announcements": [
     {
       "date": "2026-10-11",
+      "title": "Extra sessions to be scheduled",
+      "body": "The regular timetable (Monday, Thursday and Friday until 11 December) does not cover all 60 hours of the course, so a few extra sessions will be scheduled. Dates and times will be announced here."
+    },
+    {
+      "date": "2026-10-11",
       "title": "Friday 16 October: our first R lab",
       "body": "Bring a laptop with <strong>R</strong> and <strong>RStudio</strong> installed (both free: <a href=\"https://posit.co/download/rstudio-desktop\">posit.co/download/rstudio-desktop</a>). Before class, download <code>firms_grant.csv</code> and the Lab 1 script from week 2 and put them in the same folder: we will reproduce the tables of Lecture 2 on subsidised and non-subsidised firms."
     },
