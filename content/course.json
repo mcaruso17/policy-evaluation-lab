@@ -12,7 +12,7 @@
     "maps_url": "https://www.google.com/maps/search/?api=1&query=Via+Silvio+D%27Amico+77+00145+Roma",
     "office_hours": "By appointment via e-mail (day and time to be confirmed)",
     "timetable": "Lectures on Monday and Thursday, lab and discussion (seminar) on Friday · 5:00–7:00 pm · Room 20, Department of Business Economics (Economia Aziendale)",
-    "moodle_url": ""
+    "moodle_url": "https://economiaaziendale.el.uniroma3.it/course/view.php?id=1690"
   },
 
   "announcements": [
@@ -55,7 +55,7 @@
       "week": 2,
       "dates": "12–16 Oct",
       "topic": "Selection bias and regression",
-      "summary": "<strong>Monday</strong>: selection bias, from Khuzdar and Maria to firms with and without an investment grant; balance checks and t-tests. <strong>Thursday</strong>: regression as a first tool: OLS as a comparison of means, control variables, omitted-variable bias, robust and clustered standard errors. <strong>Friday, Lab 1</strong>: first steps in R, reproducing the tables of Lecture 2 on simulated firm data.",
+      "summary": "<strong>Monday</strong>: selection bias, from Khuzdar and Maria to firms with and without an investment grant; then regression as a first tool: OLS as a comparison of means, control variables. <strong>Thursday</strong>: omitted-variable bias, robust and clustered standard errors. <strong>Friday, Lab 1</strong>: first steps in R, reproducing the tables of Lecture 2 on simulated firm data.",
       "items": [
         { "type": "slides", "label": "Lecture 2 — Causality (II): selection bias, from people to firms", "file": "slides/pel-02-causality-2.pdf" },
         { "type": "slides", "label": "Lecture 3 — Econometrics tutorial", "file": "slides/pel-03-econometrics.pdf" },
