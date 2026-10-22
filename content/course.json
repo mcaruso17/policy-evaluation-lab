@@ -74,6 +74,7 @@
         { "type": "slides", "label": "Lecture 4 — Randomised experiments (I): a grant lottery, and does management matter?", "file": "slides/pel-04-experiments-1.pdf" },
         { "type": "reading", "label": "Bloom, Eifert, Mahajan, McKenzie and Roberts — Does management matter? Evidence from India (NBER WP 16658, 2011; QJE 2013)", "url": "https://www.nber.org/system/files/working_papers/w16658/w16658.pdf" },
         { "type": "slides", "label": "Lecture 5 — Randomised experiments (II): what goes wrong, and A/B tests in firms", "file": "slides/pel-05-experiments-2.pdf" },
+        { "type": "link", "label": "Interactive — Power and the minimum detectable effect", "url": "power.php" },
         { "type": "reading", "label": "Atkin, Khandelwal and Osman — Exporting and firm performance: evidence from a randomized experiment (NBER WP 20690; QJE 2017)", "url": "https://www.nber.org/system/files/working_papers/w20690/w20690.pdf" }
       ]
     },
@@ -228,6 +229,7 @@
     {
       "group": "Interactive",
       "items": [
+        { "type": "link", "label": "Power and the minimum detectable effect (this site)", "url": "power.php" },
         { "type": "link", "label": "EconVis — all models", "url": "https://carusomatteo.it/econvis.html" },
         { "type": "link", "label": "Spurious correlations (Tyler Vigen)", "url": "https://www.tylervigen.com/spurious-correlations" }
       ]

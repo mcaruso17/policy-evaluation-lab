@@ -439,3 +439,60 @@ footer a:hover { color: var(--accent); }
 .page-wrap:has(.pel-table) {
   max-width: var(--max-w-wide);
 }
+
+/* -- Power and MDE interactive page (power.php) ------------------------------ */
+
+.pel-power-controls { margin-top: 2rem; }
+
+.pel-power-presets { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.2rem; }
+
+.pel-power-presets button,
+.pel-power-select {
+  font: inherit;
+  font-size: 0.8rem;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 2px 12px;
+  cursor: pointer;
+}
+
+.pel-power-presets button:hover { border-color: var(--accent); color: var(--accent); }
+
+.pel-power-select { border-radius: var(--radius-sm); padding: 4px 8px; align-self: flex-start; }
+
+.pel-power-chart {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+  padding: 1rem 1rem 0.6rem;
+}
+
+.pel-power-chart svg { width: 100%; height: auto; display: block; }
+
+.pel-power-legend { font-size: 0.8rem; color: var(--text-muted); margin: 0.4rem 0 0; text-align: left; }
+
+.pel-power-key { display: inline-block; width: 18px; height: 3px; vertical-align: middle; margin: 0 0.35rem 0 0.9rem; }
+.pel-power-key:first-child { margin-left: 0; }
+.pel-power-key-null { background: var(--chart-contrast); }
+.pel-power-key-alt { background: var(--accent); }
+
+.pel-power-stats { margin-top: 1.5rem; }
+
+.pel-power-num {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  line-height: 1.1;
+  color: var(--accent);
+  margin: 0.2rem 0 0.4rem;
+  text-align: left;
+}
+
+.page-wrap:has(.pel-power-chart) { max-width: var(--max-w-wide); }
+
+.pel-power-stats.pel-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
