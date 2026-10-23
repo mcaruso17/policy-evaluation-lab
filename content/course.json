@@ -17,6 +17,11 @@
 
   "announcements": [
     {
+      "date": "2026-10-23",
+      "title": "Friday 23 October: an optional special session",
+      "body": "Many of you are at graduation ceremonies today, so instead of moving the programme forward we hold a one-off session on <strong>where evidence enters the public budget</strong>: the EU fiscal rules, the Italian budget calendar and the spending review, with a short group exercise. It is not part of the exam programme. The slides are in Week 3 on the Lectures page."
+    },
+    {
       "date": "2026-10-11",
       "title": "Extra sessions to be scheduled",
       "body": "The regular timetable (Monday, Thursday and Friday until 11 December) does not cover all 60 hours of the course, so a few extra sessions will be scheduled. Dates and times will be announced here."
@@ -75,7 +80,9 @@
         { "type": "reading", "label": "Bloom, Eifert, Mahajan, McKenzie and Roberts — Does management matter? Evidence from India (NBER WP 16658, 2011; QJE 2013)", "url": "https://www.nber.org/system/files/working_papers/w16658/w16658.pdf" },
         { "type": "slides", "label": "Lecture 5 — Randomised experiments (II): what goes wrong, and A/B tests in firms", "file": "slides/pel-05-experiments-2.pdf" },
         { "type": "link", "label": "Interactive — Power and the minimum detectable effect", "url": "power.php" },
-        { "type": "reading", "label": "Atkin, Khandelwal and Osman — Exporting and firm performance: evidence from a randomized experiment (NBER WP 20690; QJE 2017)", "url": "https://www.nber.org/system/files/working_papers/w20690/w20690.pdf" }
+        { "type": "reading", "label": "Atkin, Khandelwal and Osman — Exporting and firm performance: evidence from a randomized experiment (NBER WP 20690; QJE 2017)", "url": "https://www.nber.org/system/files/working_papers/w20690/w20690.pdf" },
+        { "type": "slides", "label": "Special session (Fri 23 Oct, optional) — Where does evidence enter the budget? The spending cycle in the EU and Italy", "file": "slides/pel-special-budget-cycle.pdf" },
+        { "type": "slides", "label": "Special session — lecturer notes", "file": "slides/pel-special-budget-cycle-notes.pdf", "available_from": "2099-01-01" }
       ]
     },
     {
@@ -183,6 +190,15 @@
   },
 
   "resources": [
+    {
+      "group": "Special session: evidence and the budget (sources)",
+      "items": [
+        { "type": "reading", "label": "Regulation (EU) 2024/1263 — the new EU fiscal rules (preventive arm)", "url": "https://data.europa.eu/eli/reg/2024/1263/oj" },
+        { "type": "reading", "label": "Council (2025) — Recommendation endorsing Italy's medium-term fiscal-structural plan 2025–2029", "url": "https://data.consilium.europa.eu/doc/document/ST-5019-2025-INIT/en/pdf" },
+        { "type": "reading", "label": "MEF-RGS — Spending review: effectiveness of the practices of the Ministries of Health and Justice (PNRR M1C1-102)", "url": "https://www.rgs.mef.gov.it/_Documenti/VERSIONE-I/Pubblicazioni/Analisi_e_valutazione_della_Spesa/la_revisione_della_spesa_del_bilancio_dello_stato_/2023028_M1C1-102_Valutazione.pdf" },
+        { "type": "reading", "label": "HM Treasury — The Magenta Book: guidance on evaluation (2026 update)", "url": "https://www.gov.uk/government/publications/the-magenta-book" }
+      ]
+    },
     {
       "group": "Main textbooks",
       "items": [
