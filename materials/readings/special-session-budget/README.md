@@ -3,7 +3,7 @@
 Primary documents behind the slides `materials/slides/pel-special-budget-cycle.pdf`
 (source: `lecture-budget-cycle.tex`). Every institutional fact on the slides was
 checked against these documents in October 2026. Legal references to Italian law
-are in the speaker notes; Italian statutes are linked rather than stored here.
+are in the speaker notes.
 
 ## EU (`eu/`)
 
@@ -31,12 +31,9 @@ Not stored: Council Recommendation of 21 Jan 2025 on ending the excessive defici
 | `mef-rgs-2023-12-valutazione-politiche-revisione-spesa.pdf` | MEF-RGS, *Valutazione delle politiche pubbliche e revisione della spesa* (Dec 2023) | Evaluation and spending review; OECD project; counterfactual analysis |
 | `mef-rgs-2025-spending-review-report-M1C1-115.pdf` | MEF-RGS report for PNRR milestone M1C1-115 (Camera, July 2025) | Reform 1.13; savings targets 2023–2025 (0.8 / 1.2 / 1.5 bn) |
 
-Linked, not stored:
-- Law 196/2009 on Normattiva: arts 7, 21, 22-bis, 33, 35, 38 — https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2009-12-31;196
-- Law 243/2012 (UPB), art. 18 — https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2012-12-24;243~art18!vig=
-- DPCM 15 settembre 2017 n. 169 (AIR/VIR) — https://www.mise.gov.it/images/stories/documenti/DPCM_15_settembre_2017_n_169.pdf
-- Camera dei deputati, DFP 2026 (parliamentary resolutions replacing DEF/NADEF) — https://temi.camera.it/leg19/provvedimento/il-documento-di-finanza-pubblica-2026.html
-- Camera dei deputati, PNRR nurseries (target M4C1-18) — https://temi.camera.it/leg19/pnrr/politiche/OCD54-10/istruzione.html
+| `camera-2023-pnrr-transizione-4-0-OCD177-6253.pdf` | Camera dei deputati, PNRR fact sheet M1C2 (Transizione 4.0) | Programme description, slide 27 |
+
+Text snapshots in `italy/web/` (fetched 23 Oct 2026 from Normattiva and temi.camera.it): Law 196/2009 arts 7, 21, 22-bis, 33, 35, 38; Law 243/2012 art. 18; Law 20/1994 art. 3; DPCM 169/2017; D.Lgs. 230/2021 art. 1; D.L. 415/1992 art. 1; Law 662/1996 art. 2; Law 207/2024 (header); Camera pages on DFP 2026, PNRR nurseries, spending review commissioners.
 
 ## International (`international/`)
 
@@ -47,7 +44,11 @@ Linked, not stored:
 | `uk-green-book-2026.pdf` | HM Treasury, *The Green Book* (2026) | Ex ante appraisal |
 | `uk-magenta-book-2026.pdf` | HM Treasury, *The Magenta Book* (May 2026) | Ex post evaluation informs future spending decisions |
 
-Linked, not stored: HM Treasury, *Spending Review 2025* — https://www.gov.uk/government/publications/spending-review-2025-document
+Text snapshots in `international/web/`: HM Treasury *Spending Review 2025*; Dutch *Regeling periodiek evaluatieonderzoek 2022* (wetten.nl); IDEAS/RePEc records of Bronzini and de Blasio (2006) and Cerqua and Pellegrini (2014).
+
+`papers/`: Bronzini and de Blasio, working-paper version (March 2006) of the J. Urban Economics article.
+
+See `CLAIMS-CHECK.md` for the slide-by-slide match of every claim to a passage in these files.
 
 All documents are public: EU and Council texts from the EU registers, Italian
 public documents, UK Crown copyright under the Open Government Licence v3.0,
