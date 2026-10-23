@@ -1,0 +1,509 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Policy Evaluation Lab -- Special session (Friday 23 October 2026)
+%  "Where does evidence enter the budget? The spending cycle in the EU and Italy"
+%  One-off deep-dive for a small group: it does not advance the syllabus.
+%  Speaker notes: every content slide has a \note{}. Build the student slides
+%  as usual; for the notes edition compile with
+%      pdflatex "\def\pelShowNotes{}\input{lecture-budget-cycle.tex}"
+%  Legal references (articles, decrees) are kept in the notes, not on slides.
+%  All institutional facts were checked against the sources listed on the
+%  references slide (Oct 2026).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[aspectratio=169,xcolor=table]{beamer}
+\input{preamble-pel}
+\ifdefined\pelShowNotes
+  \setbeameroption{show only notes}
+  \setbeamertemplate{note page}{%
+    \vskip0.25cm
+    \begin{columns}[T]
+      \begin{column}{0.36\textwidth}\insertslideintonotes{0.3}\end{column}
+      \begin{column}{0.6\textwidth}\scriptsize\color{pelText}\raggedright\insertnote\end{column}
+    \end{columns}}
+\fi
+\usetikzlibrary{arrows.meta,positioning,calc}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\title[Policy Evaluation Lab]{Policy Evaluation Lab}
+\subtitle[Special session]{Special session: Where does evidence enter the budget? The spending cycle in the EU and Italy}
+\date[\pelYear]{October, 2026}
+
+% small helper for cycle/timeline boxes
+\tikzset{
+  pelbox/.style={draw=pelBorder, fill=pelBgAlt, rounded corners=2pt, align=center,
+                 font=\footnotesize, text=pelText, inner sep=4pt, minimum height=0.9cm},
+  pelaccbox/.style={pelbox, draw=pelAccent, fill=pelAccentLight},
+  pelarrow/.style={-{Stealth[length=5pt]}, line width=0.9pt, pelMuted},
+  pelev/.style={font=\scriptsize\bfseries, text=pelSlate, align=center},
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Where we are, and why today is different}
+\bi
+  \item So far we asked one question: \textbf{did the grant work?} Potential outcomes (Lectures 1--2), regression (Lecture 3), experiments (Lectures 4--5)
+  \item Today we ask the question that comes next: \textbf{who uses the answer, and when?}
+  \item A one-off session: it does not advance the syllabus and it is not part of the exam programme
+\ei
+\vspace{0.1cm}
+Today:
+\be
+  \item the budget as a \textbf{policy cycle}: where evaluation can enter
+  \item the \textbf{EU} rules that now frame every Italian budget
+  \item the \textbf{Italian} calendar and its evaluation tools
+  \item why evidence so rarely reaches budget decisions, and a group exercise
+\ee
+\note{Five minutes. Remind them of the running example: the investment grant of Lectures 2--5, with a true effect of 3 points. Everything we have done so far ends with a number (an ATE, an ITT). Today: what happens to that number. Say clearly that this session is a deep-dive for those who are here; nothing in it will be examined.}
+\end{frame}
+
+\begin{frame}{A puzzle}
+Italy has run spending reviews since \textbf{2012}. From 2018 they are built into the budget law: each ministry gets a savings target and must say how it will meet it
+\vspace{0.02cm}
+\begin{exampleblock}{The State General Accounting Office (RGS) looked back at Health and Justice, 2018--2020}
+\bi
+  \item The savings targets were met in almost every case
+  \item But the review was done \textbf{``at the margin''}: it failed its main goal, discussing \textbf{existing} spending
+  \item The ministries showed little capacity to review their own policies
+\ei
+\end{exampleblock}
+\vspace{0.1cm}
+\centering \textbf{Targets met, nothing reviewed. How is that possible?}
+\note{Source: MEF-RGS, ``La revisione della spesa del bilancio dello Stato: valutazione dell'efficacia delle prassi del Ministero della salute e del Ministero della giustizia'' (PNRR milestone M1C1-102, Reform 1.13; PDF dated February 2023). Key quotes: ``tutti gli altri interventi risultano aver centrato l'obiettivo di risparmio'' (except two Justice and three Health measures); ``l'esercizio di revisione era stato complessivamente svolto `al margine', fallendo l'obiettivo principale di discussione delle spese `esistenti'''; ``Non è stata dunque riscontrata una sostanziale capacità, da parte delle Amministrazioni, di revisione e controllo economico-finanziario delle politiche pubbliche''. History: in 2012 the Monti government appointed Enrico Bondi as extraordinary commissioner for the rationalisation of purchases of goods and services (D.L. 52/2012), then Carlo Cottarelli (2013--2014). The first cycle under art. 22-bis of Law 196/2009 (inserted by D.Lgs. 90/2016) ran 2018--2020. Do NOT say the reviews saved nothing: they hit their (accounting) targets. Ask the class to guess the answer before moving on; we come back to it at the end of Part 4.}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The budget as a policy cycle}
+
+\begin{frame}{The budget cycle is a policy cycle}
+\centering
+\begin{tikzpicture}[node distance=0.5cm]
+  \node[pelbox, minimum width=3.1cm] (prog) at (90:2.25)  {\textbf{Programming}\\ medium-term targets};
+  \node[pelbox, minimum width=3.1cm] (dec)  at (18:3.6)   {\textbf{Decision}\\ budget law};
+  \node[pelbox, minimum width=3.1cm] (imp)  at (-54:2.9)  {\textbf{Implementation}\\ ministries spend};
+  \node[pelbox, minimum width=3.1cm] (rep)  at (-126:2.9) {\textbf{Reporting}\\ accounts, audits};
+  \node[pelbox, minimum width=3.1cm] (feed) at (162:3.6)  {\textbf{Feedback}\\ what to change?};
+  \draw[pelarrow] (prog) to[bend left=18] (dec);
+  \draw[pelarrow] (dec)  to[bend left=18] (imp);
+  \draw[pelarrow] (imp)  to[bend left=18] (rep);
+  \draw[pelarrow] (rep)  to[bend left=18] (feed);
+  \draw[pelarrow] (feed) to[bend left=18] (prog);
+  \node[pelev] at ($(prog)!0.5!(dec)+(0.35,0.7)$) {ex ante};
+  \node[pelev] at ($(imp)!0.5!(dec)+(1.05,-0.05)$) {in itinere};
+  \node[pelev] at ($(rep)!0.5!(feed)+(-0.8,-0.2)$) {ex post};
+\end{tikzpicture}
+\note{The textbook policy cycle and the budget cycle are the same loop. Evaluation can enter at three points. Ex ante: before deciding (appraisal, cost-benefit, impact assessment of a new rule). In itinere: while spending (monitoring, indicators, milestones). Ex post: after (did it work? This is where everything we do in this course lives). The question of the day: does the ex post arrow actually close the loop, i.e. does an evaluation result change the next budget?}
+\end{frame}
+
+\begin{frame}{Three moments of evaluation}
+\centering\small
+\begin{tabular}{L{2.2cm}L{4.3cm}L{5.2cm}}
+\toprule
+\textbf{Moment} & \textbf{Question} & \textbf{Typical tools} \\
+\midrule
+Ex ante & What will it cost, what could it achieve? & appraisal, cost-benefit analysis, impact assessment of new rules, simulation models \\
+In itinere & Is it being delivered as planned? & monitoring, output indicators, milestones and targets \\
+Ex post & \textbf{Did it work?} Compared with what? & counterfactual evaluation: experiments, matching, DiD, IV, RDD, synthetic control \\
+\bottomrule
+\end{tabular}
+\vspace{0.3cm}
+
+\raggedright
+Our course lives in the last row. Only the last row answers the question with a \textbf{counterfactual}: what would have happened without the programme (Lecture 1)
+\note{Stress that the three moments are complementary, not rivals. Monitoring tells you money was spent and nurseries were built; only a counterfactual tells you whether, say, mothers' employment rose because of them. Bridge to Lecture 1: the fundamental problem of causal inference applies to a ministry exactly as to Alfa and Beta.}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The EU layer}
+
+\begin{frame}{What changed in 2024}
+\centering\footnotesize
+\begin{tabular}{L{3.2cm}L{4.4cm}L{4.6cm}}
+\toprule
+ & \textbf{Before} & \textbf{Since 2024} \\
+\midrule
+What is targeted & several indicators (structural balance, expenditure benchmark, debt-reduction rule) & \textbf{one}: the growth of \textbf{net expenditure} \\
+Time horizon & an annual stability programme & a \textbf{4- or 5-year} national plan, plus an annual progress report \\
+How tight & the same rules for every country & a \textbf{country-specific} path, from a debt sustainability analysis \\
+Room for reforms & limited & the adjustment can last \textbf{4 years, or up to 7} with reforms and investments \\
+\bottomrule
+\end{tabular}
+\vspace{0.25cm}
+
+\raggedright
+In force since \textbf{30 April 2024}: one regulation for prevention, one for the excessive deficit procedure, one directive on national budget frameworks
+\note{Legal basis, for your reference only: Regulation (EU) 2024/1263 (preventive arm, repeals Reg. 1466/97; adopted 29 April 2024, in force on publication, 30 April 2024); Council Regulation (EU) 2024/1264 (amends Reg. 1467/97, the excessive deficit procedure); Council Directive (EU) 2024/1265 (amends Directive 2011/85/EU on national budgetary frameworks: medium-term frameworks of at least three years, independent fiscal institutions established by national law, transparency on tax expenditures and contingent liabilities; transposition by 31 December 2025). Plans cover four or five years ``depending on the regular length of the legislative term'' (Reg. 2024/1263, Art. 2); adjustment period ``four years plus an additional period of up to three years'' (Art. 14). The European Semester continues; the annual progress report is due by 30 April (Art. 21).}
+\end{frame}
+
+\begin{frame}{One number to watch: net expenditure}
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \node[pelaccbox, text width=2.2cm, minimum height=1.2cm] (tot) at (0,0) {\textbf{Government}\\\textbf{expenditure}};
+  \node[pelbox, text width=6.0cm, anchor=west, align=left, font=\scriptsize] (minus) at (1.75,0) {%
+    \textbf{minus} interest\\
+    \textbf{minus} EU-funded programmes and national co-financing\\
+    \textbf{minus} cyclical unemployment benefits\\
+    \textbf{minus} one-offs and temporary measures\\
+    \textbf{minus} discretionary revenue measures (new taxes)};
+  \node[pelaccbox, text width=2.0cm, minimum height=1.2cm, anchor=west] (net) at (8.55,0) {\textbf{Net}\\\textbf{expenditure}};
+  \draw[pelarrow] (tot) -- (minus);
+  \draw[pelarrow] (minus) -- (net);
+\end{tikzpicture}
+\vspace{0.35cm}
+
+\raggedright
+\bi
+  \item It is what the government \textbf{controls}: not the interest bill, not the business cycle
+  \item The plan sets a \textbf{ceiling on its growth}, year by year
+  \item A new programme must be paid for by \textbf{cutting another one} or by \textbf{raising taxes}: spending has to compete with spending
+\ei
+\note{Definition from Reg. 2024/1263, Art. 2(2): ``government expenditure net of interest expenditure, discretionary revenue measures, expenditure on programmes of the Union fully matched by revenue from Union funds, national expenditure on co-financing of programmes funded by the Union, cyclical elements of unemployment benefit expenditure, and one-offs and other temporary measures''. The Council's code of conduct calls it ``a single operational indicator anchored in debt sustainability''. Teaching point: because new taxes are netted out, a government can spend more if it raises revenue to match; otherwise it must cut elsewhere. This is exactly where evaluation should matter: deciding WHICH programme to cut.}
+\end{frame}
+
+\begin{frame}{How a national plan works}
+\centering
+\begin{tikzpicture}[node distance=0.35cm]
+  \node[pelbox, text width=2.5cm] (a) {\textbf{Commission}\\ reference trajectory (debt sustainability)};
+  \node[pelbox, text width=2.5cm, right=of a] (b) {\textbf{Member state}\\ 4--5 year plan: net expenditure path, reforms, investments};
+  \node[pelbox, text width=2.3cm, right=of b] (c) {\textbf{Council}\\ endorses the plan};
+  \node[pelaccbox, text width=2.5cm, right=of c] (d) {\textbf{Every April}\\ progress report; Commission checks the path};
+  \draw[pelarrow] (a) -- (b); \draw[pelarrow] (b) -- (c); \draw[pelarrow] (c) -- (d);
+\end{tikzpicture}
+\vspace{0.3cm}
+
+\raggedright\small
+\bi
+  \item \textbf{Adjustment}: 4 years, extendable \textbf{up to 7} if the country commits to reforms and investments
+  \item \textbf{Safeguards}: debt must keep falling (by at least 1 point of GDP a year while above 90\%); deficits must build a margin below 3\%
+  \item \textbf{Escape clauses}: a general one for a severe EU-wide downturn; a \textbf{national} one for exceptional events outside the government's control, with a time limit set by the Council
+\ei
+\note{Reference trajectory: transmitted by the Commission where debt exceeds 60\% or the deficit 3\% (Art. 5). Debt sustainability safeguard (Art. 7): debt ratio to fall by at least 1 pp of GDP per year on average while above 90\%, 0.5 pp while between 60 and 90\%. Deficit resilience safeguard (Art. 8): a structural margin of 1.5\% of GDP below the 3\% reference value. Escape clauses: general clause (Art. 25) for a severe downturn in the euro area or the EU as a whole, one-year time limit, extendable; national clause (Art. 26), requested by the member state, Commission recommendation, Council recommendation within four weeks; the regulation sets no fixed maximum duration: the Council specifies the time limit, and extensions of up to one year each are possible. In July 2025 the Council activated national escape clauses for defence spending for 15 member states (Italy was not among them).}
+\end{frame}
+
+\begin{frame}{Italy: a live case}
+\begin{columns}[T]
+\begin{column}{0.5\textwidth}
+\centering
+\begin{tikzpicture}
+\begin{axis}[pel chart, width=\linewidth, height=0.6\textheight,
+    ybar, bar width=14pt, ymin=0, ymax=8.5, ytick={0,3,6},
+    symbolic x coords={2023,2024,2025}, xtick=data,
+    ylabel={deficit, \% of GDP}, nodes near coords, nodes near coords align={vertical},
+    extra y ticks={3}, extra y tick style={grid=major, grid style={pelDanger, dashed, line width=0.8pt}}]
+  \addplot[fill=pelAccent, draw=none] coordinates {(2023,7.4) (2024,3.4) (2025,3.1)};
+\end{axis}
+\end{tikzpicture}
+\pelTableNote{2023 as known when the procedure was opened (since revised to 7.1). Sources: Council, ISTAT.}
+\end{column}
+\begin{column}{0.47\textwidth}
+\small
+\bi
+  \item \textbf{July 2024}: excessive deficit procedure opened
+  \item \textbf{Plan 2025--2029}: 7-year adjustment, endorsed by the Council in January 2025
+  \item \textbf{2025}: deficit at 3.1\% of GDP, just above the line
+  \item \textbf{June 2026}: procedure ``held in abeyance'': effective action, but not yet closed
+  \item \textbf{Exit}: possible in \textbf{2027} at the earliest, on 2026 data
+\ei
+\end{column}
+\end{columns}
+\note{Council Decision (EU) 2024/2124 of 26 July 2024 established the excessive deficit (2023 deficit 7.4\% of GDP on the data then available; ISTAT has since revised 2023 to 7.1\%). Correction deadline: 2026 (Council recommendation of 21 January 2025). Plan submitted 15 October 2024, covers 2025--2029, adjustment over seven years, endorsed by the Council on 21 January 2025; maximum net expenditure growth: 2025 1.3\%, 2026 1.6\%, 2027 1.9\%, 2028 1.7\%, 2029 1.5\%. Deficits: 2024 3.4\%, 2025 3.1\% (ISTAT notifications of 22 April and 21 October 2026; debt 136.7\% of GDP at end-2025). Commission, 3 June 2026: the procedure is held in abeyance. DPFP 2026 (2 October 2026): the conditions may exist for the Council to abrogate the procedure on the basis of 2026 outturn data. Latest twist: on 11 September 2026 Italy requested the national escape clause for defence and energy security; the Commission recommended activation on 8 October 2026. Check whether the Council has decided before class.}
+\end{frame}
+
+\begin{frame}{What the EU layer means for evaluation}
+\bi
+  \item A \textbf{multi-year ceiling} on net expenditure turns the budget into a reallocation problem: more for one programme means less for another, or new taxes
+  \item The extension to 7 years is bought with \textbf{reforms and investments}: someone has to show they are delivered (in itinere) and that they work (ex post)
+  \item Since 2025 the directive requires an \textbf{independent fiscal institution} in every member state: a natural user of evaluations
+\ei
+\begin{block}{}
+\centering The rules say \textbf{how much} can be spent. They say nothing about \textbf{what works}: that is our job
+\end{block}
+\note{Bridge to the Italian layer. The EU framework fixes the envelope; the choice of what goes inside it is national, and that is where evaluation should enter. Directive 2024/1265 (new Art. 8a of Directive 2011/85/EU) requires independent fiscal institutions established by national law; in Italy this is the Parliamentary Budget Office (next part).}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The Italian layer}
+
+\begin{frame}{The Italian budget calendar}
+\centering
+\begin{tikzpicture}[x=1.12cm,y=1cm, ev/.style={pelbox, font=\scriptsize, text width=1.85cm, inner sep=3pt, minimum height=0.8cm},
+                    evacc/.style={ev, draw=pelAccent, fill=pelAccentLight}]
+  \draw[pelBorder, line width=1.2pt] (0,0) -- (12,0);
+  \foreach \m/\l in {0/Jan,1/Feb,2/Mar,3/Apr,4/May,5/Jun,6/Jul,7/Aug,8/Sep,9/Oct,10/Nov,11/Dec}
+    { \draw[pelBorder] (\m,0.1) -- (\m,-0.1); \node[font=\scriptsize, text=pelMuted] at (\m+0.5,-0.28) {\l}; }
+  % above: programming and decision
+  \node[evacc] (dfp) at (3.5,1.35) {\textbf{DFP}: medium-term plan and EU progress report};
+  \node[ev]    (jun) at (5.6,1.95) {\textbf{June}: mid-year budget review; last year's accounts};
+  \node[evacc] (dpfp) at (9.05,1.35) {\textbf{DPFP}: autumn update (by 2 Oct)};
+  \node[evacc] (law) at (11.4,1.95) {\textbf{Budget law} approved (by 31 Dec)};
+  \draw[pelAccent] (dfp.south) -- (3.5,0);  \draw[pelMuted] (jun.south) -- (5.5,0);
+  \draw[pelAccent] (dpfp.south) -- (9.05,0); \draw[pelAccent] (law.south) -- (11.95,0);
+  % below: targets, agreements, audit, bill
+  \node[ev] (mar) at (2.0,-1.35) {\textbf{1 Mar}: spending agreements MEF--ministries};
+  \node[ev] (may) at (4.95,-1.95) {\textbf{31 May}: spending targets per ministry};
+  \node[ev] (cdc) at (6.9,-1.35) {\textbf{Summer}: Court of Auditors certifies the accounts};
+  \node[evacc] (bill) at (9.65,-1.95) {\textbf{20 Oct}: budget bill to Parliament};
+  \draw[pelMuted] (mar.north) -- (2.0,0); \draw[pelMuted] (may.north) -- (4.95,0);
+  \draw[pelMuted] (cdc.north) -- (6.5,0); \draw[pelAccent] (bill.north) -- (9.65,0);
+\end{tikzpicture}
+\note{DFP = Documento di finanza pubblica, DPFP = Documento programmatico di finanza pubblica. Since 2025 they replace, in practice, the DEF (Documento di economia e finanza) and its autumn update (NADEF). This is based on resolutions of the Budget Committees of the Chamber and the Senate, ``nelle more'' of the reform of Law 196/2009 and Law 243/2012: the bills are still pending, and art. 7 of Law 196/2009 still lists DEF (10 April) and NADEF (27 September). In practice: DFP 2025 transmitted 10 April 2025; DFP 2026 on 22 April 2026 (UPB validated the forecasts on 8 April); its Section I is the annual progress report due to the Commission by 30 April. DPFP: by 2 October (DPFP 2025 approved and transmitted on 2 October 2025). Budget bill by 20 October (art. 7). The draft budgetary plan goes to the Commission by 15 October (euro-area rule, Reg. 473/2013). Assestamento: bill by the end of June (art. 33); rendiconto generale: presented by the end of June (art. 35), certified (``parificato'') by the Corte dei conti (art. 38). Spending review: DPCM by 31 May with ministry targets; agreements MEF--ministers by 1 March; ministers report on results by 1 March, attached to the April document (art. 22-bis).}
+\end{frame}
+
+\begin{frame}{Where evaluation sits inside the Italian cycle}
+\centering\footnotesize\renewcommand{\arraystretch}{1.0}
+\begin{tabular}{L{3.6cm}L{2.3cm}L{6.3cm}}
+\toprule
+\textbf{Tool} & \textbf{Moment} & \textbf{What it does} \\
+\midrule
+Spending review in the budget law & decision, feedback & savings targets per ministry, agreed measures, yearly report on results \\
+Performance information & programming, reporting & each ministry lists objectives and \textbf{indicators} for its programmes, and reports how far they were reached \\
+Regulatory impact assessment & ex ante, ex post & analysis of new rules before adoption (AIR) and check of their effects afterwards (VIR) \\
+Parliamentary Budget Office (UPB) & programming & independent: validates the government's forecasts, checks the fiscal rules \\
+Court of Auditors & reporting & certifies the accounts; audits how programmes are managed \\
+\bottomrule
+\end{tabular}
+\vspace{0.1cm}
+
+\raggedright\small
+What is missing from the last column: \textbf{did the programme work, compared with what?}
+\note{Legal references, for you only. Spending review: art. 22-bis of Law 196/2009, heading ``Programmazione finanziaria e accordi tra Ministeri'', inserted by D.Lgs. 90/2016 (art. 4). Performance information: note integrative al bilancio, art. 21 c. 11 lett. a) (``il piano degli obiettivi, intesi come risultati che le amministrazioni intendono conseguire'', with ``i relativi indicatori di risultato''); at the rendiconto, art. 35 c. 2 (``l'analisi e la valutazione del grado di realizzazione degli obiettivi''). AIR/VIR: DPCM 15 settembre 2017 n. 169, implementing art. 14 c. 5 of Law 246/2005. UPB: Law 243/2012, arts. 16--19 (art. 18: assesses macroeconomic and public-finance forecasts and compliance with budget rules); operational since 2014; it is Italy's independent fiscal institution in the sense of Directive 2024/1265. Court of Auditors: parifica of the rendiconto (art. 38 L. 196/2009); performance audits (``controllo successivo sulla gestione'', Law 20/1994 art. 3 c. 4).}
+\end{frame}
+
+\begin{frame}{The spending review, step by step}
+\centering
+\begin{tikzpicture}[node distance=0.32cm]
+  \node[pelbox, text width=2.3cm] (a) {\textbf{April}\\ overall savings goal for the next 3 years};
+  \node[pelbox, text width=2.3cm, right=of a] (b) {\textbf{By 31 May}\\ the goal is split into targets per ministry};
+  \node[pelbox, text width=2.3cm, right=of b] (c) {\textbf{October}\\ ministries propose the measures, in the budget bill};
+  \node[pelbox, text width=2.3cm, right=of c] (d) {\textbf{By 1 March}\\ agreements MEF--ministry on how to monitor};
+  \node[pelaccbox, text width=2.3cm, right=of d] (e) {\textbf{A year later}\\ report on results, attached to the April document};
+  \draw[pelarrow] (a)--(b); \draw[pelarrow] (b)--(c); \draw[pelarrow] (c)--(d); \draw[pelarrow] (d)--(e);
+\end{tikzpicture}
+\vspace{0.35cm}
+
+\raggedright
+\begin{exampleblock}{The 2023--2025 round}
+Savings asked of the ministries: \textbf{0.8 billion euro in 2023, 1.2 billion in 2024, 1.5 billion in 2025}. Targets are set in \textbf{euros saved}, not in results achieved
+\end{exampleblock}
+\note{Art. 22-bis of Law 196/2009: a DPCM by 31 May sets, for the following three years, each ministry's spending targets (expenditure limits or savings); ministers propose the measures with the budget bill; agreements between the Minister of Economy and each minister by 1 March; by 1 March of the following year each minister reports on results, and the reports are attached to the April document (originally the DEF, now the DFP). 2023--2025 round: targets set in DEF 2022 and allocated by DPCM 4 November 2022: 800 million euro for 2023, 1,200 million for 2024, 1,500 million for 2025 (DEF 2023 and DPCM 7 August 2023 then added 300/500/700 million for 2024--2026). Source: MEF-RGS report for PNRR milestone M1C1-115 (Camera, July 2025). Teaching point: the target is a number of euros, i.e. an input. Nothing in the procedure requires a counterfactual.}
+\end{frame}
+
+\begin{frame}{The PNRR pushed the spending review further}
+\bi
+  \item \textbf{Reform 1.13} of Italy's recovery plan: ``strengthen the analysis and evaluation of spending \textbf{inside} the budget cycle''
+  \item What it delivered: a scientific committee and a unit at the Ministry of Economy, savings targets for 2023--2025, an assessment of past reviews (our puzzle), guidelines for ministries, annual reports
+  \item The same reform is one of the commitments that earned Italy a \textbf{7-year} adjustment under the new EU rules
+  \item But the Council noted that no specific targets for future spending reviews had been set
+\ei
+\begin{block}{}
+\centering Reform 1.13 built the \textbf{procedure}. It did not, by itself, put counterfactual evidence into it
+\end{block}
+\note{Reform 1.13 (Mission 1, Component 1): ``Riforma del quadro di revisione della spesa pubblica (spending review)''; it ``prevede espressamente il rafforzamento del processo di analisi e valutazione della spesa all'interno del ciclo di programmazione economico-finanziaria'' (MEF-RGS report for milestone M1C1-115). Milestones: October 2021 scientific committee and mission unit; April 2022 savings targets 2023--25; December 2022 report on effectiveness and RGS guidelines (M1C1-102: this is the report of our opening puzzle); annual certification reports 2024--2026. Council recommendation endorsing Italy's plan (21 January 2025): among the reforms justifying the extension is ``Reform 1.13 (reform of the spending review framework)''; the plan commits to ``strengthening the capacity for programming, monitoring and evaluating public spending''; ``specific targets are not set for future spending reviews at this stage''. Related: RGS, ``Valutazione delle politiche pubbliche e revisione della spesa -- Il percorso di studio e approfondimento della RGS'' (December 2023), with an OECD project funded by the EU's Technical Support Instrument, calls for training in counterfactual analysis and speaks of the need for ``un profondo cambiamento culturale''.}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Why evidence rarely reaches the budget}
+
+\begin{frame}{Linear cuts versus evidence-based reallocation}
+\footnotesize
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\begin{alertblock}{Linear cuts}
+\bi
+  \item the same percentage off every programme
+  \item fast, easy to negotiate, easy to verify
+  \item treats the programme that works like the one that does not
+  \item savings often come back later as arrears or ``unexpected'' needs
+\ei
+\end{alertblock}
+\end{column}
+\begin{column}{0.48\textwidth}
+\begin{block}{Evidence-based reallocation}
+\bi
+  \item cut what does not work, fund what does
+  \item needs a \textbf{counterfactual} for each programme
+  \item slow: results arrive years after the money is spent
+  \item creates losers who can be named, so it is politically costly
+\ei
+\end{block}
+\end{column}
+\end{columns}
+\note{This is the core trade-off. A spending review that only sets a savings target per ministry tends to produce linear cuts, because they are the cheapest way to hit a number. Ask the class: if you ran a company and had to cut 5 percent, would you cut every product line by 5 percent? Most will say no, which is exactly the point.}
+\end{frame}
+
+\begin{frame}{Outputs are not outcomes}
+\centering\small
+\begin{tabular}{L{3.6cm}L{3.6cm}L{4.6cm}}
+\toprule
+\textbf{Input} & \textbf{Output} & \textbf{Outcome (needs a counterfactual)} \\
+\midrule
+euros for nursery places & places created & did mothers' employment rise \textbf{because of} them? \\
+euros for investment grants & firms funded, projects completed & did funded firms invest more \textbf{than they would have anyway}? \\
+euros for training & courses delivered, participants & did participants find jobs \textbf{because of} the course? \\
+\bottomrule
+\end{tabular}
+\vspace{0.3cm}
+
+\raggedright
+A real case: the PNRR nursery investment is measured by a target of at least \textbf{150,480 new places}, an \textbf{output}. Whether they raise mothers' employment is an \textbf{outcome} that no milestone measures
+\note{Illustrative examples, not official PNRR targets: the point is the distinction. Outputs can be counted; outcomes require a comparison with what would have happened anyway. The investment-grant row is our running example from Lectures 2--5: the agency can count funded firms, but only the lottery of Lecture 4 told us the effect was 3 points, not 6.39.}
+\end{frame}
+
+\begin{frame}{Why counterfactual evaluation rarely reaches budget decisions}
+\bi
+  \item \textbf{Timing}: the budget is decided every autumn; a credible ex post evaluation needs data that arrive two or three years later
+  \item \textbf{Design}: most programmes are not designed to be evaluated. No lottery, no clear eligibility threshold, no data on non-recipients
+  \item \textbf{Data}: administrative data exist, but are spread across agencies and hard to link
+  \item \textbf{Power}: many evaluations are too small. ``No significant effect'' is then read as ``no effect'' and the programme is cut, or as ``inconclusive'' and it is kept (Lecture 5)
+  \item \textbf{Incentives}: a ministry gains little from showing that its own programme does not work
+\ei
+\note{The power point is the bridge to yesterday's lecture: an underpowered evaluation is worse than none if it is read as proof of no effect. The design point previews the rest of the course: thresholds (RDD, week 8), staggered roll-outs (DiD, weeks 5--6) and lotteries (Lecture 4) are design choices a ministry can make before spending, at almost no cost.}
+\end{frame}
+
+\begin{frame}{Back to the puzzle}
+\bi
+  \item The targets were \textbf{euros}, not results: the easiest euros to find are at the margin, in programmes nobody defends
+  \item Existing spending was never put against a \textbf{counterfactual}: nobody asked what each programme achieves compared with not having it
+  \item Ministries lacked the \textbf{capacity} (people, data, evaluation plans) to do more than accounting cuts
+  \item And the calendar left no time: targets in May, measures in October, results a year later
+\ei
+\begin{block}{}
+\centering A spending review without evaluation is just a \textbf{cut}. Evaluation is what turns a cut into a \textbf{choice}
+\end{block}
+\note{Tie back to the RGS findings: savings ``quasi sempre'' achieved, but ``al margine''; little ``propensione dei ministeri a monitorare'' the effects; in Health some funding lines were zeroed and later refinanced, i.e. cuts without a real review rationale. The RGS December 2023 report reaches the same conclusion from the other side: it recommends linking evaluation and spending review and building skills in counterfactual analysis. Ask: which of the four reasons could a business student fix as a future manager in a ministry or an agency? (Answer: design and data, not the calendar.)}
+\end{frame}
+
+\begin{frame}{How others do it: the Netherlands}
+\bi
+  \item \textbf{Interdepartmental policy reviews} (IBO): independent studies of a policy problem with a budgetary challenge, run by officials from several ministries with an independent chair
+  \item Every review must work out at least one \textbf{savings option of 10 to 20\%}: ``comply or explain''
+  \item Since 2022, each ministry keeps a \textbf{multi-year evaluation agenda} covering ex ante, in itinere and ex post evaluations
+\ei
+\begin{exampleblock}{The lesson}
+The savings option forces the question we never asked in Italy: \textbf{what would we lose} if this programme were 20\% smaller?
+\end{exampleblock}
+\note{Source for IBOs: Dutch Ministry of Finance, ``Spelregels ibo's'' (annex to the 4th progress report on Operatie Inzicht in Kwaliteit): IBOs are ``ambtelijke, onafhankelijke onderzoeken'' on a policy problem ``waar een budgettaire uitdaging mee gepaard gaat''; members work ``zonder last- of ruggespraak''; ``er wordt tenminste één besparingsvariant van -10 tot -20\% uitgewerkt, waarbij het principe van `comply or explain' geldt''. Evaluation agenda: Regeling periodiek evaluatieonderzoek 2022 (in force 27 July 2022) replaced the periodic policy reviews (beleidsdoorlichtingen) with a Strategische Evaluatie Agenda, ``een meerjarige agenda die ex ante, ex durante en ex post evaluaties omspant''. The RGS December 2023 report uses the Netherlands as one of its three case studies (with Ireland and Canada).}
+\end{frame}
+
+\begin{frame}{How others do it: the United Kingdom}
+\centering\small
+\begin{tabular}{L{2.9cm}L{2.6cm}L{6.6cm}}
+\toprule
+\textbf{Tool} & \textbf{Moment} & \textbf{What it is} \\
+\midrule
+Spending Review & decision & multi-year budgets for every department; the 2025 review set day-to-day budgets to 2028--29 \\
+Green Book & ex ante & how to appraise options: costs, benefits and risks, before deciding \\
+Magenta Book & ex post & how to evaluate: from monitoring to counterfactual impact evaluation \\
+\bottomrule
+\end{tabular}
+\vspace{0.3cm}
+
+\raggedright
+The Magenta Book states that evaluation exists to inform \textbf{future spending decisions}: the loop of our cycle diagram, written into official guidance
+\note{Spending Review 2025 published 11 June 2025: ``SR25 sets departmental budgets for day-to-day spending until 2028-29, and until 2029-30 for capital investment''. Green Book: current edition ``The Green Book (2026)'', published 5 February 2026 after the Green Book Review 2025: ``the UK government's guidance on appraisal, the process of assessing the costs, benefits and risks of different options''. Magenta Book: updated edition dated May 2026 (previous edition April 2020); foreword: ``Proportionate and high quality evaluation is a strategic necessity that ensures accountability, informs future spending decisions''. It covers impact evaluation methods including experimental and quasi-experimental designs, i.e. exactly the methods of this course.}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\pelSectionBear}{charts}
+\section{Group exercise}
+
+\begin{frame}{Group exercise (20 minutes)}
+\be
+  \item Groups of 3--4. Each group picks one programme from the next slide
+  \item Fill in the five boxes of the template: \textbf{outcome, counterfactual, data, identification, budget hook}
+  \item Use the methods of the course: what we have seen (regression, experiments) and what is coming (matching, DiD, IV, RDD, synthetic control)
+  \item Two minutes per group to report back
+\ee
+\begin{block}{The question to answer}
+\centering If this programme came up in next year's spending review, what evidence would you want, and \textbf{when} would it have to be ready?
+\end{block}
+\note{Timing: 2 minutes to form groups and choose, 15 minutes of work, then reports. With a small group, two or three groups are enough; let two groups take the same programme if they want and compare their designs. Walk around and push on the counterfactual: ``compared with whom?'' is the question that matters.}
+\end{frame}
+
+\begin{frame}{Five real Italian programmes}
+\footnotesize
+\bi
+  \item \textbf{Law 488/1992}: capital grants for productive investment in lagging areas, mainly the South, allocated by \textbf{ranking} applicants
+  \item \textbf{SME Guarantee Fund}: a public guarantee on bank loans to small and medium-sized firms
+  \item \textbf{Transizione 4.0}: tax credits for firms buying new capital goods, introduced in 2020 and later narrowed
+  \item \textbf{Single universal child allowance} (assegno unico): a monthly benefit per dependent child, scaled by family means, since March 2022
+  \item \textbf{PNRR nurseries}: new childcare places, with a target of at least 150,480 places
+\ei
+\vspace{0.1cm}
+\begin{exampleblock}{Hints}
+Is there a \textbf{ranking or threshold}? A \textbf{start date} that differs across places or firms? Applicants who were \textbf{rejected}? A group that could \textbf{never} receive it?
+\end{exampleblock}
+\note{Programme sources: Law 488/1992 (converting D.L. 415/1992), capital grants in depressed areas, mainly the Mezzogiorno (MISE monograph). SME Guarantee Fund: Law 662/1996 art. 2 c. 100 lett. a), managed by Mediocredito Centrale. Transizione 4.0: Law 178/2020 art. 1 cc. 1051--1063 and 1065; later narrowed by Law 207/2024. Assegno unico universale: D.Lgs. 21 dicembre 2021 n. 230, from 1 March 2022, means-tested (ISEE). PNRR nurseries: M4C1 Investment 1.1; target M4C1-18 (Q2 2026) ``Creazione di almeno 150.480 nuovi posti'' (revised down from 264,480). The hints map onto methods: ranking or threshold = RDD (week 8); staggered start = DiD and event studies (weeks 5--6); rejected applicants = DiD with a comparison group, or matching (week 4); a group that can never receive it = a comparison group, but check selection (Lecture 2). Do not give students a ready answer for programmes other than Law 488: the point is the reasoning.}
+\end{frame}
+
+\begin{frame}{The template}
+\centering\footnotesize
+\begin{tabular}{L{2.9cm}L{9.3cm}}
+\toprule
+\textbf{Outcome} & What should change if the programme works? Measured how, after how long? \\
+\textbf{Counterfactual} & Who are the comparison units, and why would they have behaved like the treated without the programme? \\
+\textbf{Data} & Which administrative or survey data? Do we observe the \textbf{non}-recipients too? \\
+\textbf{Identification} & Which method from the course, and its key assumption (random assignment, parallel trends, no manipulation at the threshold\ldots) \\
+\textbf{Budget hook} & Which document, which month: April plan, May targets, October budget bill? What decision would the result change? \\
+\bottomrule
+\end{tabular}
+\vspace{0.15cm}
+
+\raggedright\small
+Bonus: is the sample large enough? A rough \textbf{MDE} (Lecture 5) tells you whether a ``no effect'' would mean anything
+\note{The budget hook is the new part for them. Push for a concrete answer: for example, ``results by March, so that the ministry can use them when it reports on its spending targets and before the May targets are set''. Remind them of the timing problem from Part 4: if the data arrive three years after the money is spent, the evaluation has to be planned before the programme starts.}
+\end{frame}
+
+\begin{frame}{A worked example: Law 488/1992}
+\centering\footnotesize
+\begin{tabular}{L{2.9cm}L{9.3cm}}
+\toprule
+\textbf{Outcome} & investment by the firm, then sales and employment, 2--4 years after the grant \\
+\textbf{Counterfactual} & applicants that were ranked but \textbf{not funded}: they wanted to invest too, unlike non-applicants (Alfa and Beta, Lecture 2) \\
+\textbf{Data} & the agency's application files linked to firms' balance sheets \\
+\textbf{Identification} & DiD, funded vs rejected applicants (Bronzini and de Blasio, 2006; week 5), or RDD around the funding cut-off of each ranking (Cerqua and Pellegrini, 2014; week 8) \\
+\textbf{Budget hook} & before the programme is refinanced: results ready for the April plan, so they can shape the next budget bill \\
+\bottomrule
+\end{tabular}
+\vspace{0.1cm}
+
+\raggedright\small
+What the studies found: subsidised firms invested more while funded, but part of it was investment brought forward from later years. That is the kind of result a spending review needs
+\note{Bronzini and de Blasio (2006, J. Urban Economics): comparing subsidised firms with rejected applicants, investment rose in the treatment period but was ``counterbalanced by a decline in accumulation by the subsidized firms later in time'' (temporal substitution); the effect is larger where markets are small or firms are close in industrial distance. Cerqua and Pellegrini (2014, J. Public Economics): multiple RDD exploiting the ranking-based selection of Law 488. Both papers are on the course's Resources page. The budget-hook row is our proposal, not an official procedure.}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\pelSectionBear}{plain}
+\section{Wrap-up}
+
+\begin{frame}{Three take-aways}
+\be
+  \item The budget is a \textbf{policy cycle}: evidence can enter ex ante, in itinere and ex post, but only ex post evaluation with a counterfactual says whether a programme \textbf{worked}
+  \item The EU rules now cap \textbf{net expenditure} over several years: within a ceiling, every euro has to compete with every other euro, and that is exactly when evidence matters
+  \item Italy has the \textbf{tools} (spending review in the budget law, performance indicators, independent fiscal institutions), but the loop from evaluation to budget is rarely closed. The cheapest fix is \textbf{design}: decide how a programme will be evaluated before the money is spent
+\ee
+\note{Close the loop with the course: the methods of weeks 4--9 (matching, DiD, IV, RDD, synthetic control) are not academic exercises; each corresponds to a design choice that a ministry can make when it writes the rules of a programme.}
+\end{frame}
+
+\begin{frame}{References}
+\tiny
+\bi
+  \item Regulation (EU) 2024/1263; Council Regulation (EU) 2024/1264; Council Directive (EU) 2024/1265 (all of 29 April 2024)
+  \item Council of the EU (2025), Recommendation endorsing the national medium-term fiscal-structural plan of Italy, 21 January 2025; Council Decision (EU) 2024/2124 on the existence of an excessive deficit in Italy, 26 July 2024
+  \item European Commission (2026), assessment of effective action, 3 June 2026; ISTAT, notifications of deficit and debt, 22 April and 21 October 2026
+  \item MEF (2026), Documento programmatico di finanza pubblica 2026
+  \item MEF-RGS, La revisione della spesa del bilancio dello Stato: valutazione dell'efficacia delle prassi del Ministero della salute e del Ministero della giustizia (PNRR milestone M1C1-102)
+  \item MEF-RGS (2023), Valutazione delle politiche pubbliche e revisione della spesa. Il percorso di studio e approfondimento della RGS, December
+  \item Tryggvadóttir, Á. (2022), OECD best practices for spending reviews, \textit{OECD Journal on Budgeting}, 22(1); OECD (2019), \textit{Good Practices for Performance Budgeting}; OECD (2023), \textit{OECD Best Practices for Spending Reviews: Strengthening the impact of spending reviews}, GOV/SBO(2023)13
+  \item Dutch Ministry of Finance, \textit{Spelregels ibo's}; Regeling periodiek evaluatieonderzoek 2022
+  \item HM Treasury, \textit{Spending Review 2025} (June 2025); \textit{The Green Book} (2026); \textit{The Magenta Book} (updated May 2026)
+  \item Bronzini, R. and G. de Blasio (2006), Evaluating the impact of investment incentives: the case of Italy's Law 488/1992, \textit{Journal of Urban Economics}, 60(2); Cerqua, A. and G. Pellegrini (2014), Do subsidies to private capital boost firms' growth?, \textit{Journal of Public Economics}, 109
+\ei
+\note{Links to the sources are listed next to this session on the course website. The legal references for Italian procedures are in the speaker notes of each slide.}
+\end{frame}
+
+\pelQuestions
+
+\end{document}
