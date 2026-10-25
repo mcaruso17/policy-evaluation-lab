@@ -81,67 +81,63 @@
     {
       "week": 4,
       "dates": "26–30 Oct",
-      "topic": "Selection on observables",
-      "summary": "Conditional independence, matching, the propensity score and inverse probability weighting. Application: why firms that apply for a subsidy differ from those that do not, and what matching can and cannot fix. <strong>Friday</strong>: lab and discussion.",
+      "topic": "Part I: difference-in-differences and regression discontinuity",
+      "summary": "The designs as ideas rather than estimators: where the comparison group comes from and which assumption makes it credible. <strong>Monday</strong>: from matching (comparing similar firms) to difference-in-differences: parallel trends, event studies and staggered roll-outs; Law 488/1992, subsidised firms versus rejected applicants. <strong>Thursday</strong>: regression discontinuity: incentives allocated by a score threshold (R&amp;D grants in Emilia-Romagna). <strong>Friday</strong>: lab and discussion of the two designs.",
       "items": [
-        { "type": "link", "label": "EconVis — Propensity score matching", "url": "https://carusomatteo.it/models/psm.html" }
+        { "type": "reading", "label": "Bronzini and de Blasio — Evaluating the impact of investment incentives: the case of Italy's Law 488/1992 (2006, J. Urban Economics)", "url": "https://www.bancaditalia.it/pubblicazioni/altri-atti-convegni/2007-valutazione-aiuti-impr/1_Evaluating_the_impact.pdf?language_id=1" },
+        { "type": "reading", "label": "Card and Krueger — Minimum wages and employment: fast food in New Jersey and Pennsylvania (NBER WP 4509, 1993; AER 1994)", "url": "https://www.nber.org/system/files/working_papers/w4509/w4509.pdf" },
+        { "type": "reading", "label": "Bronzini and Iachini — Are incentives for R&D effective? Evidence from a regression discontinuity approach (AEJ: Economic Policy, 2014)", "url": "https://www.bancaditalia.it/pubblicazioni/altri-atti-convegni/2010-workshop-val-aiuti/bronzini.pdf" },
+        { "type": "reading", "label": "Further reading: Cerqua and Pellegrini — Do subsidies to private capital boost firms' growth? A multiple RDD approach (J. Public Economics, 2014)", "url": "https://doi.org/10.1016/j.jpubeco.2013.11.005" },
+        { "type": "link", "label": "EconVis — Propensity score matching", "url": "https://carusomatteo.it/models/psm.html" },
+        { "type": "link", "label": "EconVis — Difference-in-differences", "url": "https://carusomatteo.it/models/did.html" },
+        { "type": "link", "label": "EconVis — Event study", "url": "https://carusomatteo.it/models/event_study.html" },
+        { "type": "link", "label": "EconVis — Regression discontinuity", "url": "https://carusomatteo.it/models/rdd.html" }
       ]
     },
     {
       "week": 5,
       "dates": "2–6 Nov",
-      "topic": "Difference-in-differences I",
-      "summary": "The 2×2 design, parallel trends, regression formulation. <strong>Friday, lab</strong>: Card and Krueger on the New Jersey minimum wage. Firm subsidies: Law 488/1992, comparing subsidised firms with rejected applicants, and whether the subsidy created new investment or only moved it in time.",
+      "topic": "Part I: instrumental variables and synthetic control; reading an evaluation",
+      "summary": "<strong>Monday</strong>: instrumental variables: encouragement designs, when a programme is offered to everyone but only some take it up; an unexpected shortage of public funds as a source of variation (an Italian innovation programme). <strong>Thursday</strong>: synthetic control: one treated unit, a counterfactual built from a donor pool; from a regional policy to a single large business decision. <strong>Friday</strong>: reading an evaluation critically, what it supports and what it does not. End of Part I.",
       "items": [
-        { "type": "reading", "label": "Card and Krueger — Minimum wages and employment: fast food in New Jersey and Pennsylvania (NBER WP 4509, 1993; AER 1994)", "url": "https://www.nber.org/system/files/working_papers/w4509/w4509.pdf" },
-        { "type": "reading", "label": "Bronzini and de Blasio — Evaluating the impact of investment incentives: the case of Italy's Law 488/1992 (2006, J. Urban Economics)", "url": "https://www.bancaditalia.it/pubblicazioni/altri-atti-convegni/2007-valutazione-aiuti-impr/1_Evaluating_the_impact.pdf?language_id=1" },
-        { "type": "link", "label": "EconVis — Difference-in-differences", "url": "https://carusomatteo.it/models/did.html" }
+        { "type": "reading", "label": "de Blasio, Fantino and Pellegrini — Evaluating the impact of innovation incentives: evidence from an unexpected shortage of funds (Banca d'Italia WP 792, 2011)", "url": "https://www.bancaditalia.it/pubblicazioni/temi-discussione/2011/2011-0792/en_tema_792.pdf" },
+        { "type": "link", "label": "EconVis — Instrumental variables", "url": "https://carusomatteo.it/models/iv.html" },
+        { "type": "link", "label": "EconVis — Synthetic control", "url": "https://carusomatteo.it/models/synth.html" }
       ]
     },
     {
       "week": 6,
       "dates": "9–13 Nov",
-      "topic": "Difference-in-differences II",
-      "summary": "Event studies and pre-trends; staggered adoption and the problems of two-way fixed effects. <strong>Lens 3:</strong> staggered rollouts of a programme across branches, stores or regions, and how to read them correctly. <strong>Friday</strong>: lab and discussion.",
-      "items": [
-        { "type": "link", "label": "EconVis — Event study", "url": "https://carusomatteo.it/models/event_study.html" }
-      ]
+      "topic": "Part II: why and how the state intervenes in the macroeconomy",
+      "summary": "The rationale for macroeconomic policy and its political economy: stabilisation, credibility and time inconsistency, rules versus discretion, the incentives of governments. The architecture of economic policy in the euro area: a single monetary policy, national fiscal policies, common rules. How macro policy reaches firms. <strong>Friday</strong>: discussion and data lab.",
+      "items": []
     },
     {
       "week": 7,
       "dates": "16–20 Nov",
-      "topic": "Instrumental variables",
-      "summary": "Relevance and exclusion, 2SLS, weak instruments, LATE. <strong>Friday, lab</strong>: Angrist and Krueger (1991) on compulsory schooling. Business framing: encouragement designs, when a programme is offered to everyone but only some take it up.",
-      "items": [
-        { "type": "link", "label": "EconVis — Instrumental variables", "url": "https://carusomatteo.it/models/iv.html" }
-      ]
+      "topic": "Part II: the new European economic governance",
+      "summary": "The 2024 reform of the EU fiscal rules: net expenditure paths, national medium-term plans, the European Semester, escape clauses. Italy as a live case: the excessive deficit procedure and its medium-term plan. Independent fiscal institutions and the Italian budget cycle. <strong>Friday</strong>: discussion and data lab.",
+      "items": []
     },
     {
       "week": 8,
       "dates": "23–27 Nov",
-      "topic": "Regression discontinuity",
-      "summary": "Sharp and fuzzy designs, bandwidth choice, manipulation tests. Firm incentives allocated by a score threshold (R&amp;D grants in Emilia-Romagna) and by an unexpected shortage of public funds (an Italian innovation programme). <strong>Friday</strong>: lab and discussion.",
-      "items": [
-        { "type": "reading", "label": "Bronzini and Iachini — Are incentives for R&D effective? Evidence from a regression discontinuity approach (AEJ: Economic Policy, 2014)", "url": "https://www.bancaditalia.it/pubblicazioni/altri-atti-convegni/2010-workshop-val-aiuti/bronzini.pdf" },
-        { "type": "reading", "label": "de Blasio, Fantino and Pellegrini — Evaluating the impact of innovation incentives: evidence from an unexpected shortage of funds (Banca d'Italia WP 792, 2011)", "url": "https://www.bancaditalia.it/pubblicazioni/temi-discussione/2011/2011-0792/en_tema_792.pdf" },
-        { "type": "reading", "label": "Further reading: Cerqua and Pellegrini — Do subsidies to private capital boost firms' growth? A multiple RDD approach (J. Public Economics, 2014)", "url": "https://doi.org/10.1016/j.jpubeco.2013.11.005" },
-        { "type": "link", "label": "EconVis — Regression discontinuity", "url": "https://carusomatteo.it/models/rdd.html" }
-      ]
+      "topic": "Part II: fiscal policy and ex ante evaluation",
+      "summary": "What fiscal policy does to firms and growth: multipliers, public investment, taxes and incentives. Ex ante evaluation: regulatory impact assessment, cost-benefit analysis and model-based impact estimates by governments and independent institutions. Spending reviews: where evidence enters the budget. <strong>Friday</strong>: discussion and data lab.",
+      "items": []
     },
     {
       "week": 9,
       "dates": "30 Nov–4 Dec",
-      "topic": "Synthetic control",
-      "summary": "Building a counterfactual from a donor pool; inference by placebo. Case study: California Proposition 99. Business framing: evaluating a single large decision, such as a market entry or a regional launch, when there is only one treated unit. <strong>Friday</strong>: lab and discussion.",
-      "items": [
-        { "type": "link", "label": "EconVis — Synthetic control", "url": "https://carusomatteo.it/models/synth.html" }
-      ]
+      "topic": "Part II: the ECB and monetary policy",
+      "summary": "The ECB's mandate and independence; interest rates, asset purchases and other instruments; how monetary policy reaches firms through credit and financing conditions. The recent cycle of tightening and easing, and how its effects are estimated. <strong>Friday</strong>: discussion and data lab.",
+      "items": []
     },
     {
       "week": 10,
       "dates": "7–11 Dec",
-      "topic": "Evidence for decisions, and report presentations",
-      "summary": "Reading an evaluation as a manager: what the evidence supports, what it does not, and how to communicate it. Report presentations (Monday to Friday) and exam review.",
+      "topic": "Part II: trade and industrial policy in the EU; wrap-up",
+      "summary": "Trade policy and tariffs; EU state aid rules and industrial policy; the recovery plan (PNRR) and incentives for firms' investment and innovation. Wrap-up: turning evidence into recommendations for policymakers and managers.",
       "items": []
     }
   ],
