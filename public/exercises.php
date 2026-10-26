@@ -6,7 +6,7 @@ require_login();
 $sets = course()['exercises'];
 
 page_header('Exercises', 'exercises.php');
-page_head('Exercises', 'Problem sets, lab exercises and interactive practice. Solutions are released after each set is discussed in class.');
+page_head('Exercises', 'Problem sets and lab exercises. Solutions are released after each set is discussed in class.');
 ?>
 
 <?php foreach ($sets as $set):

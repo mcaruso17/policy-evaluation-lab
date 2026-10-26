@@ -88,11 +88,7 @@
         { "type": "reading", "label": "Bronzini and de Blasio — Evaluating the impact of investment incentives: the case of Italy's Law 488/1992 (2006, J. Urban Economics)", "url": "https://www.bancaditalia.it/pubblicazioni/altri-atti-convegni/2007-valutazione-aiuti-impr/1_Evaluating_the_impact.pdf?language_id=1" },
         { "type": "reading", "label": "Card and Krueger — Minimum wages and employment: fast food in New Jersey and Pennsylvania (NBER WP 4509, 1993; AER 1994)", "url": "https://www.nber.org/system/files/working_papers/w4509/w4509.pdf" },
         { "type": "reading", "label": "Bronzini and Iachini — Are incentives for R&D effective? Evidence from a regression discontinuity approach (AEJ: Economic Policy, 2014)", "url": "https://www.bancaditalia.it/pubblicazioni/altri-atti-convegni/2010-workshop-val-aiuti/bronzini.pdf" },
-        { "type": "reading", "label": "Further reading: Cerqua and Pellegrini — Do subsidies to private capital boost firms' growth? A multiple RDD approach (J. Public Economics, 2014)", "url": "https://doi.org/10.1016/j.jpubeco.2013.11.005" },
-        { "type": "link", "label": "EconVis — Propensity score matching", "url": "https://carusomatteo.it/models/psm.html" },
-        { "type": "link", "label": "EconVis — Difference-in-differences", "url": "https://carusomatteo.it/models/did.html" },
-        { "type": "link", "label": "EconVis — Event study", "url": "https://carusomatteo.it/models/event_study.html" },
-        { "type": "link", "label": "EconVis — Regression discontinuity", "url": "https://carusomatteo.it/models/rdd.html" }
+        { "type": "reading", "label": "Further reading: Cerqua and Pellegrini — Do subsidies to private capital boost firms' growth? A multiple RDD approach (J. Public Economics, 2014)", "url": "https://doi.org/10.1016/j.jpubeco.2013.11.005" }
       ]
     },
     {
@@ -101,9 +97,7 @@
       "topic": "Part I: instrumental variables and synthetic control; reading an evaluation",
       "summary": "<strong>Monday</strong>: instrumental variables: encouragement designs, when a programme is offered to everyone but only some take it up; an unexpected shortage of public funds as a source of variation (an Italian innovation programme). <strong>Thursday</strong>: synthetic control: one treated unit, a counterfactual built from a donor pool; from a regional policy to a single large business decision. <strong>Friday</strong>: reading an evaluation critically, what it supports and what it does not. End of Part I.",
       "items": [
-        { "type": "reading", "label": "de Blasio, Fantino and Pellegrini — Evaluating the impact of innovation incentives: evidence from an unexpected shortage of funds (Banca d'Italia WP 792, 2011)", "url": "https://www.bancaditalia.it/pubblicazioni/temi-discussione/2011/2011-0792/en_tema_792.pdf" },
-        { "type": "link", "label": "EconVis — Instrumental variables", "url": "https://carusomatteo.it/models/iv.html" },
-        { "type": "link", "label": "EconVis — Synthetic control", "url": "https://carusomatteo.it/models/synth.html" }
+        { "type": "reading", "label": "de Blasio, Fantino and Pellegrini — Evaluating the impact of innovation incentives: evidence from an unexpected shortage of funds (Banca d'Italia WP 792, 2011)", "url": "https://www.bancaditalia.it/pubblicazioni/temi-discussione/2011/2011-0792/en_tema_792.pdf" }
       ]
     },
     {
@@ -144,14 +138,6 @@
   ],
 
   "exercises": [
-    {
-      "title": "Interactive practice on EconVis",
-      "description": "Guided challenges, detective mode and interpretation quizzes, with the simulated data downloadable as CSV to rerun in R or Excel.",
-      "items": [
-        { "type": "link", "label": "Difference-in-differences", "url": "https://carusomatteo.it/models/did.html" },
-        { "type": "link", "label": "Instrumental variables", "url": "https://carusomatteo.it/models/iv.html" }
-      ]
-    },
     {
       "title": "Problem sets",
       "description": "One problem set per method, posted after the corresponding lab. Solutions are released one week later.",
@@ -227,7 +213,6 @@
       "group": "Interactive",
       "items": [
         { "type": "link", "label": "Power and the minimum detectable effect (this site)", "url": "power.php" },
-        { "type": "link", "label": "EconVis — all models", "url": "https://carusomatteo.it/econvis.html" },
         { "type": "link", "label": "Spurious correlations (Tyler Vigen)", "url": "https://www.tylervigen.com/spurious-correlations" }
       ]
     }
