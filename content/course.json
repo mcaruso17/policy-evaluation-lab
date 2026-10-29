@@ -81,23 +81,24 @@
     {
       "week": 4,
       "dates": "26–30 Oct",
-      "topic": "Part I: difference-in-differences and regression discontinuity",
-      "summary": "The designs as ideas rather than estimators: where the comparison group comes from and which assumption makes it credible. <strong>Monday</strong>: from matching (comparing similar firms) to difference-in-differences: parallel trends, event studies and staggered roll-outs; Law 488/1992, subsidised firms versus rejected applicants. <strong>Thursday</strong>: regression discontinuity: incentives allocated by a score threshold (R&amp;D grants in Emilia-Romagna). <strong>Friday</strong>: lab and discussion of the two designs.",
+      "topic": "Part I: difference-in-differences, instrumental variables and regression discontinuity",
+      "summary": "The designs as ideas rather than estimators: where the comparison group comes from and which assumption makes it credible. <strong>Monday</strong>: from matching (comparing similar firms) to difference-in-differences: parallel trends, event studies and staggered roll-outs; Law 488/1992, subsidised firms versus rejected applicants. <strong>Thursday</strong>: instrumental variables (from the grant lottery to quarter of birth; whose effect we estimate) and regression discontinuity (R&amp;D grants allocated by a score threshold in Emilia-Romagna, an unexpected shortage of funds, the Law 488 rankings). <strong>Friday</strong>: lab and discussion.",
       "items": [
         { "type": "slides", "label": "Lecture 6: Difference-in-differences", "file": "slides/pel-06-did.pdf" },
+        { "type": "slides", "label": "Lecture 7: Instrumental variables and regression discontinuity", "file": "slides/pel-07-iv-rdd.pdf" },
         { "type": "reading", "label": "Bronzini and de Blasio — Evaluating the impact of investment incentives: the case of Italy's Law 488/1992 (2006, J. Urban Economics)", "url": "https://www.bancaditalia.it/pubblicazioni/altri-atti-convegni/2007-valutazione-aiuti-impr/1_Evaluating_the_impact.pdf?language_id=1" },
         { "type": "reading", "label": "Card and Krueger — Minimum wages and employment: fast food in New Jersey and Pennsylvania (NBER WP 4509, 1993; AER 1994)", "url": "https://www.nber.org/system/files/working_papers/w4509/w4509.pdf" },
         { "type": "reading", "label": "Bronzini and Iachini — Are incentives for R&D effective? Evidence from a regression discontinuity approach (AEJ: Economic Policy, 2014)", "url": "https://www.bancaditalia.it/pubblicazioni/altri-atti-convegni/2010-workshop-val-aiuti/bronzini.pdf" },
-        { "type": "reading", "label": "Further reading: Cerqua and Pellegrini — Do subsidies to private capital boost firms' growth? A multiple RDD approach (J. Public Economics, 2014)", "url": "https://doi.org/10.1016/j.jpubeco.2013.11.005" }
+        { "type": "reading", "label": "Further reading: Cerqua and Pellegrini — Do subsidies to private capital boost firms' growth? A multiple RDD approach (J. Public Economics, 2014)", "url": "https://doi.org/10.1016/j.jpubeco.2013.11.005" },
+        { "type": "reading", "label": "de Blasio, Fantino and Pellegrini — Evaluating the impact of innovation incentives: evidence from an unexpected shortage of funds (Banca d'Italia WP 792, 2011)", "url": "https://www.bancaditalia.it/pubblicazioni/temi-discussione/2011/2011-0792/en_tema_792.pdf" }
       ]
     },
     {
       "week": 5,
       "dates": "2–6 Nov",
-      "topic": "Part I: instrumental variables and synthetic control; reading an evaluation",
-      "summary": "<strong>Monday</strong>: instrumental variables: encouragement designs, when a programme is offered to everyone but only some take it up; an unexpected shortage of public funds as a source of variation (an Italian innovation programme). <strong>Thursday</strong>: synthetic control: one treated unit, a counterfactual built from a donor pool; from a regional policy to a single large business decision. <strong>Friday</strong>: reading an evaluation critically, what it supports and what it does not. End of Part I.",
+      "topic": "Part I: synthetic control; reading an evaluation",
+      "summary": "<strong>Monday</strong>: synthetic control: one treated unit, a counterfactual built from a donor pool; from a regional policy to a single large business decision. <strong>Thursday</strong>: reading an evaluation critically, what it supports and what it does not. <strong>Friday</strong>: lab and discussion. End of Part I.",
       "items": [
-        { "type": "reading", "label": "de Blasio, Fantino and Pellegrini — Evaluating the impact of innovation incentives: evidence from an unexpected shortage of funds (Banca d'Italia WP 792, 2011)", "url": "https://www.bancaditalia.it/pubblicazioni/temi-discussione/2011/2011-0792/en_tema_792.pdf" }
       ]
     },
     {
