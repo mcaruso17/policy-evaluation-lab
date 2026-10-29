@@ -20,6 +20,15 @@
 %     suspended after ten months, five years to reinstate funding; programme
 %     not effective, public money substituted private.
 %   - Cerqua and Pellegrini (2014), abstract on IDEAS/RePEc.
+%   - Abadie, Diamond and Hainmueller, NBER WP 12831 (published JASA 2010):
+%     Prop. 99 passed November 1988, +25 cents per pack; donor pool of 38
+%     states (excluded: states with their own programmes or tax rises of 50
+%     cents or more); synthetic California = Colorado, Connecticut, Montana,
+%     Nevada, Utah; about 26 packs lower by 2000; placebo gaps for all 38
+%     states. Figures 1, 2 and 4 cropped from the WP (adh_fig_p38/39/41).
+%   - Pinotti, Dondena WP 54 (published Economic Journal 2015): Apulia and
+%     Basilicata, mafia after the 1970s; GDP per capita 16% lower; private
+%     capital replaced by less productive public investment.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[aspectratio=169,xcolor=table]{beamer}
@@ -28,7 +37,7 @@
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 \title[Policy Evaluation Lab]{Policy Evaluation Lab}
-\subtitle[Lecture 7]{Lecture 7: Instrumental variables and regression discontinuity}
+\subtitle[Lecture 7]{Lecture 7: Instrumental variables, regression discontinuity and synthetic control}
 \date[\pelYear]{October, 2026}
 
 \begin{document}
@@ -39,10 +48,11 @@
 \small
 \bi
   \item Monday: difference-in-differences, a comparison group followed over time
-  \item Today: two designs that exploit \textbf{rules}
+  \item Today, three designs, at speed:
     \bi
       \item \textbf{Instrumental variables}: something outside the firm's control pushes some units into treatment
       \item \textbf{Regression discontinuity}: a cut-off decides who is treated
+      \item \textbf{Synthetic control}: only one unit is treated, so we build its twin
     \ei
 \ei
 \vspace{0.1cm}
@@ -53,6 +63,7 @@
 \midrule
 Instrumental variables & units the outside factor did not push & the factor works only through the treatment \\
 Regression discontinuity & units just below the cut-off & no sorting around the cut-off \\
+Synthetic control & a weighted mix of untreated units & the mix tracked the treated unit for years before \\
 \bottomrule
 \end{tabular}
 \end{frame}
@@ -335,12 +346,111 @@ In a fuzzy RDD, being above the cut-off is an \textbf{instrument}: effect $=$ ju
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Reading IV and RDD studies}
+\section{Synthetic control}
+
+\begin{frame}{When only one unit is treated}
+\small
+\bi
+  \item Many policies hit \textbf{one} unit: a region passes a law, a country leaves a union, a firm opens in one market
+  \item DiD needs a control group; with one treated region, which region is the right comparison?
+  \item Picking one by hand (``Lombardy is like Piedmont'') is arbitrary
+\ei
+\begin{block}{The idea}
+Build a \textbf{synthetic twin}: a weighted average of untreated units, with weights chosen so that the twin reproduces the treated unit's outcome for \textbf{many years before} the policy. After the policy, the twin shows what would have happened
+\end{block}
+\pelTableNote{The weights are positive and add up to one: the twin is a mix of real units, which can be named and discussed.}
+\end{frame}
+
+\begin{frame}{California, 1988: Proposition 99}
+\begin{columns}[T]
+\begin{column}{0.5\textwidth}
+\small
+\bi
+  \item November 1988: Californian voters approve a tobacco control programme: \textbf{+25 cents} of tax per pack, anti-smoking campaigns, local smoke-free rules
+  \item Did it reduce smoking? Per-capita cigarette sales, 1970--2000
+  \item The rest of the US is no counterfactual: sales were falling faster in California already before 1988
+\ei
+\pelTableNote{Abadie, Diamond and Hainmueller (2010).}
+\end{column}
+\begin{column}{0.47\textwidth}
+\centering
+\includegraphics[width=\linewidth]{figures/lecture-07ivrd/adh_fig_p38.png}
+\pelTableNote{California (solid) vs the rest of the US (dashed).}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Synthetic California}
+\begin{columns}[T]
+\begin{column}{0.5\textwidth}
+\small
+\bi
+  \item Donor pool: 38 states, \textbf{excluding} those with their own tobacco programmes or large tax rises in the period
+  \item The best mix: \textbf{Colorado, Connecticut, Montana, Nevada and Utah}; all others get zero weight
+  \item The twin tracks California almost perfectly for 18 years before 1988
+  \item By 2000, sales in California are about \textbf{26 packs per person lower} than in the synthetic California
+\ei
+\end{column}
+\begin{column}{0.47\textwidth}
+\centering
+\includegraphics[width=\linewidth]{figures/lecture-07ivrd/adh_fig_p39.png}
+\pelTableNote{California (solid) vs synthetic California (dashed).}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Is the gap real? Placebos}
+\begin{columns}[T]
+\begin{column}{0.5\textwidth}
+\small
+\bi
+  \item With one treated unit there is no usual standard error
+  \item Instead: pretend each donor state had the policy in 1988, build its own synthetic twin, and compute its ``effect''
+  \item If California's gap is one among many similar ones, it may be noise
+  \item Here California's gap (black) is among the most extreme: unlikely to be chance
+\ei
+\end{column}
+\begin{column}{0.47\textwidth}
+\centering
+\includegraphics[width=\linewidth]{figures/lecture-07ivrd/adh_fig_p41.png}
+\pelTableNote{Gap between each state and its synthetic twin; California in black, the 38 placebo states in grey.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{An Italian case: the cost of organised crime}
+\small
+\bi
+  \item Pinotti (2015): \textbf{Apulia and Basilicata}, two southern regions where mafia activity spread after the 1970s
+  \item Synthetic twin: a weighted mix of regions less affected by organised crime, matched on economic structure and outcomes in the years before
+  \item Result: GDP per capita about \textbf{16\% lower} than in the synthetic twin, while murders rose sharply
+  \item Mechanism suggested by the author: private investment replaced by \textbf{less productive public investment}, not a shift to the black economy
+\ei
+\begin{exampleblock}{For firms}
+The same logic can evaluate a single big decision: a product launched in one region, a plant opened in one country. The twin is a mix of regions or markets where nothing happened
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{What must hold}
+\small
+\bi
+  \item A \textbf{long} pre-policy period with a close fit: if the twin cannot track the treated unit before, it cannot be trusted after
+  \item Donors must \textbf{not be affected} by the policy (spillovers) or by their own big policies (hence the excluded states)
+  \item No other shock hits the treated unit at the same time
+\ei
+\begin{block}{}
+\centering Strength: transparent and visual, with no econometrics on screen. Weakness: one unit, so every result is a case study
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Reading these studies}
 
 \begin{frame}{Questions to ask}
 \small
+\footnotesize
 \begin{columns}[T]
-\begin{column}{0.48\textwidth}
+\begin{column}{0.32\textwidth}\raggedright
 \textbf{Instrumental variables}
 \be
   \item Does the instrument clearly move the treatment?
@@ -348,7 +458,7 @@ In a fuzzy RDD, being above the cut-off is an \textbf{instrument}: effect $=$ ju
   \item Who are the compliers, and do we care about them?
 \ee
 \end{column}
-\begin{column}{0.48\textwidth}
+\begin{column}{0.32\textwidth}\raggedright
 \textbf{Regression discontinuity}
 \be
   \item Who sets the score, and could units manipulate it?
@@ -356,10 +466,18 @@ In a fuzzy RDD, being above the cut-off is an \textbf{instrument}: effect $=$ ju
   \item Is the effect near the cut-off the one the policy question needs?
 \ee
 \end{column}
+\begin{column}{0.32\textwidth}\raggedright
+\textbf{Synthetic control}
+\be
+  \item How well does the twin fit before the policy, and for how long?
+  \item Which units make up the twin, and are they plausible?
+  \item Were the donors touched by the policy or by their own shocks?
+\ee
+\end{column}
 \end{columns}
 \vspace{0.2cm}
 \begin{block}{}
-\centering Both designs buy credibility with \textbf{locality}: a convincing effect for a specific group, not for everyone
+\centering All three designs buy credibility with \textbf{locality}: a convincing effect for a specific group, not for everyone
 \end{block}
 \end{frame}
 
@@ -367,7 +485,7 @@ In a fuzzy RDD, being above the cut-off is an \textbf{instrument}: effect $=$ ju
 \small
 \bi
   \item \textbf{Friday}: lab and discussion
-  \item \textbf{Next week}: synthetic control, and reading an evaluation critically. End of Part I
+  \item \textbf{Next week}: ex post evaluation as an approach: evaluation questions, theory of change, and reading an evaluation critically. End of Part I
   \item Readings on the Lectures page, week 4
 \ei
 \end{frame}
@@ -375,11 +493,13 @@ In a fuzzy RDD, being above the cut-off is an \textbf{instrument}: effect $=$ ju
 \begin{frame}{References}
 \tiny
 \bi
+  \item Abadie, A., A. Diamond and J. Hainmueller (2010), Synthetic control methods for comparative case studies: estimating the effect of California's tobacco control program, \textit{Journal of the American Statistical Association}, 105(490), 493--505
   \item Angrist, J. D. and G. W. Imbens (1995), Two-stage least squares estimation of average causal effects in models with variable treatment intensity, \textit{Journal of the American Statistical Association}, 90(430), 431--442
   \item Angrist, J. D. and A. B. Krueger (1991), Does compulsory school attendance affect schooling and earnings?, \textit{Quarterly Journal of Economics}, 106(4), 979--1014
   \item Bronzini, R. and E. Iachini (2014), Are incentives for R\&D effective? Evidence from a regression discontinuity approach, \textit{American Economic Journal: Economic Policy}, 6(4), 100--134
   \item Bronzini, R. and G. de Blasio (2006), Evaluating the impact of investment incentives: the case of Italy's Law 488/1992, \textit{Journal of Urban Economics}, 60(2), 327--349
   \item Cerqua, A. and G. Pellegrini (2014), Do subsidies to private capital boost firms' growth? A multiple regression discontinuity design approach, \textit{Journal of Public Economics}, 109, 114--126
+  \item Pinotti, P. (2015), The economic costs of organised crime: evidence from southern Italy, \textit{Economic Journal}, 125(586), F203--F232
   \item de Blasio, G., D. Fantino and G. Pellegrini (2011), Evaluating the impact of innovation incentives: evidence from an unexpected shortage of funds, Banca d'Italia, Temi di discussione 792
 \ei
 \end{frame}

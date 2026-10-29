@@ -81,11 +81,11 @@
     {
       "week": 4,
       "dates": "26–30 Oct",
-      "topic": "Part I: difference-in-differences, instrumental variables and regression discontinuity",
-      "summary": "The designs as ideas rather than estimators: where the comparison group comes from and which assumption makes it credible. <strong>Monday</strong>: from matching (comparing similar firms) to difference-in-differences: parallel trends, event studies and staggered roll-outs; Law 488/1992, subsidised firms versus rejected applicants. <strong>Thursday</strong>: instrumental variables (from the grant lottery to quarter of birth; whose effect we estimate) and regression discontinuity (R&amp;D grants allocated by a score threshold in Emilia-Romagna, an unexpected shortage of funds, the Law 488 rankings). <strong>Friday</strong>: lab and discussion.",
+      "topic": "Part I: difference-in-differences, instrumental variables, regression discontinuity, synthetic control",
+      "summary": "The designs as ideas rather than estimators: where the comparison group comes from and which assumption makes it credible. <strong>Monday</strong>: from matching (comparing similar firms) to difference-in-differences: parallel trends, event studies and staggered roll-outs; Law 488/1992, subsidised firms versus rejected applicants. <strong>Thursday</strong>: instrumental variables (from the grant lottery to quarter of birth; whose effect we estimate) and regression discontinuity (R&amp;D grants allocated by a score threshold in Emilia-Romagna, an unexpected shortage of funds, the Law 488 rankings) and synthetic control (California's tobacco programme; the economic cost of organised crime in southern Italy). <strong>Friday</strong>: lab and discussion.",
       "items": [
         { "type": "slides", "label": "Lecture 6: Difference-in-differences", "file": "slides/pel-06-did.pdf" },
-        { "type": "slides", "label": "Lecture 7: Instrumental variables and regression discontinuity", "file": "slides/pel-07-iv-rdd.pdf" },
+        { "type": "slides", "label": "Lecture 7: Instrumental variables, regression discontinuity and synthetic control", "file": "slides/pel-07-iv-rdd.pdf" },
         { "type": "reading", "label": "Bronzini and de Blasio — Evaluating the impact of investment incentives: the case of Italy's Law 488/1992 (2006, J. Urban Economics)", "url": "https://www.bancaditalia.it/pubblicazioni/altri-atti-convegni/2007-valutazione-aiuti-impr/1_Evaluating_the_impact.pdf?language_id=1" },
         { "type": "reading", "label": "Card and Krueger — Minimum wages and employment: fast food in New Jersey and Pennsylvania (NBER WP 4509, 1993; AER 1994)", "url": "https://www.nber.org/system/files/working_papers/w4509/w4509.pdf" },
         { "type": "reading", "label": "Bronzini and Iachini — Are incentives for R&D effective? Evidence from a regression discontinuity approach (AEJ: Economic Policy, 2014)", "url": "https://www.bancaditalia.it/pubblicazioni/altri-atti-convegni/2010-workshop-val-aiuti/bronzini.pdf" },
@@ -96,8 +96,8 @@
     {
       "week": 5,
       "dates": "2–6 Nov",
-      "topic": "Part I: synthetic control; reading an evaluation",
-      "summary": "<strong>Monday</strong>: synthetic control: one treated unit, a counterfactual built from a donor pool; from a regional policy to a single large business decision. <strong>Thursday</strong>: reading an evaluation critically, what it supports and what it does not. <strong>Friday</strong>: lab and discussion. End of Part I.",
+      "topic": "Part I: ex post evaluation as an approach",
+      "summary": "Evaluation as a way of thinking rather than a technique: formulating the evaluation question, the theory of change behind a policy, choosing a design that fits the data, and reading an evaluation critically: what it supports and what it does not. <strong>Friday</strong>: lab and discussion. End of Part I.",
       "items": [
       ]
     },

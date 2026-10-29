@@ -14,7 +14,7 @@ written outside Overleaf are kept here. They use the course preamble
   Migali DiD decks). Figures in `figures/lecture-06d/`; copy that folder next
   to the preamble too. Number sources are listed in the file header.
   Student slides: `pdflatex lecture-06-did.tex`.
-- `lecture-07-iv-rdd.tex`: Lecture 7, instrumental variables and regression
-  discontinuity (week 4). IV part from Overleaf "lecture 9.tex" (Migali IV
-  deck); RDD part new. Figures in `figures/lecture-07ivrd/`. Number sources in
+- `lecture-07-iv-rdd.tex`: Lecture 7, instrumental variables, regression
+  discontinuity and synthetic control (week 4). IV part from Overleaf "lecture 9.tex" (Migali IV
+  deck); RDD and synthetic control parts new. Figures in `figures/lecture-07ivrd/`. Number sources in
   the file header. Student slides: `pdflatex lecture-07-iv-rdd.tex`.
