@@ -2,7 +2,8 @@
 %  Policy Evaluation Lab -- Lab 2: a case study, the Carta del docente
 %  Monday 2 November 2026 (replaces the Friday 30 October lab, not held:
 %  general strike, no students).
-%  Case: question 2 of the MEF written exam of 31 March 2025 (MEF/STAT,
+%  Kept to the essentials (lecturer's request): opening slides, case text,
+%  Table 1 and the two questions as in the exam. Case: question 2 of the MEF written exam of 31 March 2025 (MEF/STAT,
 %  funzionario statistico, analisi e valutazione delle politiche pubbliche).
 %  Only the question text and Table 1 are used, translated; the table is
 %  re-typeset from the exam. Its footnote says the data were constructed for
@@ -44,32 +45,12 @@
 \end{columns}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Today's case}
-
-\begin{frame}{Today: a real exam question}
-\bi
-  \item The case comes from the written exam of a 2025 public competition at the \textbf{Ministry of Economy and Finance} (MEF), for officials specialised in the analysis and evaluation of public policies
-  \item This is exactly the kind of task an evaluator in a ministry receives: a policy, a table of administrative data, two questions
-  \item No econometrics needed: what matters is asking the right questions of the data
-\ei
-\vspace{0.1cm}
-\begin{block}{How we work}
-Groups of 3--4. Two rounds: first the data on implementation, then the design of an evaluation. Each group reports in 3 minutes after each round
-\end{block}
-\end{frame}
-
-\begin{frame}{The policy: the \textit{Carta elettronica del docente}}
+\begin{frame}{Today's lab: a case study}
 \small
-\bi
-  \item Introduced by Law 107/2015 (``Buona Scuola'') to support teachers' continuous training and professional development
-  \item An annual bonus of \textbf{€500} for teachers in state schools, to be spent by the end of the following school year
-  \item It can be used freely for four categories: (1) hardware and software; (2) books and magazines; (3) cinema and theatre; (4) training courses
-  \item To use it, teachers must first register on an online platform
-  \item Since 2016 the State has allocated \textbf{€380 million a year}
-  \item The Ministry of Education is running a study on the implementation and effects of the policy, and has collected the administrative data in Table 1
-\ei
-\pelTableNote{Facts as stated in the exam question.}
+The \textit{Carta elettronica del docente} is an instrument introduced by Law 107/2015 (``Buona Scuola'') to support teachers' continuous training and to enhance their professional skills. It is an annual bonus worth \textbf{€500}, for teachers in state schools, to be spent by the end of the school year following the one in which it is assigned. The card can be used freely to buy several categories of goods and services: (1) hardware and software; (2) books and magazines; (3) cinema and theatre; (4) training courses. To use the bonus, teachers must first register on a dedicated online platform.
+
+\vspace{0.15cm}
+Since 2016 the State has allocated \textbf{€380 million a year} to fund this measure. The Ministry of Education and Merit is currently conducting a study to evaluate the implementation and the effects of this policy. For this purpose it has collected some administrative data, reported in Table 1.
 \end{frame}
 
 \begin{frame}{Table 1: teachers, purchases and spending}
@@ -97,95 +78,14 @@ Groups of 3--4. Two rounds: first the data on implementation, then the design of
 \pelTableNote{Hw/sw = hardware and software; Books = books and magazines; Cinema = cinema and theatre; Courses = training courses. Source: MEF written exam, 31 March 2025. The data were constructed for the exercise and do not necessarily correspond to real values.}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\renewcommand{\pelSectionBear}{charts}
-\section{Round 1: implementation}
-
-\begin{frame}{Round 1 (25 minutes): what do the data say?}
-\begin{block}{The exam question, part 1}
-Based on the information provided, analyse the main evidence on the implementation of the Carta del docente, indicating which indicators it would be useful to compute, and how
-\end{block}
-\small
-In your group:
-\be
-  \item Which \textbf{indicators} would you compute from Table 1? Write down the formula of each one (numerator, denominator)
-  \item Compute two or three of them for the first and the last year. What has changed?
-  \item Is there anything in the table that looks odd, or that needs an explanation?
-  \item What would you tell the Ministry in \textbf{three sentences}?
-\ee
-\end{frame}
-
-\begin{frame}{Round 1: some directions (after the group reports)}
-\footnotesize
-\begin{columns}[T]
-\begin{column}{0.5\textwidth}
-\textbf{Take-up and use}
-\bi
-  \item registered $/$ eligible teachers
-  \item total spending $/$ €380 million allocated
-  \item spending per registered teacher, against the €500 cap
-\ei
-\textbf{Composition}
-\bi
-  \item share of spending by category
-  \item spending per purchase, by category
-\ei
-\end{column}
-\begin{column}{0.46\textwidth}
-\textbf{Questions the data raise}
-\bi
-  \item Which category takes most of the money, and which the least?
-  \item What happens in 2020-21, and why?
-  \item Can spending per registered teacher exceed €500 in some years? What would explain it?
-  \item Do these numbers measure \textbf{training}, or only \textbf{spending}?
-\ei
-\end{column}
-\end{columns}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Round 2: effectiveness}
-
-\begin{frame}{Round 2 (25 minutes): did it improve teaching?}
-\begin{block}{The exam question, part 2}
-Illustrate which strategy could be adopted, and which other data would be needed, to evaluate the effectiveness of the Carta del docente in terms of improving the educational offer
-\end{block}
-\small
-In your group:
-\be
-  \item What is the \textbf{outcome}? ``Improving the educational offer'': how would you measure it?
-  \item What is the \textbf{counterfactual}? Every eligible teacher gets the card: who could play the control group?
-  \item Which \textbf{design} from Weeks 2--4 could work, and under which assumption?
-  \item Which \textbf{data} would you ask the Ministry for?
-\ee
-\end{frame}
-
-\begin{frame}{Round 2: some directions (after the group reports)}
-\footnotesize
-\bi
-  \item \textbf{The theory of change}: money $\rightarrow$ purchases $\rightarrow$ more or better training $\rightarrow$ better teaching $\rightarrow$ students learn more. Table 1 only covers the first link
-  \item \textbf{Deadweight}: would teachers have bought the same books and computers anyway? Then the card is an income transfer, not a training policy
-  \item \textbf{No natural control group}: all eligible teachers receive it, every year. Look for teachers who are \textbf{not} eligible, or for differences in timing or rules, and ask whether they are comparable
-  \item \textbf{Outcomes beyond spending}: hours of certified training, participation in courses, student results, school self-evaluation reports; linked teacher by teacher
-\ei
+\begin{frame}{The questions}
 \begin{block}{}
-\centering The data in Table 1 measure \textbf{outputs}. The question asks about \textbf{outcomes}. That gap is the whole exercise
+Based on the information provided, analyse the main evidence on the implementation of the Carta del docente, indicating which indicators it would be useful to compute, and how.
+\end{block}
+\vspace{0.2cm}
+\begin{block}{}
+In addition, illustrate which strategy could be adopted, and which other data would be needed, to evaluate the effectiveness of the Carta docente in terms of improving the educational offer.
 \end{block}
 \end{frame}
-
-\begin{frame}{Wrap-up}
-\small
-\bi
-  \item Evaluation starts before the data: \textbf{what is the policy for}, and what would success look like?
-  \item Administrative data are excellent for monitoring implementation; on their own they rarely answer ``did it work?''
-  \item A universal policy, given to everyone, is the hardest to evaluate: the design has to be thought of \textbf{when the policy is designed}
-\ei
-\vspace{0.1cm}
-\begin{exampleblock}{This week}
-Ex post evaluation as an approach: evaluation questions, theory of change, choosing a design, reading an evaluation critically
-\end{exampleblock}
-\end{frame}
-
-\pelQuestions
 
 \end{document}

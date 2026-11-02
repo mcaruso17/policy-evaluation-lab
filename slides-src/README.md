@@ -21,5 +21,4 @@ written outside Overleaf are kept here. They use the course preamble
 - `lab-02-carta-docente.tex`: Lab 2 (Monday 2 November 2026), group case study
   on the Carta del docente (question 2 of the MEF written exam, 31 March 2025;
   data constructed for the exercise). The photos in `figures/lab-02/` are not
-  kept in the repository. `lab-02-lecturer.tex`: one-page lecturer sheet with
-  the indicators computed from Table 1 (hidden from students on the site).
+  kept in the repository.
