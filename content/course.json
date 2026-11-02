@@ -99,7 +99,9 @@
       "topic": "Part I: ex post evaluation as an approach",
       "summary": "Evaluation as a way of thinking rather than a technique: formulating the evaluation question, the theory of change behind a policy, choosing a design that fits the data, and reading an evaluation critically: what it supports and what it does not. <strong>Friday</strong>: lab and discussion. End of Part I.",
       "items": [
-        { "type": "slides", "label": "Lab 2: A case study, the Carta del docente (Monday 2 November)", "file": "slides/pel-lab-02-carta-docente.pdf" }
+        { "type": "slides", "label": "Lab 2: A case study, the Carta del docente (Monday 2 November)", "file": "slides/pel-lab-02-carta-docente.pdf" },
+        { "type": "dataset", "label": "Lab 2: Table 1 in Excel, with ready-made charts (carta_docente.xlsx)", "file": "datasets/carta_docente.xlsx" },
+        { "type": "dataset", "label": "Lab 2: Table 1 as CSV, for R (carta_docente.csv)", "file": "datasets/carta_docente.csv" }
       ]
     },
     {
