@@ -29,7 +29,7 @@
     {
       "date": "2026-10-09",
       "title": "How the course is organised",
-      "body": "We study policy evaluation through three lenses: <strong>firms as targets of public policy</strong> (why governments support or regulate firms, and with which instruments), <strong>counterfactual evaluation</strong> (the methods: experiments, matching, difference-in-differences, instrumental variables, regression discontinuity, synthetic control), and <strong>firms as evaluators of their own decisions</strong> (pilots, rollouts and A/B tests). Each method is paired with a reference paper, most of them on Italian incentives to firms: you find them in the week where they are discussed and under Resources. Every week has two lectures, on Monday and Thursday, and a lab and discussion session on Friday, run as a seminar: bring a laptop."
+      "body": "The course has two parts. Part I (weeks 1 to 5) is about ex post evaluation: causality and potential outcomes, selection bias, randomised experiments, and the quasi-experimental designs (difference-in-differences, instrumental variables, regression discontinuity, synthetic control), mostly applied to Italian incentives to firms; it ends with evaluation as an approach and three case studies. Part II (weeks 6 to 10) is about economic policy and how it reaches firms: why and how the state intervenes in the macroeconomy, the new European economic governance, fiscal policy and ex ante evaluation, the ECB and monetary policy, trade and industrial policy in the EU. Reference papers are listed in the week where they are discussed and under Resources. Every week has two lectures, on Monday and Thursday, and a lab and discussion session on Friday, run as a seminar: bring a laptop."
     },
     {
       "date": "2026-10-08",
@@ -69,7 +69,7 @@
       "week": 3,
       "dates": "19–23 Oct",
       "topic": "Randomised experiments",
-      "summary": "<strong>Monday</strong>: why randomisation solves selection bias; the grant assigned by lottery; does management matter? A management-consulting experiment in Indian textile plants (Bloom et al.). <strong>Thursday</strong>: what goes wrong in experiments (non-compliance, intention-to-treat, attrition, spillovers, power); <strong>Lens 3, firms as evaluators</strong>: A/B tests inside companies; exporting and firm performance (Atkin, Khandelwal and Osman). <strong>Friday, Lab 2</strong>: regression in R and the grant lottery; discussion of the two experiments.",
+      "summary": "<strong>Monday</strong>: why randomisation solves selection bias; the grant assigned by lottery; does management matter? A management-consulting experiment in Indian textile plants (Bloom et al.). <strong>Thursday</strong>: what goes wrong in experiments (non-compliance, intention-to-treat, attrition, spillovers, power); <strong>Lens 3, firms as evaluators</strong>: A/B tests inside companies; exporting and firm performance (Atkin, Khandelwal and Osman). <strong>Friday</strong>: regression in R and the grant lottery; discussion of the two experiments.",
       "items": [
         { "type": "slides", "label": "Lecture 4 — Randomised experiments (I): a grant lottery, and does management matter?", "file": "slides/pel-04-experiments-1.pdf" },
         { "type": "reading", "label": "Bloom, Eifert, Mahajan, McKenzie and Roberts — Does management matter? Evidence from India (NBER WP 16658, 2011; QJE 2013)", "url": "https://www.nber.org/system/files/working_papers/w16658/w16658.pdf" },
@@ -164,7 +164,7 @@
       },
       {
         "title": "Presentation",
-        "description": "You present your report in the last week of the course (week 10)."
+        "description": "You present your report in the extra sessions at the end of the course; dates will be announced."
       },
       {
         "title": "Oral exam",
@@ -188,10 +188,10 @@
       "items": [
         { "type": "reading", "label": "Bloom et al. (2013) — Does management matter? Evidence from India · RCT · week 3", "url": "https://www.nber.org/system/files/working_papers/w16658/w16658.pdf" },
         { "type": "reading", "label": "Atkin, Khandelwal and Osman (2017) — Exporting and firm performance: evidence from a randomized experiment · RCT · week 3", "url": "https://www.nber.org/system/files/working_papers/w20690/w20690.pdf" },
-        { "type": "reading", "label": "Card and Krueger (1994) — Minimum wages and employment · DiD · week 5", "url": "https://www.nber.org/system/files/working_papers/w4509/w4509.pdf" },
-        { "type": "reading", "label": "Bronzini and de Blasio (2006) — Investment incentives: Italy's Law 488/1992 · DiD · week 5", "url": "https://www.bancaditalia.it/pubblicazioni/altri-atti-convegni/2007-valutazione-aiuti-impr/1_Evaluating_the_impact.pdf?language_id=1" },
-        { "type": "reading", "label": "Bronzini and Iachini (2014) — Are incentives for R&D effective? · RDD · week 8", "url": "https://www.bancaditalia.it/pubblicazioni/altri-atti-convegni/2010-workshop-val-aiuti/bronzini.pdf" },
-        { "type": "reading", "label": "de Blasio, Fantino and Pellegrini (2015) — Innovation incentives and an unexpected shortage of funds · RDD · week 8", "url": "https://www.bancaditalia.it/pubblicazioni/temi-discussione/2011/2011-0792/en_tema_792.pdf" },
+        { "type": "reading", "label": "Card and Krueger (1994) — Minimum wages and employment · DiD · week 4", "url": "https://www.nber.org/system/files/working_papers/w4509/w4509.pdf" },
+        { "type": "reading", "label": "Bronzini and de Blasio (2006) — Investment incentives: Italy's Law 488/1992 · DiD · week 4", "url": "https://www.bancaditalia.it/pubblicazioni/altri-atti-convegni/2007-valutazione-aiuti-impr/1_Evaluating_the_impact.pdf?language_id=1" },
+        { "type": "reading", "label": "Bronzini and Iachini (2014) — Are incentives for R&D effective? · RDD · week 4", "url": "https://www.bancaditalia.it/pubblicazioni/altri-atti-convegni/2010-workshop-val-aiuti/bronzini.pdf" },
+        { "type": "reading", "label": "de Blasio, Fantino and Pellegrini (2015) — Innovation incentives and an unexpected shortage of funds · RDD · week 4", "url": "https://www.bancaditalia.it/pubblicazioni/temi-discussione/2011/2011-0792/en_tema_792.pdf" },
         { "type": "reading", "label": "Cerqua and Pellegrini (2014) — Do subsidies to private capital boost firms' growth? · multiple RDD · further reading", "url": "https://doi.org/10.1016/j.jpubeco.2013.11.005" }
       ]
     },
