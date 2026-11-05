@@ -22,3 +22,7 @@ written outside Overleaf are kept here. They use the course preamble
   on the Carta del docente (question 2 of the MEF written exam, 31 March 2025;
   data constructed for the exercise). The photos in `figures/lab-02/` are not
   kept in the repository.
+- `lab-03-borse-dsu.tex` and `lab-04-parco-agrisolare.tex`: Labs 3 and 4
+  (5 and 6 November 2026), case studies from the two envelopes not drawn at
+  the same MEF exam (code STAT, envelopes 2 and 1), published by the MEF on
+  4 June 2025. Lab 4 is released on the site at 17:00 on 6 November.

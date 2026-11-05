@@ -268,11 +268,12 @@ function course(): array
     return $c;
 }
 
-/* An item with "available_from" stays hidden from students until that date;
+/* An item with "available_from" stays hidden from students until that date
+   ("2026-11-06") or date and time ("2026-11-06 17:00", Rome time);
    the admin sees it early, marked as scheduled. */
 function item_available(array $item): bool
 {
-    return empty($item['available_from']) || date('Y-m-d') >= $item['available_from'];
+    return empty($item['available_from']) || date('Y-m-d H:i') >= $item['available_from'];
 }
 
 /* Every item in course.json, wherever it sits (weeks, exercises, exam, …). */
