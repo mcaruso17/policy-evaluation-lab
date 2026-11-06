@@ -10,6 +10,7 @@
 
 \documentclass[aspectratio=169,xcolor=table]{beamer}
 \input{preamble-pel}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 \title[Policy Evaluation Lab]{Policy Evaluation Lab}
 \subtitle[Lab 4]{Lab 4: A case study, the PNRR \textit{Parco agrisolare}}
@@ -20,99 +21,147 @@
 \frame{\titlepage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%  NextGenerationEU slides: every statement taken from the European
-%  Commission page https://next-generation-eu.europa.eu/index_en (English
-%  and Italian versions, read on 6 November 2026). Nothing else is used.
+%  Italy's PNRR slides: every statement and number taken from the Council
+%  document ST 12357/26 ADD 1 (20 August 2026), Annex to the Council
+%  Implementing Decision amending the implementing decision of 13 July 2021
+%  on the approval of the assessment of Italy's recovery and resilience plan
+%  (Italian version; file Annex_CONSIL_ST_12357_2026_ADD_1_IT_TXT.pdf in the
+%  repository). Pages: total cost p. 438; instalments, Section 2; Parco
+%  agrisolare pp. 172, 177-179, 183, 195 (document page numbers).
+%  The EU-level slides from next-generation-eu.europa.eu are kept in
+%  lab-04-before-italy.tex (scratchpad) / git history.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{NextGenerationEU}
+\section{Italy's recovery plan (PNRR)}
 
-\begin{frame}{NextGenerationEU}
+\begin{frame}{The PNRR in one document}
 \bi
-  \item The \textbf{largest ever stimulus package} undertaken in the EU
-  \item According to the Commission, it is boosting Europe's economy and making societies stronger and more resilient
-  \item It is ``setting the blueprint for a new growth model'' based on a clean, innovative and inclusive economy, and on digital and tech sovereignty
+  \item The Council approved the assessment of Italy's \textbf{Piano Nazionale di Ripresa e Resilienza} (PNRR) with an Implementing Decision of \textbf{13 July 2021}
+  \item That decision has been amended: this Annex, dated \textbf{20 August 2026}, belongs to an amending decision
+  \item The Annex lists, for every reform and investment, its description, its \textbf{milestones and targets}, and the instalments to which they are linked
 \ei
-\vspace{0.2cm}
-\begin{block}{}
-\centering \textit{``NextGenerationEU: for a stronger, more resilient Europe''}
+\vspace{0.15cm}
+\begin{block}{Estimated total cost of the plan}
+\centering \textbf{€194,435,381,164}\\[2pt]
+\small of which the REPowerEU chapter: €7,212,200,000
 \end{block}
-\pelTableNote{Source: European Commission, \url{https://next-generation-eu.europa.eu/index_en} (accessed 6 November 2026).}
+\pelTableNote{Source: Council of the EU, ST 12357/26 ADD 1, 20 August 2026 (Annex on Italy's recovery and resilience plan).}
 \end{frame}
 
-\begin{frame}{How the money flows}
+\begin{frame}{Missions and components}
 \begin{columns}[T]
-\begin{column}{0.56\textwidth}
+\begin{column}{0.5\textwidth}
+\scriptsize\setlength{\itemsep}{0pt}
+\textbf{Mission 1}
+\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+  \item C1: digitalisation of the public administration, justice, public administration
+  \item C2: digitalisation, innovation and competitiveness of the production system (axis 1)
+  \item C3: tourism and culture 4.0
+\end{itemize}
+\textbf{Mission 2}
+\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+  \item C1: \textbf{circular economy and sustainable agriculture}
+  \item C2: energy transition and sustainable mobility
+  \item C3: energy efficiency and renovation of buildings
+  \item C4: protection of land and water resources
+\end{itemize}
+\textbf{Mission 3}
+\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+  \item C1: infrastructure for sustainable mobility
+\end{itemize}
+\end{column}
+\begin{column}{0.48\textwidth}
+\scriptsize\setlength{\itemsep}{0pt}
+\textbf{Mission 4}
+\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+  \item C1: education services, from nurseries to university
+  \item C2: from research to business
+\end{itemize}
+\textbf{Mission 5}
+\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+  \item C1: labour policies
+  \item C2: social infrastructure, families, communities and third sector
+  \item C3: special interventions for territorial cohesion
+\end{itemize}
+\textbf{Mission 6}
+\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+  \item C1: proximity networks, facilities and telemedicine for territorial health care
+  \item C2: innovation, research and digitalisation of the national health service
+\end{itemize}
+\textbf{Mission 7}: REPowerEU
+\end{column}
+\end{columns}
+\pelTableNote{Source: Council of the EU, ST 12357/26 ADD 1, 20 August 2026 (Annex on Italy's recovery and resilience plan).}
+\end{frame}
+
+\begin{frame}{Paid by results: milestones, targets, instalments}
+\begin{columns}[T]
+\begin{column}{0.5\textwidth}
+\footnotesize
 \bi
-  \item The instrument is the \textbf{Recovery and Resilience Facility} (RRF), established by Regulation (EU) 2021/241
-  \item It provides \textbf{loans and grants} to Member States
-  \item The projects are set out in each country's \textbf{national Recovery and Resilience Plan}
-  \item In Italian: \textit{piano nazionale per la ripresa e la resilienza}, the PNRR
+  \item Italy receives the money in \textbf{instalments}: 10 of non-repayable support (grants) and 10 of loans
+  \item Each instalment is linked to a list of:
+    \bi
+      \item \textbf{milestones} (\textit{traguardi}): qualitative steps, e.g.\ a law entering into force
+      \item \textbf{targets} (\textit{obiettivi}): quantitative indicators, with a unit, a baseline, a value to reach and a quarter
+    \ei
+  \item Example, 1st grant instalment: entry into force of the primary legislation on the governance of the PNRR
 \ei
 \end{column}
-\begin{column}{0.4\textwidth}
-\centering
-\begin{tabular}{lr}
+\begin{column}{0.46\textwidth}
+\centering\scriptsize
+\begin{tabular}{lrr}
 \toprule
-\multicolumn{2}{l}{\textbf{Funds allocated through the RRF}} \\
+\textbf{Instalment} & \textbf{Grants (€ m)} & \textbf{Loans (€ m)} \\
 \midrule
-Loans & €291 billion \\
-Grants & €357 billion \\
-\midrule
-\textbf{Overall} & \textbf{€648 billion} \\
+1st  & 11,494.3 & 12,643.7 \\
+2nd  & 11,494.3 & 12,643.7 \\
+3rd  & 11,494.3 & 9,825.3 \\
+4th  & 2,315.6  & 16,611.5 \\
+5th  & 3,621.5  & 9,030.6 \\
+6th  & 2,053.6  & 7,908.5 \\
+7th  & 5,294.6  & 15,716.0 \\
+8th  & 3,541.6  & 11,184.6 \\
+9th  & 7,670.1  & 7,118.5 \\
+10th & 12,799.9 & 19,919.6 \\
 \bottomrule
 \end{tabular}
-\pelTableNote{At 2022 prices. The maximum amount foreseen by the RRF Regulation.}
+\pelTableNote{Amounts rounded to €0.1 million from the Annex, Section 2.}
 \end{column}
 \end{columns}
-\pelTableNote{Source: European Commission, \url{https://next-generation-eu.europa.eu/index_en} (accessed 6 November 2026).}
+\pelTableNote{Source: Council of the EU, ST 12357/26 ADD 1, 20 August 2026 (Annex on Italy's recovery and resilience plan).}
 \end{frame}
 
-\begin{frame}{Where the money goes: six areas}
-\be
-  \item The green transition
-  \item Digital transformation
-  \item Social and territorial cohesion
-  \item Policies for the next generation
-  \item Smart, sustainable and inclusive growth
-  \item Health and economic, social and institutional resilience
-\ee
-\vspace{0.1cm}
-\small The page highlights in particular \textbf{healthcare}, \textbf{education and skills}, and \textbf{SMEs and young entrepreneurs}
-\pelTableNote{Source: European Commission, \url{https://next-generation-eu.europa.eu/index_en} (accessed 6 November 2026).}
-\end{frame}
-
-\begin{frame}{Following the implementation}
-\bi
-  \item Many funded initiatives have already been completed, with others still underway
-  \item Progress of each country in implementing its plan: the \textbf{Recovery and Resilience Scoreboard} and the Commission's \textbf{27 Country Snapshots}
-  \item An \textbf{interactive map} of projects, with a warning: it is not an exhaustive database, and the funding amounts shown are based on the \textbf{initial cost estimates} in the plans
-  \item Projects are subject to the Commission's verification of the satisfactory fulfilment of \textbf{milestones and targets} under Regulation (EU) 2021/241
-\ei
-\pelTableNote{Source: European Commission, \url{https://next-generation-eu.europa.eu/index_en} (accessed 6 November 2026).}
-\end{frame}
-
-\begin{frame}{Three projects from the page}
+\begin{frame}{Today's measure in the plan: Parco agrisolare}
 \small
-\begin{columns}[T]
-\begin{column}{0.32\textwidth}
-\begin{block}{Estonia}
-A new tram line connecting Tallinn's Old Port to the city centre: \textbf{€36.5 million}
-\end{block}
-\end{column}
-\begin{column}{0.32\textwidth}
-\begin{block}{Portugal}
-Resources and equipment against wildfires, including aerial assets for the Air Force: \textbf{€89 million}
-\end{block}
-\end{column}
-\begin{column}{0.32\textwidth}
-\begin{block}{Belgium}
-Building and renovating childcare facilities in Wallonia: \textbf{€6 million}
-\end{block}
-\end{column}
-\end{columns}
-\vspace{0.3cm}
-\raggedright Today's case is one investment of Italy's plan: the \textit{Parco agrisolare} (from the exam text)
-\pelTableNote{Source: European Commission, \url{https://next-generation-eu.europa.eu/index_en} (accessed 6 November 2026).}
+\textbf{Mission 2, Component 1, Investment 2.2 -- Parco agrisolare}: to make the agricultural sector more sustainable and competitive, by supporting investments in agricultural, livestock and agro-industrial buildings for the installation of \textbf{solar panels} and complementary interventions
+\vspace{0.1cm}
+
+\centering\scriptsize
+\begin{tabular}{llL{6.2cm}r}
+\toprule
+\textbf{Code} & \textbf{Type} & \textbf{What must be reached} & \textbf{By} \\
+\midrule
+M2C1-4 & target & beneficiary projects identified, worth at least 30\% of the resources assigned to the investment & Q4 2022 \\
+M2C1-5 & target & at least 32\% & Q4 2023 \\
+M2C1-6 & target & at least 63.5\% & Q2 2024 \\
+M2C1-6 bis & target & 100\% of the further supplementary resources & Q4 2024 \\
+M2C1-9 & target & \textbf{at least 1,470,000 kW (1,470 MW)} of solar capacity installed & \textbf{Q2 2026} \\
+\bottomrule
+\end{tabular}
+\pelTableNote{The exam text (2025) gives a target of 1,383 MW: the current Annex says 1,470 MW.}
+\pelTableNote{Source: Council of the EU, ST 12357/26 ADD 1, 20 August 2026 (Annex on Italy's recovery and resilience plan).}
+\end{frame}
+
+\begin{frame}{A second instrument: the Parco agrisolare facility}
+\small
+\textbf{Mission 2, Component 1, Investment 4 -- Dispositivo per il parco agrisolare}
+\bi
+  \item A grant scheme to encourage private investment and improve access to finance in the agricultural and agro-industrial sector
+  \item Managed by the \textbf{GSE} (Gestore dei Servizi Energetici S.p.A.); it supports the same kind of investments: solar panels on agricultural, livestock and agro-industrial buildings
+  \item Italy transfers \textbf{€789 million} to the GSE for the scheme; at least €633 million must contribute to climate objectives
+  \item Milestones: implementation agreement in force (M2C1-26, Q4 2025); legal agreements with final beneficiaries for 100\% of the scheme (M2C1-27, Q2 2026)
+\ei
+\pelTableNote{Source: Council of the EU, ST 12357/26 ADD 1, 20 August 2026 (Annex on Italy's recovery and resilience plan).}
 \end{frame}
 
 \section{Today's case}

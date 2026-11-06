@@ -26,7 +26,9 @@ written outside Overleaf are kept here. They use the course preamble
   (5 and 6 November 2026), case studies from the two envelopes not drawn at
   the same MEF exam (code STAT, envelopes 2 and 1), published by the MEF on
   4 June 2025. Lab 4 is released on the site at 17:00 on 6 November.
-- Lab 4 opens with five slides on NextGenerationEU, written only from the
-  European Commission page https://next-generation-eu.europa.eu/index_en
-  (text snapshots of the English and Italian versions, 6 November 2026, in
-  `sources/`).
+- Lab 4 opens with five slides on Italy's PNRR, written only from the Council
+  document ST 12357/26 ADD 1 (20 August 2026), the Annex to the decision on
+  Italy's recovery and resilience plan (`Annex_CONSIL_ST_12357_2026_ADD_1_IT_TXT.pdf`
+  in the repository root; page references in the .tex header). The earlier
+  version with NextGenerationEU slides from next-generation-eu.europa.eu is in
+  git history (commit e848c23); page snapshots in `sources/`.
