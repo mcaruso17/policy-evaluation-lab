@@ -105,9 +105,9 @@
         { "type": "slides", "label": "Lab 3: A case study, university scholarships (Thursday 5 November)", "file": "slides/pel-lab-03-borse-dsu.pdf" },
         { "type": "dataset", "label": "Lab 3: Table 1 in Excel (borse_dsu.xlsx)", "file": "datasets/borse_dsu.xlsx" },
         { "type": "dataset", "label": "Lab 3: Table 1 as CSV, for R (borse_dsu.csv)", "file": "datasets/borse_dsu.csv" },
-        { "type": "slides", "label": "Lab 4: A case study, the PNRR Parco agrisolare (Friday 6 November)", "file": "slides/pel-lab-04-parco-agrisolare.pdf", "available_from": "2026-11-06 17:00" },
-        { "type": "dataset", "label": "Lab 4: Table 1 in Excel (parco_agrisolare.xlsx)", "file": "datasets/parco_agrisolare.xlsx", "available_from": "2026-11-06 17:00" },
-        { "type": "dataset", "label": "Lab 4: Table 1 as CSV, for R (parco_agrisolare.csv)", "file": "datasets/parco_agrisolare.csv", "available_from": "2026-11-06 17:00" }
+        { "type": "slides", "label": "Lab 4: A case study, the PNRR Parco agrisolare (Friday 6 November)", "file": "slides/pel-lab-04-parco-agrisolare.pdf" },
+        { "type": "dataset", "label": "Lab 4: Table 1 in Excel (parco_agrisolare.xlsx)", "file": "datasets/parco_agrisolare.xlsx" },
+        { "type": "dataset", "label": "Lab 4: Table 1 as CSV, for R (parco_agrisolare.csv)", "file": "datasets/parco_agrisolare.csv" }
       ]
     },
     {
