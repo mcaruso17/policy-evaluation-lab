@@ -26,3 +26,7 @@ written outside Overleaf are kept here. They use the course preamble
   (5 and 6 November 2026), case studies from the two envelopes not drawn at
   the same MEF exam (code STAT, envelopes 2 and 1), published by the MEF on
   4 June 2025. Lab 4 is released on the site at 17:00 on 6 November.
+- Lab 4 opens with five slides on NextGenerationEU, written only from the
+  European Commission page https://next-generation-eu.europa.eu/index_en
+  (text snapshots of the English and Italian versions, 6 November 2026, in
+  `sources/`).
