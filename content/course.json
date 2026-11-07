@@ -17,6 +17,11 @@
 
   "announcements": [
     {
+      "date": "2026-11-07",
+      "title": "No lectures from 9 to 13 November",
+      "body": "There are no lectures next week (Monday 9 to Friday 13 November): I am away. We start Part II of the course on Monday 16 November."
+    },
+    {
       "date": "2026-10-11",
       "title": "Extra sessions to be scheduled",
       "body": "The regular timetable (Monday, Thursday and Friday until 11 December) does not cover all 60 hours of the course, so a few extra sessions will be scheduled. Dates and times will be announced here."
@@ -113,8 +118,8 @@
     {
       "week": 6,
       "dates": "9–13 Nov",
-      "topic": "Part II: why and how the state intervenes in the macroeconomy",
-      "summary": "The rationale for macroeconomic policy and its political economy: stabilisation, credibility and time inconsistency, rules versus discretion, the incentives of governments. The architecture of economic policy in the euro area: a single monetary policy, national fiscal policies, common rules. How macro policy reaches firms. <strong>Friday</strong>: discussion and data lab.",
+      "topic": "No lectures this week",
+      "summary": "No lectures from Monday 9 to Friday 13 November: the lecturer is away. Part II starts on Monday 16 November.",
       "items": []
     },
     {
