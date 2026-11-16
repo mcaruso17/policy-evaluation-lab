@@ -18,6 +18,13 @@ written outside Overleaf are kept here. They use the course preamble
   discontinuity and synthetic control (week 4). IV part from Overleaf "lecture 9.tex" (Migali IV
   deck); RDD and synthetic control parts new. Figures in `figures/lecture-07ivrd/`. Number sources in
   the file header. Student slides: `pdflatex lecture-07-iv-rdd.tex`.
+- `lecture-08-macro-toolkit.tex`: Lecture 8 (Monday 16 November 2026, start of
+  Part II), the macro toolkit from GDP to IS-LM. Built from Blanchard,
+  *Macroeconomics*, 7th ed. (Pearson, 2017), chapters 2 to 5 and section 9-1:
+  notation and structure follow the book; wording, examples and diagrams
+  (TikZ) are our own. The book is copyrighted: do not add the PDF or its
+  figures here. Sections checked are listed in the file header.
+  Student slides: `pdflatex lecture-08-macro-toolkit.tex`.
 - `lab-02-carta-docente.tex`: Lab 2 (Monday 2 November 2026), group case study
   on the Carta del docente (question 2 of the MEF written exam, 31 March 2025;
   data constructed for the exercise). The photos in `figures/lab-02/` are not

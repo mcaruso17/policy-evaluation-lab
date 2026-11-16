@@ -125,9 +125,11 @@
     {
       "week": 7,
       "dates": "16–20 Nov",
-      "topic": "Part II: the new European economic governance",
-      "summary": "The 2024 reform of the EU fiscal rules: net expenditure paths, national medium-term plans, the European Semester, escape clauses. Italy as a live case: the excessive deficit procedure and its medium-term plan. Independent fiscal institutions and the Italian budget cycle. <strong>Friday</strong>: discussion and data lab.",
-      "items": []
+      "topic": "Part II: the macro toolkit; the new European economic governance",
+      "summary": "<strong>Monday</strong>: the macro toolkit in one lecture, from GDP to IS-LM: GDP and its components, the goods market and the multiplier, investment equals saving, money demand and the interest rate, fiscal and monetary policy in IS-LM (Blanchard, <em>Macroeconomics</em>, 7th ed., chapters 2 to 5). <strong>Thursday</strong>: the 2024 reform of the EU fiscal rules: net expenditure paths, national medium-term plans, the European Semester, escape clauses. Italy as a live case: the excessive deficit procedure and its medium-term plan. Independent fiscal institutions and the Italian budget cycle. <strong>Friday</strong>: discussion and data lab.",
+      "items": [
+        { "type": "slides", "label": "Lecture 8: The macro toolkit, from GDP to IS-LM", "file": "slides/pel-08-macro-toolkit.pdf" }
+      ]
     },
     {
       "week": 8,

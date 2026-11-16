@@ -1,0 +1,764 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Policy Evaluation Lab -- Lecture 8: the macro toolkit, from GDP to IS-LM
+%  Monday 16 November 2026, first lecture of Part II.
+%  Built from Blanchard, Macroeconomics, 7th ed. (Pearson, 2017, Global
+%  Edition): sections 2-1, 3-1 to 3-5, 4-1, 4-2, 4-4, 5-1 to 5-5, 9-1.
+%  The book is copyrighted: wording, numerical examples and diagrams on these
+%  slides are our own; notation and structure follow the book. Do not add
+%  the PDF or its figures to the repository.
+%  Checked against the book:
+%   - three definitions of GDP; nominal vs real; growth (Y_t - Y_{t-1})/Y_{t-1}
+%   - Table 3-1, US GDP 2014: C 68.3%, I 16.0%, G 18.1%, X 13.5%, IM 16.6%,
+%     inventory investment 0.4% (Survey of Current Business, July 2015)
+%   - G excludes transfers and interest payments
+%   - Z = C + I + G; C = c0 + c1 (Y - T); Y = [c0 + I + G - c1 T]/(1 - c1)
+%   - S = Y - T - C; I = S + (T - G); paradox of saving
+%   - "Is the government omnipotent?": lags, other responses, expectations,
+%     side effects (inflation), deficits and debt
+%   - M^d = $Y L(i); M = $Y L(i); open market operations; P_B = 100/(1+i)
+%   - central banks choose i; zero lower bound / liquidity trap
+%   - I = I(Y, i); IS: Y = C(Y - T) + I(Y, i) + G; LM: M/P = Y L(i), and in
+%     the 7th edition a horizontal LM at the rate chosen by the central bank
+%   - three-step method; fiscal contraction; monetary expansion; policy mix;
+%     fiscal consolidation + monetary expansion (Clinton and Greenspan, 1990s)
+%   - Christiano, Eichenbaum and Evans (1996), as reported in Figure 5-10:
+%     +1 point federal funds rate; retail sales -0.9% after 5 quarters;
+%     output -0.7% after 8 quarters; price level nearly unchanged for about
+%     6 quarters
+%   - preface: AD-AS replaced by IS-LM-PC; eq. 9.4: pi - pi(-1) = (a/L)(Y - Yn)
+%  Not used: the book's box on the German and French recessions (not checked).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[aspectratio=169,xcolor=table]{beamer}
+\input{preamble-pel}
+\usetikzlibrary{positioning,arrows.meta,calc}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\tikzset{
+  ax/.style={-{Stealth[length=2.2mm]}, thick, pelText},
+  curveA/.style={very thick, pelAccent},
+  curveB/.style={very thick, pelSlate},
+  shifted/.style={very thick, pelAccent, dashed},
+  guide/.style={densely dotted, pelMuted},
+  lbl/.style={font=\footnotesize},
+}
+
+\title[Policy Evaluation Lab]{Policy Evaluation Lab}
+\subtitle[Lecture 8]{Lecture 8: The macro toolkit, from GDP to IS-LM}
+\date[\pelYear]{November, 2026}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Part II starts today}
+\small
+\bi
+  \item Part I: did \emph{this} policy work for \emph{these} firms, students, teachers?
+  \item Part II: macroeconomic policy. What can fiscal and monetary policy do, who decides, under which rules
+  \item Before we talk about the EU fiscal rules and the ECB, we need a common language:
+  \bi
+    \item what we measure (GDP and its components)
+    \item how demand determines output in the short run
+    \item how the central bank sets the interest rate
+    \item how the two fit together: the \textbf{IS-LM} model
+  \ei
+\ei
+\vspace{0.2cm}
+\begin{block}{}
+\centering One lecture, one model. A review, not a full course in macroeconomics
+\end{block}
+\pelTableNote{Notation and structure follow Blanchard, \textit{Macroeconomics}, 7th ed., chapters 2 to 5. Examples and diagrams are our own.}
+\end{frame}
+
+\begin{frame}{Today}
+\be
+  \item GDP: what it measures
+  \item The goods market: demand, equilibrium output, the multiplier
+  \item Investment equals saving
+  \item Financial markets: money demand, money supply, the interest rate
+  \item IS-LM: fiscal policy, monetary policy, the policy mix
+  \item What the model leaves out, and where we go next
+\ee
+\end{frame}
+
+%=============================================================================
+\section{GDP}
+%=============================================================================
+
+\begin{frame}{GDP: three ways to look at the same number}
+\small
+A toy economy: a farmer grows wheat, a miller makes flour, a baker sells bread
+\vspace{0.1cm}
+
+\centering\footnotesize
+\begin{tabular}{lrrrr}
+\toprule
+ & \textbf{Sales} & \textbf{Inputs bought} & \textbf{Value added} & \textbf{of which: wages / profits}\\
+\midrule
+Farmer (wheat) & 30 & 0 & 30 & 20 / 10 \\
+Miller (flour) & 50 & 30 & 20 & 12 / 8 \\
+Baker (bread)  & 90 & 50 & 40 & 28 / 12 \\
+\midrule
+\textbf{Total} & 170 & & \textbf{90} & 60 / 30 \\
+\bottomrule
+\end{tabular}
+\vspace{0.15cm}
+
+\raggedright\small
+\be
+  \item Value of \textbf{final} goods: the bread, 90 (wheat and flour are intermediate goods)
+  \item Sum of \textbf{value added}: $30 + 20 + 40 = 90$
+  \item Sum of \textbf{incomes}: wages 60 + profits 30 = 90
+\ee
+Adding up all sales (170) would count the wheat three times
+\pelTableNote{Numbers invented for the example. Production and income are the same thing seen from two sides: this is why we use one symbol, $Y$, for both.}
+\end{frame}
+
+\begin{frame}{Nominal and real GDP}
+\small
+\bi
+  \item \textbf{Nominal GDP} ($\$Y_t$): quantities $\times$ current prices. Grows if we produce more \emph{or} if prices rise
+  \item \textbf{Real GDP} ($Y_t$): quantities $\times$ the prices of a base year
+  \item GDP growth: $g_t = (Y_t - Y_{t-1})/Y_{t-1}$, computed on real GDP
+\ei
+\vspace{0.1cm}
+\centering\footnotesize
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Year} & \textbf{Loaves} & \textbf{Price} & \textbf{Nominal GDP} & \textbf{Real GDP (year 1 prices)}\\
+\midrule
+1 & 100 & 2.00 & 200 & 200 \\
+2 & 105 & 2.10 & 220.5 & 210 \\
+\bottomrule
+\end{tabular}
+\vspace{0.1cm}
+
+\raggedright\small
+Nominal growth 10.25\%, real growth 5\%: the rest is prices
+\bi
+  \item Positive growth: \textbf{expansion}. Negative growth: \textbf{recession}
+  \item Real GDP per person: a (rough) measure of the standard of living
+\ei
+\end{frame}
+
+\begin{frame}{Who buys what we produce}
+\begin{columns}[T]
+\begin{column}{0.47\textwidth}
+\footnotesize
+\[
+Y = C + I + G + X - IM + \text{inventory inv.}
+\]
+\bi
+  \item $C$: consumption, by far the largest
+  \item $I$: \textbf{investment} = new machines, plants, houses. Not buying shares: that is \emph{financial} investment
+  \item $G$: government purchases of goods and services. \textbf{Not} pensions, transfers, interest on debt
+  \item $X - IM$: net exports
+  \item Inventory investment: production minus sales
+\ei
+\end{column}
+\begin{column}{0.5\textwidth}
+\centering\footnotesize
+\begin{tabular}{lr}
+\toprule
+\textbf{United States, 2014} & \textbf{\% of GDP}\\
+\midrule
+Consumption ($C$) & 68.3 \\
+Investment ($I$) & 16.0 \\
+Government spending ($G$) & 18.1 \\
+Exports ($X$) & 13.5 \\
+Imports ($IM$) & $-16.6$ \\
+Inventory investment & 0.4 \\
+\bottomrule
+\end{tabular}
+\pelTableNote{Source: Blanchard, Table 3-1, from the Survey of Current Business, July 2015.}
+\vspace{0.1cm}
+\raggedright\small
+\footnotesize With transfers and interest, US public spending was about 33\% of GDP
+\end{column}
+\end{columns}
+\end{frame}
+
+%=============================================================================
+\section{The goods market}
+%=============================================================================
+
+\begin{frame}{The demand for goods}
+\footnotesize
+Simplifications (for now): one good; firms supply whatever is demanded at a given price level $P$; a closed economy ($X = IM = 0$)
+\[
+Z \equiv C + I + G
+\]
+\bi
+  \item Consumption depends on \textbf{disposable income} $Y_D = Y - T$ ($T$: taxes minus transfers)
+  \[
+  C = c_0 + c_1 (Y - T), \qquad 0 < c_1 < 1
+  \]
+  \bi
+    \item $c_1$: propensity to consume. Out of one extra euro, how many cents are spent?
+    \item $c_0$: consumption not explained by income (confidence, access to credit)
+  \ei
+  \item Investment $\bar I$: given, for now
+  \item $G$ and $T$: chosen by the government. This is \textbf{fiscal policy}
+\ei
+\pelTableNote{Three kinds of equations: identities ($Z \equiv C+I+G$, $Y_D \equiv Y-T$), behavioural equations ($C = c_0 + c_1 Y_D$), equilibrium conditions ($Y = Z$, next slide).}
+\end{frame}
+
+\begin{frame}{Equilibrium output}
+\small
+Equilibrium: production equals demand, $Y = Z$
+\[
+Y = c_0 + c_1 (Y - T) + \bar I + G
+\]
+Solve for $Y$:
+\[
+Y = \underbrace{\frac{1}{1-c_1}}_{\text{multiplier}} \; \underbrace{\left[\,c_0 + \bar I + G - c_1 T\,\right]}_{\text{autonomous spending}}
+\]
+\bi
+  \item Autonomous spending: the part of demand that does not depend on income
+  \item Since $0 < c_1 < 1$, the multiplier is larger than 1
+  \item With $c_1 = 0.75$: multiplier $= 1/0.25 = 4$. One more euro of $G$ (or of $c_0$, or of $\bar I$) raises output by 4 euros
+\ei
+\end{frame}
+
+\begin{frame}{The same in a graph}
+\begin{columns}[c]
+\begin{column}{0.52\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.92]
+  \draw[ax] (0,0) -- (6,0) node[below left, lbl] {Income, $Y$};
+  \draw[ax] (0,0) -- (0,5.2) node[above right, lbl] {Demand $Z$, production $Y$};
+  \draw[guide] (0,0) -- (5.2,5.2) node[above, lbl, pelMuted] {$45^\circ$: $Y=Z$};
+  \draw[curveB] (0,1.2) -- (5.6,3.44) node[right, lbl] {$ZZ$};
+  \draw[shifted] (0,1.8) -- (5.6,4.04) node[right, lbl] {$ZZ'$};
+  % A: Y = 1.2/0.6 = 2 ; A': 1.8/0.6 = 3
+  \fill[pelText] (2,2) circle (2pt) node[left=3pt, lbl] {A};
+  \fill[pelAccent] (3,3) circle (2pt) node[left=3pt, lbl] {A$'$};
+  \draw[guide] (2,0) node[below, lbl] {$Y$} -- (2,2);
+  \draw[guide] (3,0) node[below, lbl] {$Y'$} -- (3,3);
+  \draw[{Stealth}-{Stealth}, pelAccent] (0.25,1.2) -- (0.25,1.8);
+  \node[right, lbl, pelAccent] at (0.25,1.5) {$\Delta c_0$};
+\end{tikzpicture}
+\end{column}
+\begin{column}{0.45\textwidth}
+\small
+\bi
+  \item $ZZ$: demand as a function of income. Intercept = autonomous spending, slope = $c_1$
+  \item Equilibrium where $ZZ$ crosses the $45^\circ$ line
+  \item Autonomous spending rises: $ZZ$ shifts up
+  \item Output rises by \textbf{more} than the shift: the horizontal gap $Y' - Y$ is larger than the vertical shift
+\ei
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Where the multiplier comes from}
+\footnotesize
+Demand rises by 1 euro. With $c_1 = 0.75$:
+\vspace{0.1cm}
+
+\centering\footnotesize
+\begin{tabular}{clr}
+\toprule
+\textbf{Round} & \textbf{What happens} & \textbf{Extra output}\\
+\midrule
+1 & Firms produce 1 more euro, households earn 1 more euro & 1.00 \\
+2 & Households spend $0.75$ of it & 0.75 \\
+3 & \ldots of which they spend $0.75$ again & 0.56 \\
+4 & & 0.42 \\
+$\vdots$ & & $\vdots$ \\
+\midrule
+ & \textbf{Total}: $1 + c_1 + c_1^2 + \ldots = 1/(1-c_1)$ & \textbf{4.00} \\
+\bottomrule
+\end{tabular}
+\vspace{0.15cm}
+
+\raggedright\small
+\bi
+  \item Each round is smaller: the process converges
+  \item It takes time: consumers and firms do not adjust instantly
+  \item The size of the multiplier is an \textbf{empirical} question: we come back to it with fiscal policy (Ramey 2019)
+\ei
+\end{frame}
+
+%=============================================================================
+\section{Investment equals saving}
+%=============================================================================
+
+\begin{frame}{Investment equals saving}
+\small
+Private saving: $S \equiv Y_D - C = Y - T - C$. Public saving: $T - G$ (a budget surplus if positive, a deficit if negative)
+\vspace{0.1cm}
+
+Start from $Y = C + I + G$, subtract $T$ and $C$ from both sides:
+\[
+\underbrace{Y - T - C}_{S} = I + G - T
+\qquad\Longrightarrow\qquad
+\boxed{\,I = S + (T - G)\,}
+\]
+\bi
+  \item Same equilibrium, seen from another side: what firms want to invest must equal what households and the government want to save
+  \item This is where the name \textbf{IS} comes from: Investment = Saving
+  \item With $S = -c_0 + (1-c_1)(Y-T)$ we get back exactly the same $Y$ as before
+\ei
+\pelTableNote{Keynes's formulation in the General Theory (1936). We ignore saving by firms (retained profits): the identity does not depend on it.}
+\end{frame}
+
+\begin{frame}{The paradox of saving}
+\footnotesize
+Households decide to save more at any level of income: $c_0$ falls
+\bi
+  \item Demand falls, so output falls (multiplier)
+  \item What happens to total saving? In equilibrium $I = S + (T-G)$
+  \item $\bar I$, $T$ and $G$ have not changed, so $S$ \textbf{cannot change}: income falls exactly enough to offset the wish to save more
+  \item If investment also falls with output, saving ends up \emph{lower}
+\ei
+\vspace{0.1cm}
+\begin{block}{}
+Trying to save more can mean lower output and no more saving, \textbf{in the short run}
+\end{block}
+\bi
+  \item Same for the government: cutting the deficit lowers output in the short run, unless monetary policy moves too. Over longer horizons, higher saving can raise income
+\ei
+\end{frame}
+
+\begin{frame}{A warning: is the government omnipotent?}
+\footnotesize
+The model suggests that choosing $G$ and $T$ gives the government the output it wants. It does not, because:
+\be
+  \item Changing $G$ or $T$ takes time: budgets must be approved
+  \item Investment, imports and the exchange rate also react, with dynamics that are hard to predict
+  \item \textbf{Expectations}: a tax cut seen as temporary has a smaller effect; people may expect future taxes to pay for today's spending
+  \item Pushing output too high raises inflation
+  \item Deficits accumulate into public debt
+\ee
+\vspace{0.1cm}
+\begin{block}{}
+Each point is a reason why the effect of a fiscal policy must be \textbf{estimated}, not assumed: Part II is about these limits
+\end{block}
+\end{frame}
+
+%=============================================================================
+\section{Financial markets}
+%=============================================================================
+
+\begin{frame}{Money, income, wealth}
+\small
+Words with precise meanings:
+\bi
+  \item \textbf{Income}: what you earn in a period. A flow
+  \item \textbf{Saving}: the part of disposable income you do not spend. A flow
+  \item \textbf{Wealth}: the value of your assets minus your liabilities. A stock
+  \item \textbf{Money}: what you can use to pay. Currency and current account deposits. A stock
+\ei
+\vspace{0.1cm}
+Simplest financial world: only two assets
+\bi
+  \item \textbf{Money}: you can pay with it, but it pays no interest
+  \item \textbf{Bonds}: they pay an interest rate $i$, but you cannot pay with them
+\ei
+How much of your wealth do you keep in money? It depends on how much you spend, and on how much interest you give up
+\end{frame}
+
+\begin{frame}{The demand for money}
+\begin{columns}[c]
+\begin{column}{0.5\textwidth}
+\small
+\[
+M^d = \$Y \; L(\underset{(-)}{i})
+\]
+\bi
+  \item Proportional to \textbf{nominal} income $\$Y$: more transactions, more money needed. Prices double, money demand doubles
+  \item Decreasing in $i$: the higher the rate, the more costly it is to hold money instead of bonds
+  \item Higher $\$Y$: the curve shifts right
+\ei
+\end{column}
+\begin{column}{0.47\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.9]
+  \draw[ax] (0,0) -- (5.6,0) node[below left, lbl] {Money, $M$};
+  \draw[ax] (0,0) -- (0,4.6) node[above right, lbl] {Interest rate, $i$};
+  \draw[curveB] (0.6,4.2) .. controls (1.2,1.6) and (2.6,0.8) .. (4.6,0.55) node[right, lbl] {$M^d$};
+  \draw[shifted] (1.5,4.2) .. controls (2.1,1.6) and (3.5,0.8) .. (5.4,0.55);
+  \node[lbl, pelAccent] at (3.6,2.3) {$M^{d\prime}$ (higher $\$Y$)};
+\end{tikzpicture}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Money supply and the interest rate}
+\begin{columns}[c]
+\begin{column}{0.5\textwidth}
+\small
+\bi
+  \item The central bank supplies $M^s = M$
+  \item Equilibrium: $M = \$Y\,L(i)$
+  \item $i$ adjusts until people are willing to hold exactly the money that exists
+\ei
+\vspace{0.1cm}
+\textbf{Comparative statics}
+\bi
+  \item $\$Y$ up, $M$ given: $i$ up
+  \item $M$ up, $\$Y$ given: $i$ down
+\ei
+\end{column}
+\begin{column}{0.47\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.9]
+  \draw[ax] (0,0) -- (5.6,0) node[below left, lbl] {Money, $M$};
+  \draw[ax] (0,0) -- (0,4.6) node[above right, lbl] {Interest rate, $i$};
+  \draw[curveB] (0.6,4.2) .. controls (1.2,1.6) and (2.6,0.8) .. (4.6,0.55) node[right, lbl] {$M^d$};
+  \draw[curveA] (1.9,0) -- (1.9,4.3) node[above, lbl] {$M^s$};
+  \draw[shifted] (3.0,0) -- (3.0,4.3) node[above, lbl] {$M^{s\prime}$};
+  \fill[pelText] (1.9,1.57) circle (2pt) node[right, lbl] {A};
+  \fill[pelAccent] (3.0,0.98) circle (2pt) node[above right, lbl] {A$'$};
+  \draw[guide] (0,1.57) node[left, lbl] {$i$} -- (1.9,1.57);
+  \draw[guide] (0,0.98) node[left, lbl] {$i'$} -- (3.0,0.98);
+\end{tikzpicture}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{How the central bank does it}
+\small
+\textbf{Open market operations}
+\bi
+  \item Central bank balance sheet: assets = bonds, liabilities = money
+  \item To expand money, it \textbf{buys} bonds and pays with newly created money. To contract, it sells
+\ei
+\vspace{0.1cm}
+\textbf{Bond prices and interest rates move in opposite directions}
+\bi
+  \item A one-year bond pays 100 euros in a year and costs $P_B$ today
+  \[
+  i = \frac{100 - P_B}{P_B} \qquad\Longleftrightarrow\qquad P_B = \frac{100}{1+i}
+  \]
+  \item $P_B = 98$: $i \approx 2.0\%$. $P_B = 95$: $i \approx 5.3\%$
+  \item The central bank buys bonds, bond prices rise, the interest rate falls
+\ei
+\end{frame}
+
+\begin{frame}{Choosing money or choosing the interest rate?}
+\small
+\bi
+  \item We described the central bank as choosing $M$ and letting $i$ adjust
+  \item Equivalently, it can choose $i$ and supply whatever $M$ is needed to get there
+  \item Modern central banks do the second: the news is ``the ECB raised rates'', not ``the ECB reduced the money supply''
+\ei
+\vspace{0.1cm}
+\textbf{One limit: the zero lower bound}
+\bi
+  \item When $i = 0$, money and bonds pay the same: once transactions are covered, people do not care which they hold
+  \item Adding more money then does not lower $i$: a \textbf{liquidity trap}
+  \item Seen as a curiosity before 2008, it became a binding constraint after the financial crisis
+\ei
+\pelTableNote{In practice rates went slightly below zero in several countries, including the euro area: holding large amounts of cash is costly and unsafe. The logic of the bound remains.}
+\end{frame}
+
+%=============================================================================
+\section{IS-LM}
+%=============================================================================
+
+\begin{frame}{The IS curve: goods market with an interest rate}
+\begin{columns}[c]
+\begin{column}{0.52\textwidth}
+\footnotesize
+Investment now depends on sales and on the interest rate:
+\[
+I = I(\underset{(+)}{Y}, \underset{(-)}{i})
+\]
+Goods market equilibrium:
+\[
+Y = C(Y - T) + I(Y, i) + G
+\]
+\bi
+  \item Higher $i$, lower investment, lower demand, lower output (multiplier)
+  \item IS: the pairs $(Y, i)$ where the goods market is in equilibrium. Downward sloping
+  \item $G$ up, $T$ down, confidence up: IS shifts \textbf{right}
+\ei
+\end{column}
+\begin{column}{0.45\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.9]
+  \draw[ax] (0,0) -- (5.6,0) node[below left, lbl] {Output, $Y$};
+  \draw[ax] (0,0) -- (0,4.6) node[above right, lbl] {Interest rate, $i$};
+  \draw[curveB] (0.6,4.2) -- (4.4,0.5) node[right, lbl] {IS};
+  \draw[shifted] (1.6,4.2) -- (5.4,0.5) node[right, lbl] {IS$'$};
+  \node[lbl, pelAccent, align=left] at (4.3,3.3) {$G\uparrow$ or $T\downarrow$};
+  \draw[-{Stealth}, pelAccent] (2.2,2.4) -- (3.0,2.4);
+\end{tikzpicture}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{The LM curve: two versions}
+\small
+Money market equilibrium in real terms: $\dfrac{M}{P} = Y\,L(i)$
+\vspace{0.1cm}
+
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.6]
+  \draw[ax] (0,0) -- (5,0) node[below left, lbl] {$Y$};
+  \draw[ax] (0,0) -- (0,4) node[above right, lbl] {$i$};
+  \draw[curveA] (0.5,0.5) .. controls (2.5,1.2) and (3.6,2.2) .. (4.4,3.6) node[right, lbl] {LM};
+\end{tikzpicture}
+
+\footnotesize\raggedright
+\textbf{Traditional}: the central bank fixes $M$. Higher income raises money demand, so $i$ must rise. Upward sloping
+\end{column}
+\begin{column}{0.48\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.6]
+  \draw[ax] (0,0) -- (5,0) node[below left, lbl] {$Y$};
+  \draw[ax] (0,0) -- (0,4) node[above right, lbl] {$i$};
+  \draw[curveA] (0,1.8) node[left, lbl] {$\bar i$} -- (4.6,1.8) node[right, lbl] {LM};
+\end{tikzpicture}
+
+\footnotesize\raggedright
+\textbf{Blanchard, 7th ed.}: the central bank fixes $i = \bar i$ and supplies whatever money is needed. Horizontal
+\end{column}
+\end{columns}
+\vspace{0.15cm}
+\small
+We use the horizontal version: closer to how the ECB and the Fed work today
+\end{frame}
+
+\begin{frame}{IS-LM: the equilibrium}
+\begin{columns}[c]
+\begin{column}{0.47\textwidth}
+\footnotesize
+\[
+\begin{aligned}
+\text{IS:}\quad & Y = C(Y-T) + I(Y,i) + G\\
+\text{LM:}\quad & i = \bar i
+\end{aligned}
+\]
+\bi
+  \item Point A: both markets in equilibrium
+  \item Output $Y_A$ is determined by demand, given the rate chosen by the central bank
+\ei
+\vspace{0.1cm}
+\textbf{Three steps for any question}
+\be
+  \item Does it shift IS, LM, or both?
+  \item What happens to $Y$ and $i$?
+  \item Say it in words
+\ee
+\end{column}
+\begin{column}{0.5\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.9]
+  \draw[ax] (0,0) -- (5.6,0) node[below left, lbl] {Output, $Y$};
+  \draw[ax] (0,0) -- (0,4.6) node[above right, lbl] {Interest rate, $i$};
+  \draw[curveB] (0.6,4.2) -- (4.6,0.3) node[right, lbl] {IS};
+  \draw[curveA] (0,2) node[left, lbl] {$\bar i$} -- (5.2,2) node[right, lbl] {LM};
+  % intersection: x = 0.6 + (4.2-2)*(4.0/3.9) = 2.857
+  \fill[pelText] (2.857,2) circle (2pt) node[above right, lbl] {A};
+  \draw[guide] (2.857,0) node[below, lbl] {$Y_A$} -- (2.857,2);
+\end{tikzpicture}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Fiscal policy: a tax increase}
+\begin{columns}[c]
+\begin{column}{0.5\textwidth}
+\small
+The government raises $T$ to reduce the deficit (a \textbf{fiscal consolidation})
+\be
+  \item IS shifts left; LM does not move (the central bank keeps $\bar i$)
+  \item The economy moves \emph{along} LM from A to A$'$: output falls
+  \item Lower disposable income, lower consumption, lower output through the multiplier; lower output also cuts investment
+\ee
+\vspace{0.1cm}
+Shift \emph{of} a curve versus movement \emph{along} a curve: keep them apart
+\end{column}
+\begin{column}{0.47\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.9]
+  \draw[ax] (0,0) -- (5.6,0) node[below left, lbl] {Output, $Y$};
+  \draw[ax] (0,0) -- (0,4.6) node[above right, lbl] {Interest rate, $i$};
+  \draw[curveB] (1.4,4.2) -- (5.4,0.3) node[right, lbl] {IS};
+  \draw[shifted] (0.4,4.2) -- (4.4,0.3) node[left, lbl] {IS$'$};
+  \draw[curveA] (0,2) node[left, lbl] {$\bar i$} -- (5.4,2) node[above, lbl] {LM};
+  \fill[pelText] (3.657,2) circle (2pt) node[above right, lbl] {A};
+  \fill[pelAccent] (2.657,2) circle (2pt) node[above left, lbl] {A$'$};
+  \draw[guide] (3.657,0) node[below, lbl] {$Y$} -- (3.657,2);
+  \draw[guide] (2.657,0) node[below, lbl] {$Y'$} -- (2.657,2);
+\end{tikzpicture}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Monetary policy: a rate cut}
+\begin{columns}[c]
+\begin{column}{0.5\textwidth}
+\small
+The central bank lowers $\bar i$ to $\bar i'$ (a \textbf{monetary expansion}; it supplies more money to get there)
+\be
+  \item LM shifts down; IS does not move
+  \item The economy moves \emph{along} IS from A to A$'$: output rises
+  \item Lower rate, more investment, more demand and output; higher income, more consumption
+\ee
+\vspace{0.1cm}
+Raising the rate is a \textbf{monetary contraction} (tightening): the opposite
+\end{column}
+\begin{column}{0.47\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.9]
+  \draw[ax] (0,0) -- (5.6,0) node[below left, lbl] {Output, $Y$};
+  \draw[ax] (0,0) -- (0,4.6) node[above right, lbl] {Interest rate, $i$};
+  \draw[curveB] (0.6,4.2) -- (4.6,0.3) node[right, lbl] {IS};
+  \draw[curveA] (0,2.6) node[left, lbl] {$\bar i$} -- (5.2,2.6) node[right, lbl] {LM};
+  \draw[shifted] (0,1.4) node[left, lbl] {$\bar i'$} -- (5.2,1.4) node[right, lbl] {LM$'$};
+  % x at i=2.6: 0.6 + 1.6*4/3.9 = 2.241 ; at i=1.4: 0.6 + 2.8*4/3.9 = 3.472
+  \fill[pelText] (2.241,2.6) circle (2pt) node[above right, lbl] {A};
+  \fill[pelAccent] (3.472,1.4) circle (2pt) node[above right, lbl] {A$'$};
+  \draw[guide] (2.241,0) node[below, lbl] {$Y$} -- (2.241,2.6);
+  \draw[guide] (3.472,0) node[below, lbl] {$Y'$} -- (3.472,1.4);
+\end{tikzpicture}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{The policy mix}
+\small
+Fiscal and monetary policy used together. Why not just one?
+\bi
+  \item A fiscal expansion raises the deficit and, over time, the debt
+  \item If $i$ is already close to zero, monetary policy has little room: fiscal policy must do the job
+  \item They change different parts of output: a tax cut mostly raises $C$, a rate cut mostly raises $I$
+  \item Neither works perfectly: using both reduces the risk
+\ei
+\vspace{0.1cm}
+\centering\footnotesize
+\begin{tabular}{lccccc}
+\toprule
+ & \textbf{IS} & \textbf{LM} & $Y$ & $C$ & $I$ \\
+\midrule
+Tax increase & left & -- & $\downarrow$ & $\downarrow$ & $\downarrow$ \\
+Cut in $G$ & left & -- & $\downarrow$ & $\downarrow$ & $\downarrow$ \\
+Rate cut & -- & down & $\uparrow$ & $\uparrow$ & $\uparrow$ \\
+Rate increase & -- & up & $\downarrow$ & $\downarrow$ & $\downarrow$ \\
+\bottomrule
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Cutting the deficit without a recession}
+\begin{columns}[c]
+\begin{column}{0.5\textwidth}
+\small
+\bi
+  \item Output is about right, but the deficit $G - T$ is too large
+  \item Fiscal consolidation alone: IS left, A to A$'$, a recession
+  \item Add a rate cut: LM down, the economy reaches A$''$ with the \textbf{same output} as A
+  \item Investment rises: same output, lower rate
+\ei
+\vspace{0.05cm}
+\footnotesize
+Blanchard's example: the US in the 1990s, Clinton (fiscal) and Greenspan (monetary). Deficit reduction raises investment \emph{only} if monetary policy accommodates it
+\end{column}
+\begin{column}{0.47\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.9]
+  \draw[ax] (0,0) -- (5.6,0) node[below left, lbl] {Output, $Y$};
+  \draw[ax] (0,0) -- (0,4.6) node[above right, lbl] {Interest rate, $i$};
+  \draw[curveB] (1.4,4.4) -- (5.4,0.5) node[right, lbl] {IS};
+  \draw[shifted] (0.4,4.4) -- (4.4,0.5) node[left, lbl] {IS$'$};
+  \draw[curveA] (0,2.8) node[left, lbl] {$\bar i$} -- (5.4,2.8) node[right, lbl] {LM};
+  \draw[curveA, dashed] (0,1.8) node[left, lbl] {$\bar i'$} -- (5.4,1.8) node[right, lbl] {LM$'$};
+  % IS at i=2.8: 1.4 + 1.6*4/3.9 = 3.041 ; IS' at 2.8: 2.041 ; IS' at 1.8: 0.4+2.6*4/3.9 = 3.067
+  \fill[pelText] (3.041,2.8) circle (2pt) node[above right, lbl] {A};
+  \fill[pelAccent] (2.041,2.8) circle (2pt) node[above left, lbl] {A$'$};
+  \fill[pelAccent] (3.067,1.8) circle (2pt) node[below left, lbl] {A$''$};
+  \draw[guide] (3.05,0) node[below, lbl] {$Y = Y''$} -- (3.05,2.8);
+\end{tikzpicture}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Does IS-LM fit the facts?}
+\footnotesize
+The model jumps from A to A$'$. Reality takes time: consumption, investment and production all adjust with lags
+\vspace{0.1cm}
+
+Christiano, Eichenbaum and Evans (1996), US data 1960--1990: what happens after the Fed raises its rate by 1 percentage point?
+\bi
+  \item Retail sales fall, by about 0.9\% at the trough, after 5 quarters
+  \item Output falls more slowly, by about 0.7\% after 8 quarters
+  \item Employment falls, unemployment rises
+  \item The price level barely moves for about 6 quarters
+\ei
+\vspace{0.1cm}
+\begin{block}{}
+Monetary policy works, with \textbf{long lags}. And prices are roughly fixed in the short run, as IS-LM assumes, but not beyond
+\end{block}
+\pelTableNote{As reported in Blanchard, Figure 5-10. These are estimates with confidence bands: how to identify the effect of a policy that responds to the economy is the same question we asked in Part I (Nakamura and Steinsson 2018, on the reading list).}
+\end{frame}
+
+\begin{frame}{What about aggregate demand and aggregate supply?}
+\footnotesize
+\bi
+  \item IS-LM takes the price level as given: fine for a few quarters, not beyond
+  \item Older textbooks then move to \textbf{AD-AS}: demand and supply as functions of the price level
+  \item Blanchard's 7th edition drops AD-AS: he finds it cumbersome and too optimistic about how fast output returns to normal
+  \item He uses \textbf{IS-LM-PC} instead: IS-LM plus a Phillips curve
+  \[
+  \pi - \pi_{-1} = \frac{\alpha}{L}\,(Y - Y_n)
+  \]
+  \bi
+    \item $Y_n$: potential output. $Y - Y_n$: the output gap
+    \item Output above potential: inflation rises. Below: inflation falls
+  \ei
+  \item Message: in the short run, demand sets output. In the medium run, output returns to potential, and monetary policy affects how fast it gets there
+\ei
+\pelTableNote{Blanchard, preface and chapter 9. We will use the logic, not the full model.}
+\end{frame}
+
+\begin{frame}{Why this matters for the rest of Part II}
+\small
+\bi
+  \item In the euro area the policy rate is set by the \textbf{ECB} for all member countries: Italy cannot move its own LM
+  \item A single country acts mainly through fiscal policy, its IS curve, within the \textbf{EU fiscal rules}
+  \item So the questions for the next weeks:
+  \bi
+    \item what the EU rules allow and how they constrain $G$ and $T$ (this week)
+    \item how big the multiplier is, and how we know (fiscal policy)
+    \item how the ECB sets $\bar i$ and what happens at the zero lower bound (monetary policy)
+  \ei
+\ei
+\vspace{0.1cm}
+\begin{block}{}
+\centering IS-LM tells us the \textbf{direction} of a policy's effect. Evaluation tells us the \textbf{size}
+\end{block}
+\end{frame}
+
+\begin{frame}{To remember}
+\small
+\bi
+  \item GDP: final goods = value added = incomes
+  \item Short run: output is determined by demand. $Y = \frac{1}{1-c_1}[\,c_0 + \bar I + G - c_1 T\,]$
+  \item Goods market equilibrium can also be read as $I = S + (T - G)$
+  \item Money demand $M^d = \$Y\,L(i)$; the central bank sets $i$ and supplies the money needed
+  \item IS: downward sloping, moved by fiscal policy. LM: horizontal at $\bar i$, moved by monetary policy
+  \item Effects take time, and their size must be estimated
+\ei
+\vspace{0.1cm}
+\textbf{Reading}: Blanchard, \textit{Macroeconomics}, 7th ed., section 2-1, chapter 3, sections 4-1, 4-2 and 4-4, chapter 5. Optional: section 9-1
+\end{frame}
+
+\begin{frame}{References}
+\tiny
+\bi
+  \item Blanchard, O. (2017), \textit{Macroeconomics}, 7th ed., Global Edition, Pearson
+  \item Christiano, L., M. Eichenbaum and C. Evans (1996), The effects of monetary policy shocks: evidence from the flow of funds, \textit{Review of Economics and Statistics}, 78(1), 16--34
+  \item Nakamura, E. and J. Steinsson (2018), Identification in macroeconomics, \textit{Journal of Economic Perspectives}, 32(3), 59--86
+  \item Ramey, V. A. (2019), Ten years after the financial crisis: what have we learned from the renaissance in fiscal research?, \textit{Journal of Economic Perspectives}, 33(2), 89--114
+\ei
+\end{frame}
+
+\pelQuestions
+
+\end{document}
