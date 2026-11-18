@@ -25,6 +25,15 @@ written outside Overleaf are kept here. They use the course preamble
   (TikZ) are our own. The book is copyrighted: do not add the PDF or its
   figures here. Sections checked are listed in the file header.
   Student slides: `pdflatex lecture-08-macro-toolkit.tex`.
+- `lecture-09-eu-governance-ecb.tex`: Lecture 9 (Thursday 19 November 2026),
+  the new EU economic governance and the ECB. Slides on the 2024 rules and
+  Italy reuse the special-session material (checked in
+  `materials/readings/special-session-budget/CLAIMS-CHECK.md`); new facts are
+  checked against the files listed in the header: Council ST 14668/26 (Italy's
+  national escape clause), ECB decisions of 10 Sept and 29 Oct 2026, ECB
+  strategy statement 2025, EFB reports. Web snapshots (ECB key rates, ECB press
+  releases, MEF press release, EFB publication page) in `sources/lecture-09/`.
+  Student slides: `pdflatex lecture-09-eu-governance-ecb.tex`.
 - `lab-02-carta-docente.tex`: Lab 2 (Monday 2 November 2026), group case study
   on the Carta del docente (question 2 of the MEF written exam, 31 March 2025;
   data constructed for the exercise). The photos in `figures/lab-02/` are not

@@ -32,6 +32,14 @@ Regulation (EU) 2024/1263, Regulation (EU) 2024/1264, Directive (EU) 2024/1265,
 the Council decision on Italy's excessive deficit, the Council recommendation on
 Italy's medium-term plan, the Commission's 2026 recommendation for Italy.
 
+Added 18 November 2026 (Lecture 9):
+
+| File | What it is |
+|---|---|
+| `w7-eu-governance/council-2026-national-escape-clause-italy-ST14668.pdf` | Council Recommendation allowing Italy to deviate from its net expenditure path (activation of the national escape clause for defence and energy), ST 14668/26 of 3 November 2026; approved at Ecofin on 9 November 2026 |
+| `w7-eu-governance/council-2026-national-escape-clause-italy-ST14668-COR1-REV3.pdf` | Corrigendum to recital 6 (13 November 2026) |
+| `w9-ecb/ecb-2026-10-29-monetary-policy-decisions-and-statement.pdf` | ECB, combined monetary policy decisions and statement, 29 October 2026 |
+
 ## Week 8: fiscal policy and ex ante evaluation
 
 | File | What it is | Why read it |

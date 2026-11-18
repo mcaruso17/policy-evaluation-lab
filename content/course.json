@@ -125,10 +125,19 @@
     {
       "week": 7,
       "dates": "16–20 Nov",
-      "topic": "Part II: the macro toolkit; the new European economic governance",
-      "summary": "<strong>Monday</strong>: the macro toolkit in one lecture, from GDP to IS-LM: GDP and its components, the goods market and the multiplier, investment equals saving, money demand and the interest rate, fiscal and monetary policy in IS-LM (Blanchard, <em>Macroeconomics</em>, 7th ed., chapters 2 to 5). <strong>Thursday</strong>: the 2024 reform of the EU fiscal rules: net expenditure paths, national medium-term plans, the European Semester, escape clauses. Italy as a live case: the excessive deficit procedure and its medium-term plan. Independent fiscal institutions and the Italian budget cycle. <strong>Friday</strong>: discussion and data lab.",
+      "topic": "Part II: the macro toolkit; the new European economic governance and the ECB",
+      "summary": "<strong>Monday</strong>: the macro toolkit in one lecture, from GDP to IS-LM: GDP and its components, the goods market and the multiplier, investment equals saving, money demand and the interest rate, fiscal and monetary policy in IS-LM (Blanchard, <em>Macroeconomics</em>, 7th ed., chapters 2 to 5). <strong>Thursday</strong>: the new EU economic governance and the ECB, from the official documents: the 2024 fiscal rules (net expenditure, national plans, safeguards, escape clauses, the control account); Italy as a live case, from the excessive deficit procedure to the national escape clause for defence and energy approved on 9 November 2026; the European Fiscal Board's assessment; the ECB's mandate, 2025 strategy, the 2026 rate decisions and the November Financial Stability Review. <strong>Friday</strong>: discussion and data lab.",
       "items": [
-        { "type": "slides", "label": "Lecture 8: The macro toolkit, from GDP to IS-LM", "file": "slides/pel-08-macro-toolkit.pdf" }
+        { "type": "slides", "label": "Lecture 8: The macro toolkit, from GDP to IS-LM", "file": "slides/pel-08-macro-toolkit.pdf" },
+        { "type": "slides", "label": "Lecture 9: The new EU economic governance and the ECB", "file": "slides/pel-09-eu-governance-ecb.pdf" },
+        { "type": "reading", "label": "European Fiscal Board: Annual Report 2025 (read the Key messages and the Executive summary)", "file": "readings/part-2/w7-eu-governance/european-fiscal-board-2025-annual-report.pdf" },
+        { "type": "reading", "label": "ECB: An overview of the ECB's monetary policy strategy (2025)", "file": "readings/part-2/w9-ecb/ecb-2025-strategy-overview.pdf" },
+        { "type": "reading", "label": "ECB: Monetary policy decisions and statement, 29 October 2026", "file": "readings/part-2/w9-ecb/ecb-2026-10-29-monetary-policy-decisions-and-statement.pdf" },
+        { "type": "reading", "label": "Council Recommendation on Italy's national escape clause for defence and energy (November 2026)", "file": "readings/part-2/w7-eu-governance/council-2026-national-escape-clause-italy-ST14668.pdf" },
+        { "type": "reading", "label": "Council Recommendation endorsing Italy's medium-term fiscal-structural plan (January 2025)", "file": "readings/special-session-budget/eu/council-2025-endorsement-italy-medium-term-plan-ST5019.pdf" },
+        { "type": "reading", "label": "Regulation (EU) 2024/1263: the new preventive arm (reference)", "file": "readings/special-session-budget/eu/reg-2024-1263-preventive-arm.pdf" },
+        { "type": "reading", "label": "ECB: Monetary policy strategy statement (2025)", "file": "readings/part-2/w9-ecb/ecb-2025-strategy-statement.pdf" },
+        { "type": "reading", "label": "Lane: The banking channel of monetary policy tightening in the euro area (ECB speech, 2023)", "file": "readings/part-2/w9-ecb/lane-2023-banking-channel-of-monetary-tightening.pdf" }
       ]
     },
     {
