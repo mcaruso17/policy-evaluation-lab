@@ -33,6 +33,9 @@ written outside Overleaf are kept here. They use the course preamble
   national escape clause), ECB decisions of 10 Sept and 29 Oct 2026, ECB
   strategy statement 2025, EFB reports. Web snapshots (ECB key rates, ECB press
   releases, MEF press release, EFB publication page) in `sources/lecture-09/`.
+  Section "whatever it takes" on the ECB's unconventional tools; photo credit
+  in `figures/lecture-09/CREDITS.md` (copy `figures/lecture-09/` next to the
+  preamble to compile).
   Student slides: `pdflatex lecture-09-eu-governance-ecb.tex`.
 - `lab-02-carta-docente.tex`: Lab 2 (Monday 2 November 2026), group case study
   on the Carta del docente (question 2 of the MEF written exam, 31 March 2025;

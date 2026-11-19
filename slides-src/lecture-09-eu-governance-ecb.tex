@@ -33,6 +33,13 @@
 %     decision and statement 29 Oct 2026 (hold; inflation 3.8% Sept; energy
 %     18.9%; unemployment 6.4% Aug; "temporary, targeted and tailored").
 %   - ECB press release 18 Nov 2026, Financial Stability Review.
+%   - "Whatever it takes" section: ECB verbatim of Draghi's remarks, London,
+%     26 July 2012; ECB press releases 6 Sept 2012 (OMT, no ex ante limits,
+%     EFSF/ESM conditionality), 22 Jan 2015 (APP, EUR 60 bn/month), 18 March
+%     2020 (PEPP, EUR 750 bn); key rates table (DFR -0.10% from 11 June 2014,
+%     -0.50% from 18 Sept 2019, 0.00% from 27 July 2022); ECB 2025 report on
+%     tools: neither OMT nor TPI activated. Photo: Wikimedia Commons, WEF
+%     Davos 27 Jan 2012, CC BY-SA 2.0 (960px thumbnail, unmodified).
 %   - Lane (2023) speech: cost-of-capital, balance sheet, bank lending,
 %     risk-taking channels.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -378,6 +385,87 @@ On flexibility: extending the national escape clause from defence to energy ``ri
   \item Near the lower bound or when transmission is impaired: long-term loans to banks, asset purchases, negative rates, forward guidance, the Transmission Protection Instrument (2022)
 \ei
 \pelTableNote{ECB monetary policy strategy statement (2025), paras 2, 3, 5, 7, 8; ECB, Key ECB interest rates.}
+\end{frame}
+
+\begin{frame}[plain]
+\begin{columns}[c]
+\begin{column}{0.52\textwidth}
+\centering
+\includegraphics[width=\linewidth]{figures/lecture-09/draghi-2012-wef-davos.jpg}
+\end{column}
+\begin{column}{0.44\textwidth}
+\Large\raggedright
+``Within our mandate, the ECB is ready to do \textbf{\color{pelAccent}whatever it takes} to preserve the euro. And believe me, it will be enough.''
+\vspace{0.3cm}
+
+\normalsize Mario Draghi, ECB President\\
+Global Investment Conference, London, \textbf{26 July 2012}
+\end{column}
+\end{columns}
+\vspace{0.2cm}
+\pelTableNote{Quote: ECB, verbatim of the remarks. Photo: Draghi at the World Economic Forum, Davos, 27 January 2012 (not the London conference). World Economic Forum, swiss-image.ch, photo by Monika Flueckiger, CC BY-SA 2.0, via Wikimedia Commons.}
+\end{frame}
+
+\begin{frame}{Normal times: one lever}
+\begin{columns}[c]
+\begin{column}{0.48\textwidth}
+\footnotesize
+\bi
+  \item The ECB sets the price of money for \textbf{banks}: what they earn parking money at the ECB (\textbf{deposit facility}), what they pay to borrow from it
+  \item No bank lends to another for less than the deposit rate: market rates sit on this floor
+  \item Banks pass it on to firms and households
+\ei
+\vspace{0.1cm}
+This is Monday's LM: the ECB picks $\bar i$
+\end{column}
+\begin{column}{0.48\textwidth}
+\centering
+\begin{tikzpicture}[x=0.8cm,y=0.75cm]
+  \draw[pelBorder, line width=1pt] (0,0) -- (0,4.2);
+  \draw[very thick, pelDanger] (-0.2,3.6) -- (4.6,3.6) node[right, font=\scriptsize, align=left] {Marginal lending\\2.90\%};
+  \draw[very thick, pelSlate] (-0.2,2.4) -- (4.6,2.4) node[right, font=\scriptsize, align=left] {Main refinancing\\2.65\%};
+  \draw[very thick, pelAccent] (-0.2,1.2) -- (4.6,1.2) node[right, font=\scriptsize, align=left] {\textbf{Deposit facility}\\\textbf{2.50\%}};
+  \draw[thick, pelText, decorate] plot[smooth] coordinates {(0.2,1.35) (1.0,1.30) (1.8,1.38) (2.6,1.32) (3.4,1.36) (4.4,1.31)};
+  \node[font=\scriptsize, pelText] at (2.3,0.75) {overnight market rate};
+\end{tikzpicture}
+\pelTableNote{Rates in force since 16 September 2026. Not to scale.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{When one lever is not enough: the unorthodox toolbox}
+\scriptsize
+\renewcommand{\arraystretch}{1.0}
+\begin{tabular}{L{3.0cm}L{6.4cm}L{3.6cm}}
+\toprule
+\textbf{Tool} & \textbf{In plain words} & \textbf{When} \\
+\midrule
+\textbf{A promise}: Outright Monetary Transactions & Buy, with no preset limit, the bonds of a country under market attack, if it accepts a rescue programme & Sept 2012. Never activated \\
+\textbf{Negative rates} & Banks \emph{pay} to park money at the ECB, to push them to lend & June 2014 to July 2022; lowest $-0.50\%$ \\
+\textbf{Asset purchases} (``QE'') & The ECB buys bonds with new money: long-term rates fall when short rates cannot & APP 2015 (EUR 60 bn/month); PEPP 2020 (EUR 750 bn) \\
+\textbf{Long-term loans to banks} & Cheap funding for several years, linked to lending to firms and households & In the low-rate years \\
+\textbf{Forward guidance} & Say where rates are heading, to move expectations today & In the low-rate years \\
+\textbf{Transmission Protection Instrument} & Buy a country's bonds if spreads widen in a disorderly way, unjustified by fundamentals & Created 2022. Never activated \\
+\bottomrule
+\end{tabular}
+\pelTableNote{Sources: ECB press releases (6 Sept 2012, 22 Jan 2015, 18 Mar 2020); ECB key interest rates; ECB strategy statement 2025; ECB report on monetary policy tools (OMT and TPI never activated).}
+\end{frame}
+
+\begin{frame}{Unorthodox: a choice, with costs}
+\footnotesize
+\bi
+  \item Each tool was invented for a crisis the old toolbox could not handle: the euro crisis (2012), inflation stuck too low (2014--2015), the pandemic (2020), disorderly bond markets as rates rose (2022)
+  \item The 2025 strategy keeps them all, for use near the lower bound or when transmission is impaired. Today rates are the main tool again, and the APP and PEPP portfolios shrink as bonds mature
+  \item The costs are debated:
+  \bi
+    \item side effects: bank profits under negative rates, higher asset prices, a huge central bank balance sheet
+    \item legal limits: buying government bonds comes close to financing governments, which the Treaty forbids; OMT was challenged in court
+  \ei
+\ei
+\vspace{0.1cm}
+\begin{block}{An evaluation puzzle}
+OMT was never used, yet it is credited with calming markets. How do you estimate the effect of a \textbf{promise}? Hint: Part I, event studies around the announcement dates
+\end{block}
 \end{frame}
 
 \begin{frame}{The deposit facility rate, 2022--2026: Monday's $\bar i$}
