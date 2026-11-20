@@ -3,7 +3,13 @@
 %  Friday 20 November 2026. Same format as Labs 2-4: the case, Table 1 and
 %  the questions; groups of 2-3 discuss; review together at the end.
 %  Country A and all its numbers are INVENTED (stated on the slides).
-%  The review contains only the lecturer's conclusions, kept simple.
+%  The review contains only the lecturer's conclusions, kept simple, plus an
+%  evaluation slide and a 2022 comparison checked against Eurostat euro
+%  indicators 130/2022 (Oct 2022: EA 10.6%, IT 12.6%, energy 41.5%) and the
+%  ECB Annual Report 2022 (support ~1.9% of GDP, "largely non-targeted",
+%  "about half" affected the marginal cost of energy; negotiated wages +2.8%
+%  in 2022; inflation 8.4%; job retention schemes fell; unemployment 6.7% at
+%  end-2022); DFR path from the ECB key rates table.
 %  Two PDFs are built from this file:
 %   - students:  pdflatex lab-05-oil-shock.tex           (case only)
 %   - full:      pdflatex "\def\pelReview{}\input{lab-05-oil-shock.tex}"
@@ -123,6 +129,37 @@ A permanent energy shock makes the country poorer: no policy can undo it. Policy
   \item higher interest rates, coordinated with fiscal policy
 \ei
 \end{block}
+\end{frame}
+
+\begin{frame}{How would we evaluate it?}
+\bi
+  \item \textbf{The effect of the shock}: in the following years, compare Country A with similar countries that were \textbf{less exposed} (smaller energy importers), before and after the shock
+  \item But Country A differs in two ways: it was hit harder \textbf{and} it adopted its own policies. That comparison mixes the two
+  \item \textbf{The effect of the policies}: compare who received them with who did not
+  \bi
+    \item households just above and just below the threshold for the subsidies
+    \item firms that used the furlough scheme versus similar firms that did not
+    \item or countries hit just as hard that chose \textbf{different} policies
+  \ei
+\ei
+\end{frame}
+
+\begin{frame}{Real life: the 2022 energy shock in the euro area}
+\footnotesize
+\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{L{4.0cm}L{8.6cm}}
+\toprule
+\textbf{What we said} & \textbf{What happened} \\
+\midrule
+Higher prices & Inflation reached \textbf{10.6\%} in October 2022 (Italy 12.6\%); energy prices $+41.5\%$ in a year \\
+Limited, targeted subsidies & Support measures worth about \textbf{1.9\% of GDP} in 2022, \textbf{largely non-targeted}; about half lowered the price of energy itself \\
+Furlough schemes & Not the main tool: recourse to job retention schemes fell in 2022; unemployment at a historic low (6.7\% at end-2022) \\
+No full wage indexation & Negotiated wages $+2.8\%$ in 2022 against inflation of 8.4\%: real wages fell, no spiral at first \\
+Raise interest rates & The ECB raised rates from July 2022: deposit rate from $-0.50\%$ to \textbf{4.00\%} by September 2023 \\
+Coordination & Not quite: governments expanded support while the ECB was tightening \\
+\bottomrule
+\end{tabular}
+\pelTableNote{Sources: Eurostat, euro indicators 130/2022 (17 November 2022); ECB Annual Report 2022; ECB, Key ECB interest rates.}
 \end{frame}
 
 \fi
