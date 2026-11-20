@@ -37,6 +37,12 @@ written outside Overleaf are kept here. They use the course preamble
   in `figures/lecture-09/CREDITS.md` (copy `figures/lecture-09/` next to the
   preamble to compile).
   Student slides: `pdflatex lecture-09-eu-governance-ecb.tex`.
+- `lab-05-oil-shock.tex` and `lab-05-oil-shock-discussion.tex`: Lab 5 (Friday
+  20 November 2026), group case study on an oil price shock in an invented
+  energy-importing country (all numbers invented, stated on the slides). The
+  economics follows Blanchard, *Macroeconomics*, 7th ed., sections 9-4 and
+  9-5, in our own words and diagrams. The discussion deck is released on the
+  site at 19:00 on the day.
 - `lab-02-carta-docente.tex`: Lab 2 (Monday 2 November 2026), group case study
   on the Carta del docente (question 2 of the MEF written exam, 31 March 2025;
   data constructed for the exercise). The photos in `figures/lab-02/` are not
