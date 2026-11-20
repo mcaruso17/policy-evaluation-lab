@@ -1,127 +1,254 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%  Policy Evaluation Lab -- Lab 5: A case study, an oil price shock
-%  Friday 20 November 2026. Group work (2-3 people), then presentations.
-%  Built on Blanchard, Macroeconomics, 7th ed., section 9-4 ("The Effects of
-%  an Increase in the Price of Oil") and section 9-5. Wording and diagrams
-%  are our own. The country and all its numbers are INVENTED for the
-%  exercise (stated on the slides). The worked answer is in
-%  lab-05-oil-shock-discussion.tex, released after class.
+%  Policy Evaluation Lab -- Lab 5: A case study, an energy price shock
+%  Friday 20 November 2026. Same format as Labs 2-4: the case, Table 1 and
+%  the questions; groups of 2-3 discuss; review together at the end.
+%  Country A and all its numbers are INVENTED (stated on the slides).
+%  The review follows Blanchard, Macroeconomics, 7th ed., sections 9-4 and
+%  9-5 (oil price as a higher markup; higher natural rate, lower potential
+%  output; PC shifts; at an unchanged rate inflation keeps rising, so the
+%  central bank raises the rate; stagflation; IS may shift left; role of
+%  expectations, 1970s vs 2000s). Our wording and diagrams.
+%  Two PDFs are built from this file:
+%   - students:  pdflatex lab-05-oil-shock.tex           (case only)
+%   - full:      pdflatex "\def\pelReview{}\input{lab-05-oil-shock.tex}"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[aspectratio=169,xcolor=table]{beamer}
 \input{preamble-pel}
+\usetikzlibrary{positioning,arrows.meta,calc}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\tikzset{
+  ax/.style={-{Stealth[length=2mm]}, thick, pelText},
+  lbl/.style={font=\scriptsize},
+  guide/.style={densely dotted, pelMuted},
+}
 
 \title[Policy Evaluation Lab]{Policy Evaluation Lab}
-\subtitle[Lab 5]{Lab 5: A case study, an oil price shock}
+\subtitle[Lab 5]{Lab 5: A case study, an energy price shock}
 \date[\pelYear]{November, 2026}
 
 \begin{document}
 
 \frame{\titlepage}
 
-\begin{frame}{Today: you are the policymakers}
+\begin{frame}{So, today we are going to evaluate a case study}
 \be
+  \item We look at a case study: a country hit by an energy shock
   \item Form groups of \textbf{2--3 people} at most
-  \item Read the case: a country, and a shock that hits it
-  \item Use this week's tools: IS-LM (Monday), the EU rules and the ECB (Thursday)
-  \item Answer the questions: one group plays the \textbf{central bank}, one the \textbf{finance ministry}, all of them the \textbf{evaluator}
-  \item Present your answers, with a diagram
+  \item Study what the questions are asking, and look at the data
+  \item Formulate some opinions, and the policies you would recommend
+  \item Present your results; at the end we review the case together
 \ee
-\vspace{0.2cm}
-\begin{block}{}
-\centering There is no single right answer: there are answers that are consistent with the model and the data, and answers that are not
-\end{block}
 \end{frame}
 
-\begin{frame}{The country}
-\small
-\textbf{Country A} is a medium-sized, high-income economy with its own currency and central bank. It has \textbf{no oil or gas}: almost all its energy is imported. Manufacturing is energy-intensive (steel, chemicals, ceramics, transport)
-\vspace{0.15cm}
-
-\centering\footnotesize
-\begin{tabular}{lr}
-\toprule
-\textbf{Last year} & \\
-\midrule
-Real GDP growth & 1.8\% \\
-Unemployment rate (estimated natural rate: 7\%) & 7.0\% \\
-Inflation & 2.0\% \\
-Central bank inflation target & 2.0\% \\
-Central bank policy rate & 3.0\% \\
-Government deficit & 2.5\% of GDP \\
-Government debt & 95\% of GDP \\
-Energy imports & 4\% of GDP \\
-\bottomrule
-\end{tabular}
-\pelTableNote{Country A and all its numbers are invented for the exercise. The economics of the case follows Blanchard, \textit{Macroeconomics}, 7th ed., section 9-4.}
-\end{frame}
-
-\begin{frame}{The shock}
+\begin{frame}{Today's lab: a case study}
 \footnotesize
-In January, a war between two oil-producing countries disrupts supply. The world price of oil \textbf{rises by 60\%} in two months. Futures markets and most analysts expect it to \textbf{stay high for years}
-\vspace{0.15cm}
+\textbf{Country A} is a medium-sized, high-income economy with its own currency and an independent central bank, which targets inflation of \textbf{2\%}. The country has no oil or gas of its own: almost all its energy is imported. Its manufacturing sector is large and energy-intensive (steel, chemicals, ceramics, transport). Last year the economy grew by 1.8\%, unemployment was at 7\%, which the central bank considers its natural rate, and inflation was on target. Public debt is high, at \textbf{95\% of GDP}, with a deficit of 2.5\%.
 
-\centering\scriptsize
+\vspace{0.15cm}
+In January, a war between two oil-producing countries disrupts world supply. The price of oil \textbf{rises by 60\%} in two months, and markets expect it to \textbf{stay high for years}. Energy bills for households and firms jump. The main unions ask for wage increases to recover the lost purchasing power, and several energy-intensive firms announce temporary plant closures. The government and the central bank must decide how to respond. The first estimates for this year are reported in Table 1.
+\pelTableNote{Country A and all the numbers in this case are invented for the exercise.}
+\end{frame}
+
+\begin{frame}{Table 1: Country A before and after the shock}
+\centering\footnotesize
 \begin{tabular}{lrr}
 \toprule
  & \textbf{Last year} & \textbf{This year (first estimate)}\\
 \midrule
-Energy prices for consumers & $+1\%$ & $+25\%$ \\
+Real GDP growth & 1.8\% & 0.6\% \\
+Unemployment rate (natural rate: 7\%) & 7.0\% & 7.2\% \\
 Inflation (all items) & 2.0\% & 4.8\% \\
 Inflation excluding energy & 2.0\% & 2.6\% \\
-Real GDP growth & 1.8\% & 0.6\% \\
-Unemployment rate & 7.0\% & 7.2\% \\
-Energy imports & 4\% of GDP & 6\% of GDP \\
-Consumer confidence (index, long-run average = 100) & 101 & 88 \\
+Energy prices for consumers & $+1\%$ & $+25\%$ \\
+Central bank policy rate & 3.0\% & 3.0\% \\
+Government deficit (\% of GDP) & 2.5 & 2.5 \\
+Government debt (\% of GDP) & 95 & 95 \\
+Energy imports (\% of GDP) & 4 & 6 \\
+Consumer confidence (long-run average = 100) & 101 & 88 \\
+\bottomrule
+\end{tabular}
+\pelTableNote{All numbers invented for the exercise. Energy is about 10\% of the consumer basket. ``This year'': before any policy response.}
+\end{frame}
+
+\begin{frame}{The questions}
+\small
+\begin{block}{}
+Based on the information provided, analyse the nature of the shock and its expected effects on output, inflation and unemployment, in the short and in the medium run.
+\end{block}
+\vspace{0.05cm}
+\begin{block}{}
+Illustrate which policies the government and the central bank could adopt in response, discussing their advantages, their costs and the constraints they face.
+\end{block}
+\vspace{0.05cm}
+\begin{block}{}
+In addition, illustrate how you would evaluate, after two years, whether the measures adopted were effective, and which data would be needed.
+\end{block}
+\end{frame}
+
+\ifdefined\pelReview
+
+\section{Let's review it together}
+
+\begin{frame}{Question 1: mainly a supply shock}
+\small
+\bi
+  \item Firms set prices as a \textbf{markup} over wages. When energy costs more, keeping the same profit means a higher markup over wages
+  \item So, at the same nominal wage, prices rise: the \textbf{real wage} firms can pay falls
+  \item Workers accept a lower real wage only if unemployment is higher: the \textbf{natural rate of unemployment rises}
+  \item Fewer people employed at the natural rate means \textbf{lower potential output} $Y_n$
+\ei
+\vspace{0.1cm}
+\begin{block}{}
+If the oil price stays high, Country A is \textbf{permanently poorer}: part of its income now goes to the oil producers. No policy can undo that
+\end{block}
+\pelTableNote{Blanchard, section 9-4, models the oil price as an increase in the markup. If the price returns to its old level, the natural rate is unaffected.}
+\end{frame}
+
+\begin{frame}{Question 1: the model, IS-LM plus a Phillips curve}
+\begin{columns}[c]
+\begin{column}{0.46\textwidth}
+\footnotesize
+Blanchard's IS-LM-PC (Monday's AD-AS slide):
+\[
+\pi - \pi_{-1} = \frac{\alpha}{L}\,(Y - Y_n)
+\]
+\bi
+  \item Output above potential: inflation \textbf{keeps rising}
+  \item The oil shock lowers $Y_n$ to $Y_n'$
+  \item Unchanged rate: output stays at $Y_n$, now \textbf{above} the new potential, so inflation keeps rising (A to A$'$)
+  \item The central bank raises the rate: output falls to $Y_n'$, inflation stops rising (A$''$)
+\ei
+\end{column}
+\begin{column}{0.52\textwidth}
+\centering
+\begin{tikzpicture}[x=0.75cm,y=0.62cm]
+  % top panel: IS-LM
+  \draw[ax] (0,4.2) -- (7,4.2) node[below left, lbl] {$Y$};
+  \draw[ax] (0,4.2) -- (0,8.6) node[right, lbl] {$r$};
+  \draw[very thick, pelSlate] (2.019,8.3) -- (4.612,4.6) node[right, lbl] {IS};
+  \draw[very thick, pelAccent] (0,5.6) node[left, lbl] {$r$} -- (6.8,5.6) node[right, lbl] {LM};
+  \draw[very thick, pelAccent, dashed] (0,6.8) node[left, lbl] {$r'$} -- (6.8,6.8) node[right, lbl] {LM$'$};
+  % IS: y = 8.3 - (3.7/5.6)(x-0.8) ; at y=5.6 x=0.8+2.7*5.6/3.7=4.886 ; at y=6.8 x=0.8+1.5*1.5135=3.070
+  \fill (3.911,5.6) circle (2pt) node[above right, lbl] {A, A$'$};
+  \fill[pelAccent] (3.07,6.8) circle (2pt) node[above left, lbl] {A$''$};
+  % bottom panel: PC
+  \draw[ax] (0,0) -- (7,0) node[below left, lbl] {$Y$};
+  \draw[ax] (0,-0.3) -- (0,3.6) node[right, lbl] {$\pi-\pi_{-1}$};
+  \draw[guide] (0,1.2) node[left, lbl] {0} -- (6.8,1.2);
+  \draw[very thick, pelSlate] (2.3,0.1) -- (6.4,2.9) node[right, lbl] {PC};
+  \draw[very thick, pelSlate, dashed] (1.459,0.1) -- (5.559,2.9) node[above, lbl] {PC$'$};
+  % PC crosses 0 (y=1.2) at x=3.911 (=Yn); PC' crosses 0 at x=3.07 (=Yn', same x as A'')
+  \fill (3.911,1.2) circle (2pt) node[below right, lbl] {A};
+  \fill[pelAccent] (3.911,1.774) circle (2pt) node[right, lbl] {A$'$};
+  \fill[pelAccent] (3.07,1.2) circle (2pt) node[above left, lbl] {A$''$};
+  \draw[guide] (3.911,0) node[below, lbl] {$Y_n$} -- (3.911,1.774);
+  \draw[guide] (3.07,0) node[below, lbl] {$Y_n'$} -- (3.07,1.2);
+  \draw[guide] (3.07,1.2) -- (3.07,6.8);
+  \draw[guide] (3.911,1.774) -- (3.911,5.6);
+\end{tikzpicture}
+\pelTableNote{Diagram simplified: see Blanchard, Figure 9-7, for the full version.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Question 1: the demand side makes it worse}
+\small
+Blanchard's first caveat: the IS curve probably does not stay put
+\bi
+  \item Firms cancel or postpone investment, or switch to less energy-intensive equipment
+  \item Income moves from oil buyers to oil producers abroad, who spend little of it on Country A's goods
+  \item Consumers are hit in their real income (confidence: 101 to 88)
+\ei
+\vspace{0.1cm}
+So the IS shifts \textbf{left}: output falls in the short run too, not only in the medium run
+\vspace{0.15cm}
+
+\begin{block}{}
+Supply falls \textbf{and} demand falls: output down for sure, inflation up for sure at first. This is why energy shocks are the hardest case for policy
+\end{block}
+\end{frame}
+
+\begin{frame}{Question 2: the central bank's dilemma}
+\footnotesize
+\bi
+  \item Doing nothing is not neutral: output stays above the new, lower potential and inflation \textbf{keeps rising}
+  \item Raising the rate reduces output: the economy goes through \textbf{stagflation}, lower output \emph{and} higher inflation
+  \item Cutting the rate to protect jobs makes inflation worse, and does not bring back the lost income
+\ei
+\vspace{0.1cm}
+\textbf{What the answer depends on: expectations}
+\bi
+  \item If wage setters expect next year's inflation to equal this year's (the unions' ``recover purchasing power''), inflation feeds on itself. To bring it back to 2\%, the central bank must push output \textbf{below} potential for a while: a large recession
+  \item If expectations stay \textbf{anchored} at 2\%, inflation falls back as output adjusts: no extra recession needed
+\ei
+\vspace{0.05cm}
+Blanchard: this helps explain why the 1970s oil shocks brought high inflation and recessions, while the 2000s rise was much more benign
+\end{frame}
+
+
+\begin{frame}{Question 2: the government's options}
+\scriptsize
+\begin{tabular}{L{3.2cm}L{4.6cm}L{4.6cm}}
+\toprule
+\textbf{Option} & \textbf{For} & \textbf{Against} \\
+\midrule
+General cut in fuel taxes & Fast; lowers measured inflation at once & Helps the rich who consume more energy; weakens the incentive to save energy; expensive with debt at 95\% \\
+Transfers to poorer households & Protects those hit hardest; keeps the price signal & Needs data on who is poor; slower to deliver \\
+Support to energy-intensive firms & Avoids closures and job losses & Keeps alive activities that may not be viable at the new price; risk of lobbying \\
+Do nothing & Saves money; no extra demand pushing inflation & Social cost; risk of a deeper recession \\
 \bottomrule
 \end{tabular}
 \vspace{0.1cm}
 
-\raggedright\footnotesize
+\footnotesize
 \bi
-  \item The main unions ask for wage increases ``to recover the lost purchasing power''
-  \item Several energy-intensive firms announce temporary plant closures
+  \item A \textbf{permanent} shock cannot be absorbed with temporary money; and support that adds demand while the central bank raises rates pulls the other way (Thursday: the policy mix)
 \ei
-\pelTableNote{All numbers invented for the exercise. Energy is about 10\% of the consumer basket.}
+\pelTableNote{Teaching arguments, not empirical results. Compare the ECB, 29 October 2026: ``Fiscal responses to the energy shock should be temporary, targeted and tailored.''}
 \end{frame}
 
-\begin{frame}{The questions (1/2)}
-\small
-\begin{block}{1. Diagnosis}
-What kind of shock is this: demand, supply, or both? Using the model, what happens to inflation, output and unemployment in the \textbf{short run}, and to \textbf{potential output} in the medium run?
-\end{block}
-\vspace{0.1cm}
-\begin{block}{2. The central bank}
-Should it keep the policy rate at 3\%, raise it, or cut it? What does your answer depend on? What role do the unions' demands play?
-\end{block}
-\end{frame}
-
-\begin{frame}{The questions (2/2)}
-\small
-\begin{block}{3. The finance ministry}
-Debt is 95\% of GDP. Should the government help? If so: a general cut in fuel taxes, transfers to poorer households, support to energy-intensive firms? For how long? How do you pay for it?
-\end{block}
-\vspace{0.1cm}
-\begin{block}{4. The evaluator}
-Two years from now, how would you know whether the measure you chose \textbf{worked}? Which data, and which comparison?
-\end{block}
-\end{frame}
-
-\begin{frame}{Hints}
+\begin{frame}{Question 3: how would we know?}
 \small
 \bi
-  \item Think about \textbf{who pays more} for the oil and \textbf{who receives} the money
-  \item Firms set prices as a \textbf{markup} over their costs: what happens to the markup over wages when energy costs more?
-  \item Ask what is \textbf{temporary} and what is \textbf{permanent}: the answer for policy changes
-  \item Inflation \textbf{expectations}: does it matter whether people believe the central bank will bring inflation back to 2\%?
-  \item Monday's IS-LM: which curve does each policy move? Thursday: what did the ECB say on 29 October, and what does the EU's escape clause allow?
+  \item \textbf{A fuel tax cut}: did pump prices fall by the full cut, or did sellers keep part of it? Compare prices before and after, against a country or a product that did not get the cut (\textbf{difference-in-differences})
+  \item \textbf{Transfers to poor households}: an eligibility threshold (income or ISEE-type score) gives a \textbf{regression discontinuity}: households just above versus just below
+  \item \textbf{Support to firms}: firms that applied and got it versus firms that applied and did not (Law 488 again)
+  \item \textbf{Monetary policy}: the hardest. The rate rises \emph{because} of the shock: separating the two is the identification problem of macroeconomics
 \ei
-\vspace{0.2cm}
+\vspace{0.1cm}
 \begin{block}{}
-\centering 30 minutes in groups, then 5 minutes per group
+\centering Part I's designs are exactly the tools Part II needs
 \end{block}
 \end{frame}
+
+\begin{frame}{Back to 2026}
+\small
+\bi
+  \item Thursday's documents describe the same story, live:
+  \bi
+    \item the ECB raised rates in June and September 2026 because the Middle East conflict keeps inflation ``well above target for an extended period''
+    \item it warns that the effects on other prices and wages ``could be stronger than currently expected'': the expectations channel
+    \item governments are allowed extra spending on energy security under the national escape clause, with a cap
+  \ei
+\ei
+\vspace{0.1cm}
+\begin{block}{}
+Country A was invented. The dilemma is not
+\end{block}
+\pelTableNote{ECB, Monetary policy decisions, 10 September 2026; Combined monetary policy decisions and statement, 29 October 2026; Council Recommendation ST 14668/26.}
+\end{frame}
+
+\begin{frame}{References}
+\small
+\bi
+  \item Blanchard, O. (2017), \textit{Macroeconomics}, 7th ed., Global Edition, Pearson: section 9-4, ``The Effects of an Increase in the Price of Oil'', and section 9-5
+  \item ECB (2026), Monetary policy decisions, 10 September; Combined monetary policy decisions and statement, 29 October
+\ei
+\end{frame}
+
+
+\fi
 
 \pelQuestions
 
