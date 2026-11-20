@@ -40,8 +40,8 @@ written outside Overleaf are kept here. They use the course preamble
 - `lab-05-oil-shock.tex`: Lab 5 (Friday 20 November 2026), group case study in
   the format of Labs 2-4 (case text, Table 1, exam-style questions), with the
   review section at the end. Country A and all numbers are invented (stated on
-  the slides); the review follows Blanchard, *Macroeconomics*, 7th ed.,
-  sections 9-4 and 9-5, in our own words and diagrams.
+  the slides); the review is the lecturer's own conclusions (expected
+  effects, government, central bank), kept deliberately simple.
   Students (case only): `pdflatex lab-05-oil-shock.tex`.
   With the review: `pdflatex -jobname=lab-05-oil-shock-full "\def\pelReview{}\input{lab-05-oil-shock.tex}"`
   (published as `pel-lab-05-oil-shock-review.pdf`, released at 19:00).
