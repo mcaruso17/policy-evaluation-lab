@@ -44,7 +44,7 @@ written outside Overleaf are kept here. They use the course preamble
   effects, government, central bank), kept deliberately simple.
   Students (case only): `pdflatex lab-05-oil-shock.tex`.
   With the review: `pdflatex -jobname=lab-05-oil-shock-full "\def\pelReview{}\input{lab-05-oil-shock.tex}"`
-  (published as `pel-lab-05-oil-shock-review.pdf`, released at 19:00).
+  (published as `pel-lab-05-oil-shock-review.pdf`, released at 18:15).
 - `lab-02-carta-docente.tex`: Lab 2 (Monday 2 November 2026), group case study
   on the Carta del docente (question 2 of the MEF written exam, 31 March 2025;
   data constructed for the exercise). The photos in `figures/lab-02/` are not
